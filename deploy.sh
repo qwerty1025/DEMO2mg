@@ -10,6 +10,6 @@ git init
 git add -A
 git commit -m 'deploy'
 # 部署到 https://github.com/chou0728/eric-project.git 分支為 gh-pages
-git push -f https://github.com/mindtargetclub/DEMO2mg.git master:gh-pages
+git push -f https://github.com/qwerty1025/DEMO2mg.git master:gh-pages
 
 cd -
