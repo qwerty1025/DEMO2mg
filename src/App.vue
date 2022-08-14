@@ -79,12 +79,21 @@ export default {
       <v-spacer></v-spacer>  
 
             <v-btn  icon 
-                    class="mx-6" 
+                    class="mx-12" 
                     to="/8"> 
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               P8
+            </v-btn>
+            
+            <v-btn  icon 
+                    class="mx-12" 
+                    to="/QRDer"> 
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              Qrcode Reader
             </v-btn>
 
            |
@@ -118,8 +127,10 @@ export default {
 
     <v-navigation-drawer
       v-model="drawer"
-      absolute  
-      temporary 
+      absolute 
+      bottom
+      temporary  
+      
       app
     >
       <v-list
@@ -274,7 +285,7 @@ export default {
     data () {
       return {
         cards: ['Today', 'Yesterday'],
-      drawer: null,
+      drawer: true,
       links: [
         ['mdi-inbox-arrow-down', 'Inbox'],
         ['mdi-send', 'Send'],

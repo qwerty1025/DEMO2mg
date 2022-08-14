@@ -46,8 +46,15 @@ Vue.use(PIXI); //註冊
 import Swal from 'sweetalert2';
 window.Swal = Swal;
 
+import VueQrcodeReader from 'vue-qrcode-reader'
+ 
+
 new Vue({
   // store,
+
+  // Qr code
+  VueQrcodeReader,
+  // - - - - -
   axios,
   router,
   JsonCSV,
