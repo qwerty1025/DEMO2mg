@@ -20,9 +20,15 @@ export default new Router({
 
     {
       path: "/",
-      name: "bkList",
-      component: () => import("./components/HelloWorld")
+      name: "QRDer",
+      component: () => import("./components/qrcodeRDer_2")
     }, 
+
+    // {
+    //   path: "/",
+    //   name: "bkList",
+    //   component: () => import("./components/HelloWorld")
+    // }, 
      
   ]
 });

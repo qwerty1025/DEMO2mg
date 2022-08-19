@@ -1,7 +1,7 @@
 import firebase from "../firebase";
 
 // const db = firebase.ref("/historys");
-const db = firebase.ref("/stss");
+const db = firebase.ref("/temp_score");
 
 class StDataService {
   getAll() {

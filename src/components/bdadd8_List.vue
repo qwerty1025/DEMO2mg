@@ -3,6 +3,7 @@
     currentTime
 
     {{ ts[3] }}
+    {{ ts }}
  
         <!-- <div class="w-3/12 ml-4  h-screen ">
     {{  cT}}
@@ -61,15 +62,15 @@ export default {
                 let data = item.val();
                 _tutorials.push({
                     key: key,
-                    pos: data.pos,
-                    sno: data.sno,
-                    sno_idx: data.sno_idx,
-                    sno_id: data.sno_id,
+                    // pos: data.pos,
+                    // sno: data.sno,
+                    // sno_idx: data.sno_idx,
+                    // sno_id: data.sno_id,
 
-                    tmp_idx: data.tmp_idx,
-                    left_time: data.left_time,
-                    memo: data.memo,
-                    ply_statu: data.ply_statu,
+                    // tmp_idx: data.tmp_idx,
+                    // left_time: data.left_time,
+                    // memo: data.memo,
+                    // ply_statu: data.ply_statu,
                 });
             });
 
