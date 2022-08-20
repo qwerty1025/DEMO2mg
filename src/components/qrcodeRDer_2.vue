@@ -1,33 +1,12 @@
 <template>
 
-  <div class="flex  justify-center flex-col h-screen">
-
-
-    掃描結果 : {{ text || "Nothing" }}
-
-    
-    <StreamBarcodeReader
-      @decode="(a, b, c) => onDecode(a, b, c)"
-      @loaded="() => onLoaded()"
-    ></StreamBarcodeReader>
-
-<!-- v-scroll.self="onScroll"
-max-height="600" -->
-
+  <div class=""> 
 
      
-    
-    <a class="text-xs">顯示增加列表:
-
-    {{ ts }}
-    </a>
-
-<!-- color="#f1c40f"
-    bg-color="#3498db"  -->
     <v-card
     v-scroll.self="onScroll"
-    class="overflow-y-auto"
-    max-height="600"
+    class="overflow-y-auto h-screen"
+     
   >
     <v-banner
       class="justify-center text-h5 font-weight-light"
@@ -37,6 +16,13 @@ max-height="600" -->
 <v-card 
     class="overflow-x-auto" 
   >
+  掃描結果 : {{ text || "Nothing" }} 
+    
+    <StreamBarcodeReader
+      @decode="(a, b, c) => onDecode(a, b, c)"
+      @loaded="() => onLoaded()"
+    ></StreamBarcodeReader>
+
         <v-btn class="m-2" 
           @click="saveDta" 
             rounded 
@@ -49,42 +35,21 @@ max-height="600" -->
           class="mx-2"
           fab
           dark
-          small
+          dense
+          small 
           color="primary"
         >
           <v-icon dark>
             mdi-minus
           </v-icon>
         </v-btn>
+  
 
         <v-btn
           class="mx-2"
           fab
           dark
-          small
-          color="primary"
-        >
-          <v-icon dark>
-            mdi-minus
-          </v-icon>
-        </v-btn>
-
-        <v-btn
-          class="mx-2"
-          fab
-          dark
-          small
-          color="primary"
-        >
-          <v-icon dark>
-            mdi-minus
-          </v-icon>
-        </v-btn>
-
-        <v-btn
-          class="mx-2"
-          fab
-          dark
+          dense
           small
           color="primary"
         >
