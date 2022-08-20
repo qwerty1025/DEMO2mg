@@ -1,6 +1,6 @@
 <template>
 
-  <div class="flex  justify-center flex-col ">
+  <div class="flex  justify-center flex-col h-screen">
 
 
     掃描結果 : {{ text || "Nothing" }}
@@ -11,21 +11,130 @@
       @loaded="() => onLoaded()"
     ></StreamBarcodeReader>
 
+<!-- v-scroll.self="onScroll"
+max-height="600" -->
 
-    <v-btn class="m-2"  rounded dark  color="#039BE5s" > 確認增加</v-btn>
 
-    <hr class="m-2">
-    <v-btn class="m-2" @click="saveDta" rounded dark  color="#827717" > 手動增加</v-btn>
-    顯示增加列表:
+     
+    
+    <a class="text-xs">顯示增加列表:
 
     {{ ts }}
+    </a>
 
+<!-- color="#f1c40f"
+    bg-color="#3498db"  -->
+    <v-card
+    v-scroll.self="onScroll"
+    class="overflow-y-auto"
+    max-height="600"
+  >
+    <v-banner
+      class="justify-center text-h5 font-weight-light"
+      sticky
+    >
+       
+<v-card 
+    class="overflow-x-auto" 
+  >
+        <v-btn class="m-2" 
+          @click="saveDta" 
+            rounded 
+            dark  
+            color="#827717" > 
+    手動增加
+    </v-btn>
+
+        <v-btn
+          class="mx-2"
+          fab
+          dark
+          small
+          color="primary"
+        >
+          <v-icon dark>
+            mdi-minus
+          </v-icon>
+        </v-btn>
+
+        <v-btn
+          class="mx-2"
+          fab
+          dark
+          small
+          color="primary"
+        >
+          <v-icon dark>
+            mdi-minus
+          </v-icon>
+        </v-btn>
+
+        <v-btn
+          class="mx-2"
+          fab
+          dark
+          small
+          color="primary"
+        >
+          <v-icon dark>
+            mdi-minus
+          </v-icon>
+        </v-btn>
+
+        <v-btn
+          class="mx-2"
+          fab
+          dark
+          small
+          color="primary"
+        >
+          <v-icon dark>
+            mdi-minus
+          </v-icon>
+        </v-btn> 
+      </v-card> 
+    </v-banner>
+
+    <v-card-text>
+      <div
+        v-for="n in 3"
+        :key="n"
+        class="m-1"
+      >
+          <div class="grid grid-rows-3 grid-flow-col gap-4">
+            <div class="row-span-3 ...">
+                <qr-code :text="ts[n].key" 
+                  size="100" 
+                  error-level="L"
+                ></qr-code>
+              </div>
+            <div class="col-span-2 ...">
+              <a class="text-xs">{{ ts[n].key }} </a>
+              </div>
+            <div class="row-span-2 col-span-2 ...">
+              藍隊什麼資料的狀況...
+              </div>
+              
+          </div>
+<hr>
+       
+        
+         
       
+      </div>
+    </v-card-text>
+  </v-card>
+   
    
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import VueQRCodeComponent from 'vue-qrcode-component'
+Vue.component('qr-code', VueQRCodeComponent)
+
+
 import { StreamBarcodeReader } from "vue-barcode-reader";
 import SeatDataService from "../services/SeatPrepareService";  
 export default {

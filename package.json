@@ -30,6 +30,7 @@
     "vue-json-csv": "^1.2.12",
     "vue-pixi": "^0.1.1",
     "vue-print-nb": "^1.7.5",
+    "vue-qrcode-component": "^2.1.1",
     "vue-qrcode-reader": "^3.1.0",
     "vue-resource": "^1.5.3",
     "vue-router": "^3.4.6",
