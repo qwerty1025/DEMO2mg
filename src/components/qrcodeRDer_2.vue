@@ -1,9 +1,69 @@
 <template>
 
   <div class=""> 
+    <v-card>
+    <v-toolbar flat>
+       <v-tabs
+          v-model="tabs"
+          fixed-tabs
+        >
+          <v-tabs-slider></v-tabs-slider>
+          <v-tab
+            href="#k1"
+            class="primary--text"
+          >
+            <v-icon>mdi-phone</v-icon>
+          </v-tab>
 
-     
-    <v-card
+          <v-tab
+            href="#k2"
+            class="primary--text"
+          >
+            <v-icon>mdi-heart</v-icon>
+          </v-tab>
+
+          <v-tab
+            href="#k3"
+            class="primary--text"
+          >
+            <v-icon>mdi-account-box</v-icon>
+          </v-tab>
+        </v-tabs>
+    </v-toolbar>
+
+    <v-tabs-items v-model="tabs">
+     <v-tab-item key='k2' value='k2'>
+      <v-card-text>
+      <div
+        v-for="n in 3"
+        :key="n"
+        class="m-1"
+      >
+          <div class="grid grid-rows-3 grid-flow-col gap-4">
+            <div class="row-span-3 ...">
+                <qr-code :text="ts[n].key" 
+                  size="100" 
+                  error-level="L"
+                ></qr-code>
+              </div>
+            <div class="col-span-2 ...">
+              <a class="text-xs"> 輸入代碼：{{ ts[n].key }} , 現在分數： {{ ts[n].score }} </a>
+              </div>
+            <div class="row-span-2 col-span-2 ...">
+              隊伍名稱：？？？？
+              </div>
+              
+          </div>
+<hr>
+       
+        
+         
+      
+      </div>
+    </v-card-text>
+     </v-tab-item>
+     <v-tab-item key='k1' value='k1'>
+        <v-card
     v-scroll.self="onScroll"
     class="overflow-y-auto h-screen"
      
@@ -23,8 +83,16 @@
       @loaded="() => onLoaded()"
     ></StreamBarcodeReader>
 
+ 
+           <v-text-field
+            v-model="temp_score"
+            solo
+            label="Solo"
+            clearable
+          ></v-text-field>
+
         <v-btn class="m-2" 
-          @click="saveDta" 
+          @click="Addd_Score(text)" 
             rounded 
             dark  
             color="#827717" > 
@@ -60,35 +128,16 @@
       </v-card> 
     </v-banner>
 
-    <v-card-text>
-      <div
-        v-for="n in 3"
-        :key="n"
-        class="m-1"
-      >
-          <div class="grid grid-rows-3 grid-flow-col gap-4">
-            <div class="row-span-3 ...">
-                <qr-code :text="ts[n].key" 
-                  size="100" 
-                  error-level="L"
-                ></qr-code>
-              </div>
-            <div class="col-span-2 ...">
-              <a class="text-xs">{{ ts[n].key }} </a>
-              </div>
-            <div class="row-span-2 col-span-2 ...">
-              藍隊什麼資料的狀況...
-              </div>
-              
-          </div>
-<hr>
-       
-        
-         
-      
-      </div>
-    </v-card-text>
+    
   </v-card>
+     </v-tab-item>
+     
+    </v-tabs-items>
+  </v-card>
+
+
+     
+  
    
    
   </div>
@@ -109,6 +158,9 @@ export default {
   },
   data() {
     return {
+      tabs: 'k1', 
+      //
+      temp_score:3,
       text: "",
       ts: [],
       id: null,
@@ -120,9 +172,48 @@ export default {
   
   methods: {
 
+    Addd_Score(key) {
+            // const data = {
+            //     tmp_idx: this.currentTutorial.tmp_idx,
+            //     left_time: this.currentTutorial.left_time,
+            //     // memo: this.currentTutorial.memo,
+            //     ply_statu: this.currentTutorial.ply_statu,
+            // };
+            const OLD = {
+                score: this.temp_score,
+                // left_time: "",
+                // memo:"",
+                // ply_statu: "",
+            };
+
+            // TutorialDataService.update(key, data)
+            //     .then(() => {})
+            //     .catch((e) => {
+            //         console.log(e);
+            //     });
+
+            SeatDataService.update(key, OLD)
+                .then(() => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: '修改完畢!',
+                        text: '分數以增加 調整',
+                        showConfirmButton: false,
+                        timer: 1200
+                    })
+
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            // this.upld_History_mdf(this.currentTutorial);
+            // this.overlay = false;
+        },
+
     saveDta(){
 
-            var data = {
+            var data = { 
                 uuid:"",
                 score: '0',
                 statu: "",
@@ -174,6 +265,7 @@ export default {
                 let data = item.val();
                 _tutorials.push({
                     key: key,
+                    score: data.score,
                     // pos: data.pos,
                     // sno: data.sno,
                     // sno_idx: data.sno_idx,
