@@ -79,24 +79,42 @@ export default {
       <v-spacer></v-spacer>  
 
             <v-btn  icon 
+                    small
                     class="mx-12" 
                     to="/8"> 
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              P8
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+
+             
+                闖關訣竅
             </v-btn>
             
             <v-btn  icon 
+                    small
+                    class="mx-12" 
+                    to="/QRDer"> 
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+              </svg>
+
+              <!-- <a class="text-s">賽程安排</a> -->
+              賽程安排
+              
+            </v-btn>
+            
+            <v-btn  icon 
+                    small
                     class="mx-12" 
                     to="/QRDer"> 
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              Qrcode Reader
+              <!-- <a class="text-s">賽程安排</a> -->
+              優惠行程
+              
             </v-btn>
 
-           |
 
             <!-- <v-btn  icon
                     class="mx-9 text-xs" 
