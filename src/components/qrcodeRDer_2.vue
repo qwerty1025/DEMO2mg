@@ -78,86 +78,72 @@
                     <v-card v-scroll.self="onScroll" class="overflow-y-auto h-screen">
                         <!-- <v-banner class="justify-center text-h5 font-weight-light" sticky overflow-x-auto> -->
     
-                        
-    
-                                <v-card-text>
-                                    <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
-                                </v-card-text>
-    
-                                <v-row align="center" class="m-10 text-s bg-gray-100">
-    
-    
-                                    <div class="grey--text p-4">
-                                        掃描結果 : {{ text || "Nothing" }}
-                                    </div>
-                                </v-row>
-    
-                                <v-row>
-                                    <v-col cols="8" class="m-25 pr-4 bg-gray-200">
-                                        
+                         
+                              <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
+                               
+  
+                              <v-row align="center" class=" m-10 text-s">
+                                  <div class="grey--text p-4">
+                                      掃描結果 : {{ text || "Nothing" }}
+                                  </div>
+                              </v-row>
 
-           <v-chip-group
-            active-class="primary--text"
-            column
-            v-model="temp_score"
-            class="pl-3"
-          >
-            <v-chip
-              v-for="tag in score_tags"
-              :key="tag"
-            >
-              {{ tag }}
-            </v-chip>
-          </v-chip-group>
+                              <div class="grid grid-rows-3 gap-1 pt-15  bg-blue-100">
+                                <div class="col-span-3 ...">
+                                  <v-chip-group
+                                    active-class="primary--text"
+                                    column
+                                    v-model="temp_score"
+                                    class="pl-3"
+                                  >
+                                    <v-chip
+                                      v-for="tag in score_tags"
+                                      :key="tag"
+                                    >
+                                      {{ tag }}
+                                    </v-chip>
+                                  </v-chip-group>
 
-          
-        </v-col>
+                                </div>
+                               
+                                <div class="col-span-2 pl-5">
+                                  
+                                  <v-text-field
+                                    v-model="temp_score"
+                                    class="mt-0 pt-0 "
+                                    clear 
+                                    solo
+                                    single-line
+                                    label="請輸入成績"
+                                    placeholder="請輸入成績"
+                                    type="number" 
+                                  ></v-text-field> 
 
-         <v-col cols="4" class=" pr-4 bg-gray-200">
-          <a class="text-xs"> 
-            【 成 績 登 入 】
-          </a>
+                                   
+                                </div>
 
-          <v-text-field
-                 v-model="temp_score"
-                class="mt-0 pt-0 pr-20"
-                clear
-                 
-                solo
-                single-line
-                label="請輸入成績"
-                placeholder="請輸入成績"
-                type="number"
-                style="width: 80px"
-              ></v-text-field> 
-
-              <v-btn class="" small
-                @click="Addd_Score(text)" 
-                  rounded 
-                  dark  
-                  color="#E53935" > 
-                  新增成績
-              </v-btn> 
-
-        <!-- <v-btn  class="" small
-          @click="Addd_Score(text)"  
-            rounded 
-            dark  
-            color="#827717" > 
-            重新輸入
-        </v-btn>
-
-        <v-btn class="" small
-          @click="Addd_Score(text)" 
-            rounded 
-            dark  
-            color="#827717" > 
-            請求修改
-        </v-btn>  -->
-          
-        </v-col>
-      </v-row> 
-    
+                                <div class="col-span-1 p-2 ">  
+                                  <v-btn class="" 
+                                    @click="Addd_Score(text)" 
+                                      rounded 
+                                      dark  
+                                      color="#E53935" > 
+                                      新增成績
+                                  </v-btn>  
+                                </div>
+                                 
+                                <div class="col-span-3">
+                                   <v-textarea
+                                    label="備註內容"
+                                    auto-grow
+                                    outlined
+                                    rows="3"
+                                    row-height="25"
+                                    shaped
+                                  ></v-textarea>
+                                </div>
+                              </div> 
+                              
   </v-card> 
 
      </v-tab-item>
