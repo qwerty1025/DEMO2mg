@@ -5,23 +5,23 @@
                 <v-tabs v-model="tabs" fixed-tabs left>
                     <v-tab href="#k1" class="primary--text">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
                         <a class="text-xs">掃描</a>
     
                     </v-tab>
     
                     <v-tab href="#k2" class="primary--text">
                         <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-    
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-    </svg> -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+            
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+            </svg> -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-    </svg>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+            </svg>
     
     
                         <a class="text-xs">成績</a></a>
@@ -29,20 +29,20 @@
     
     
     
-                    <v-tab href="#k4" class="primary--text">
+                    <v-tab href="#k3" class="primary--text">
     
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                </svg>
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                        </svg>
     
     
                         <a class="text-xs">排名</a>
                     </v-tab>
     
-                    <v-tab href="#k3" class="primary--text">
+                    <v-tab href="#k4" class="primary--text">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
-                </svg>
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                        </svg>
     
     
                         <a class="text-xs">設定</a>
@@ -52,111 +52,191 @@
             </v-toolbar>
     
             <v-tabs-items v-model="tabs">
-                <v-tab-item key='k2' value='k2'>
-                    <v-card-text>
-                        <div v-for="n in 3" :key="n" class="m-1">
-                            <div class="grid grid-rows-3 grid-flow-col gap-4">
-                                <div class="row-span-3 ...">
-                                    <qr-code :text="ts[n].key" size="100" error-level="L"></qr-code>
-                                </div>
-                                <div class="col-span-2 ...">
-                                    <a class="text-xs"> 輸入代碼：{{ ts[n].key }} , 現在分數： {{ ts[n].score }} </a>
-                                </div>
-                                <div class="row-span-2 col-span-2 ...">
-                                    隊伍名稱：？？？？
-                                </div>
     
-                            </div>
-                            <hr> 
     
-                        </div>
-                    </v-card-text>
-                </v-tab-item>
-
-
+    
                 <v-tab-item key='k1' value='k1'>
                     <v-card v-scroll.self="onScroll" class="overflow-y-auto h-screen">
                         <!-- <v-banner class="justify-center text-h5 font-weight-light" sticky overflow-x-auto> -->
     
-                         
-                              <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
-                               
-  
-                              <v-row align="center" class=" m-10 text-s">
-                                  <div class="grey--text p-4">
-                                      掃描結果 : {{ text || "Nothing" }}
-                                  </div>
-                              </v-row>
-
-                              <div class="grid grid-rows-3 gap-1 pt-15  bg-blue-100">
-                                <div class="col-span-3 ...">
-                                  <v-chip-group
-                                    active-class="primary--text"
-                                    column
-                                    v-model="temp_score"
-                                    class="pl-3"
-                                  >
-                                    <v-chip
-                                      v-for="tag in score_tags"
-                                      :key="tag"
-                                    >
-                                      {{ tag }}
+    
+                        <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
+    
+    
+                        <v-row align="center" class=" m-10 text-s">
+                            <div class="grey--text p-4">
+                                掃描結果 : {{ text || "Nothing" }}
+                            </div>
+                        </v-row>
+    
+                        <div class="grid grid-rows-3 gap-1 pt-15  bg-blue-100">
+                            <div class="col-span-3 ...">
+                                <v-chip-group active-class="primary--text" column v-model="temp_score" class="pl-3">
+                                    <v-chip v-for="tag in score_tags" :key="tag">
+                                        {{ tag }}
                                     </v-chip>
-                                  </v-chip-group>
-
-                                </div>
-                               
-                                <div class="col-span-2 pl-5">
-                                  
-                                  <v-text-field
-                                    v-model="temp_score"
-                                    class="mt-0 pt-0 "
-                                    clear 
-                                    solo
-                                    single-line
-                                    label="請輸入成績"
-                                    placeholder="請輸入成績"
-                                    type="number" 
-                                  ></v-text-field> 
-
-                                   
-                                </div>
-
-                                <div class="col-span-1 p-2 ">  
-                                  <v-btn class="" 
-                                    @click="Addd_Score(text)" 
-                                      rounded 
-                                      dark  
-                                      color="#E53935" > 
-                                      新增成績
-                                  </v-btn>  
-                                </div>
-                                 
-                                <div class="col-span-3">
-                                   <v-textarea
-                                    label="備註內容"
-                                    auto-grow
-                                    outlined
-                                    rows="3"
-                                    row-height="25"
-                                    shaped
-                                  ></v-textarea>
-                                </div>
-                              </div> 
-                              
-  </v-card> 
-
-     </v-tab-item>
-     
-    </v-tabs-items>
-  </v-card>
+                                </v-chip-group>
+    
+                            </div>
+    
+                            <div class="col-span-2 pl-5">
+    
+                                <v-text-field v-model="temp_score" class="mt-0 pt-0 " clear solo single-line label="請輸入成績" placeholder="請輸入成績" type="number"></v-text-field>
+    
+    
+                            </div>
+    
+                            <div class="col-span-1 p-2 ">
+                                <v-btn class="" @click="Addd_Score(text)" rounded dark color="#E53935">
+                                    新增成績
+                                </v-btn>
+    
+                                <v-btn class="" @click="Push_New()" rounded dark color="#E53935">
+                                    新增Key
+                                </v-btn>
+                            </div>
+    
+                            <div class="col-span-3">
+                                <v-textarea label="備註內容" auto-grow outlined rows="3" row-height="25" shaped></v-textarea>
+                            </div>
+                        </div>
+    
+                    </v-card>
+    
+                </v-tab-item>
+    
+                <v-tab-item key='k4' value='k4' class="overflow-y-auto  hover:overflow-scroll h-screen">
 
 
-     
-  
-   
-   
-  </div>
+                    
+
+                    <!-- <v-card>
+                        <v-container fluid class="mb-30">
+
+                            
+                        </v-container>
+                    </v-card>  -->
+
+                    <div class="flex flex-row items-center m-3 ">
+                                <input type="text" v-model="temp_nickName"
+                                    class="flex w-full m-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="條碼" required> 
+                                    <v-btn @click="Push_New()"> 新增條碼 </v-btn>
+                            </div>
+                            <div  class="  " >
+                            
+                                <v-row dense class=" " >
+                                    <v-col v-for="card in ts" :key="card.key" :cols="3">
+                                        <v-card class="p-1"> 
+                                            <div class="grid grid-cols-3 gap-2"> 
+                                                <div class="col-span-1 m-2 ">
+                                                    <qr-code :text="card.key" size="100" error-level="L"></qr-code>
+                                                </div> 
+                                                <div class="col-span-2 row-span-1 flex flex-row">
+                                                    <div class=" items-center mr-4">
+                                                        <a class="font-normal text-xs text-gray-400 dark:text-gray-400">目前分數</a>
+                                                        <br>
+                                                        <a class="mb-2 text-6xl font-bold tracking-tight text-gray-900 dark:text-white">{{card.score}}</a>
+                                                    </div>
+                                                    <div class=" ml-2">
+                                                        <a href="#" class="inline-flex items-center py-1 px-1.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                                修改<br>分數
+                                                                <!-- <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg> -->
+                                                            </a>
+                                                    </div>
+        
+                                                </div>
+        
+                                                <div class="col-span-3 row-span-1">
+                                                    <div class="flex items-center mr-4">
+                                                        <!-- {{ card.key }} -->
+                                                        <!-- <input checked id="green-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"> -->
+                                                        <!-- <label for="green-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">啟用條碼</label> -->
+                                                    </div>
+        
+                                                    <div class="flex flex-row items-center p-1">
+                                                        <input type="text" id="first_name" class="flex w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="隊名" required>
+        
+                                                        <input type="text" id="first_name" class="flex w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="人數" required>
+                                                    </div>
+                                                </div>
+        
+                                                <div class="col-span-3 row-span-1"> 
+                                                    <div class="flex flex-row items-center">
+                                                        <input type="text" id="first_name" class="flex w-1/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="關卡(1) " required>
+        
+                                                        <input type="text" id="first_name" class="flex w-2/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="得分" required>
+                                                    </div>
+                                                    <div class="flex flex-row items-center">
+                                                        <input type="text" id="first_name" class="flex w-1/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="關卡(2) " required>
+        
+                                                        <input type="text" id="first_name" class="flex w-2/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="得分" required>
+                                                    </div>
+                                                    <div class="flex flex-row items-center  ">
+                                                        <input type="text" id="first_name" class="flex w-1/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="關卡(3) " required>
+        
+                                                        <input type="text" id="first_name" class="flex w-2/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="得分" required>
+                                                    </div>
+                                                    <div class="flex flex-row items-center  ">
+                                                        <input type="text" id="first_name" class="flex w-1/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="關卡(4) " required>
+        
+                                                        <input type="text" id="first_name" class="flex w-2/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="得分" required>
+                                                    </div>
+                                                    <div class="flex flex-row items-center  ">
+                                                        <input type="text" id="first_name" class="flex w-1/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="關卡(5) " required>
+        
+                                                        <input type="text" id="first_name" class="flex w-2/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="得分" required>
+                                                    </div>
+
+                                                    <div class="flex flex-row items-center  ">
+                                                        <input type="text" id="first_name" class="flex w-full m-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="備註" required> 
+                                                    </div>
+
+                                                    <!-- <div class="flex flex-row items-center  ">
+                                                        <select class="bg-gray-50 m-1 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                            <option selected>頒獎內容</option>
+                                                            <option value="US">神射小兵團 </option>
+                                                            <option value="CA">默契恰恰好 </option>
+                                                            <option value="FR">最速神射手 </option>
+                                                            <option value="DE">馬上最厲害 </option>
+                                                            <option value="NO1">第一名 </option>
+                                                            <option value="NO2">第二名 </option>
+                                                            <option value="NO3">第三名 </option>
+                                                        </select>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+        
+                                            
+                                        </v-card>
+                                    </v-col>
+                                </v-row>
+                            </div>
+                  
+                </v-tab-item>
+    
+            </v-tabs-items>
+        </v-card>
+    
+    
+    
+    
+    
+    
+    </div>
 </template>
 
 <script>
@@ -174,7 +254,20 @@ export default {
     },
     data() {
         return {
-            tabs: 'k1',
+            // - - - - -
+             
+            temp_nickName:'',
+
+            tabs: 'k4',
+            //
+            tsCNT: 0,
+            //
+            select: 'A',
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ],
             //
             temp_score: 3,
             max_score: 100,
@@ -204,6 +297,50 @@ export default {
     },
 
     methods: {
+        Push_New() {
+            
+            const OLD = {
+                score: 2,
+                memo: "something",
+                tm_Name: "here",
+                lv_Name:["0","0","0","0"],
+                lv_score:[2,3,4,5],
+                tm_amt: 1,
+
+            };
+
+            for( let v=10 ; v <=40 ; v++  )
+            { 
+                const key = "UDM-N" + v
+                SeatDataService.uqcrat(key, OLD)
+                .then(() => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: '新增完畢!',
+                        text: '分整',
+                        showConfirmButton: false,
+                        timer: 1200
+                    })
+
+                })
+                .catch((e) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: '新增完畢!',
+                        text: e,
+                        showConfirmButton: false,
+                        timer: 1200
+                    })
+                });
+            
+            }
+
+
+            
+
+        },
 
         Addd_Score(key) {
             // const data = {
@@ -312,6 +449,7 @@ export default {
             });
 
             this.ts = _tutorials;
+            this.tsCNT = _tutorials.length;
 
         },
     },
@@ -331,13 +469,13 @@ export default {
 <!--  
 
 <script>
- methods: {
-         onDecode(result) { alert(result) },
+methods: {
+        onDecode(result) { alert(result) },
 
 
 
-     },
+    },
 
- };
+};
 </script>-->
   

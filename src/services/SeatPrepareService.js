@@ -2,10 +2,17 @@ import firebase from "../firebase";
 
 // const db = firebase.ref("/historys");
 const db = firebase.ref("/temp_score");
+// const db = firebase.ref("/h2f_team_score");
 
 class StDataService {
   getAll() {
     return db;
+  }
+
+  uqcrat(userKey,user) {
+    
+    return  db.child(userKey).set(user);
+
   }
 
   create(od) {
