@@ -93,7 +93,7 @@
     
                                 <v-btn class="" @click="Push_New()" rounded dark color="#E53935">
                                     新增Key
-                                </v-btn>
+                                </v-btn> 
                             </div>
     
                             <div class="col-span-3">
@@ -118,8 +118,27 @@
                     </v-card>  -->
 
                     <div class="flex flex-row items-center m-3 ">
+                        <div class="flex flex-row" v-for="n in 4">
+                            <select class="flex w-1/5 bg-gray-50 m-1 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                                               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                                               dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                                               dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                               v-model="Lv_Ary[n].text">
+                                    <option value="請設定關卡" selected>請設定關卡</option>
+                                    <option value="標靶">標靶</option>  
+                                    <option value="拔河">拔河 </option>
+                                    <option value="騎射">騎射 </option>
+                                    <option value="保齡球">保齡球 </option>
+                                    <option value="競速足球">競速足球 </option>
+                                    <option value="生存戰">生存戰 </option>
+                                    <option value="飛龍峽谷">飛龍峽谷 </option>
+                                </select>
+
+                        </div>
+                                
+                                
                                 <input type="text" v-model="temp_nickName"
-                                    class="flex w-full m-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    class="flex w-1/5 m-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="條碼" required> 
                                     <v-btn @click="Push_New()"> 新增條碼 </v-btn>
                             </div>
@@ -138,7 +157,10 @@
                                                         <br>
                                                         <a class="mb-2 text-6xl font-bold tracking-tight text-gray-900 dark:text-white">{{card.score}}</a>
                                                     </div>
+                                                    
                                                     <div class=" ml-2">
+
+                                                        <!-- <v-btn @click=" changQrCD(card)" > </v-btn> -->
                                                         <a href="#" class="inline-flex items-center py-1 px-1.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                                 修改<br>分數
                                                                 <!-- <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg> -->
@@ -146,25 +168,37 @@
                                                     </div>
         
                                                 </div>
+                                                <div class="col-span-3 row-span-1">
+                                                    <a class="font-normal text-xs text-gray-400 dark:text-gray-400">{{ card }}</a>
+                                                </div>
         
                                                 <div class="col-span-3 row-span-1">
-                                                    <div class="flex items-center mr-4">
-                                                        <!-- {{ card.key }} -->
-                                                        <!-- <input checked id="green-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"> -->
-                                                        <!-- <label for="green-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">啟用條碼</label> -->
-                                                    </div>
+                                                   
         
                                                     <div class="flex flex-row items-center p-1">
-                                                        <input type="text" id="first_name" class="flex w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="隊名" required>
+                                                        <input type="text" @change="changQrCD(card)" v-model="card.tm_Name"
+                                                               class="flex w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                               placeholder="隊名" required>
         
-                                                        <input type="text" id="first_name" class="flex w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="人數" required>
+                                                        <input type="text" @change="changQrCD(card)" v-model="card.tm_amt"
+                                                               class="flex w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                               placeholder="人數" required>
                                                     </div>
+                                                </div>
+                                                <div class="col-span-3 row-span-1" >
+                                                    
+                                                    <div class="flex flex-row items-center" v-for="n in 4">
+                                                        
+                                                        <input v-model="Lv_Ary[n].text" class="file:border file:border-solid " disabled />
+                                                        <!-- <label class="block" v-model="Lv_Ary[n].text"> </label> -->
+                                                        <input type="text"  class="flex w-2/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                            placeholder="得分" required>
+                                                    </div>
+
                                                 </div>
         
                                                 <div class="col-span-3 row-span-1"> 
-                                                    <div class="flex flex-row items-center">
+                                                    <!-- <div class="flex flex-row items-center">
                                                         <input type="text" id="first_name" class="flex w-1/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                             placeholder="關卡(1) " required>
         
@@ -198,7 +232,7 @@
         
                                                         <input type="text" id="first_name" class="flex w-2/3 mx-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                             placeholder="得分" required>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="flex flex-row items-center  ">
                                                         <input type="text" id="first_name" class="flex w-full m-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -247,6 +281,8 @@ Vue.component('qr-code', VueQRCodeComponent)
 
 import { StreamBarcodeReader } from "vue-barcode-reader";
 import SeatDataService from "../services/SeatPrepareService";
+import playLvService from "../services/playLvService";
+
 export default {
     name: "HelloWorld",
     components: {
@@ -259,6 +295,8 @@ export default {
             temp_nickName:'',
 
             tabs: 'k4',
+            //
+            Lv_Ary:[ { text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' }], 
             //
             tsCNT: 0,
             //
@@ -320,7 +358,7 @@ export default {
                         title: '新增完畢!',
                         text: '分整',
                         showConfirmButton: false,
-                        timer: 1200
+                        timer: 400
                     })
 
                 })
@@ -331,7 +369,7 @@ export default {
                         title: '新增完畢!',
                         text: e,
                         showConfirmButton: false,
-                        timer: 1200
+                        timer: 400
                     })
                 });
             
@@ -343,24 +381,13 @@ export default {
         },
 
         Addd_Score(key) {
-            // const data = {
-            //     tmp_idx: this.currentTutorial.tmp_idx,
-            //     left_time: this.currentTutorial.left_time,
-            //     // memo: this.currentTutorial.memo,
-            //     ply_statu: this.currentTutorial.ply_statu,
-            // };
+           
             const OLD = {
                 score: this.temp_score,
                 // left_time: "",
                 // memo:"",
                 // ply_statu: "",
-            };
-
-            // TutorialDataService.update(key, data)
-            //     .then(() => {})
-            //     .catch((e) => {
-            //         console.log(e);
-            //     });
+            }; 
 
             SeatDataService.update(key, OLD)
                 .then(() => {
@@ -371,16 +398,44 @@ export default {
                         text: '分數以增加 調整',
                         showConfirmButton: false,
                         timer: 1200
-                    })
-
+                    }) 
                 })
                 .catch((e) => {
                     console.log(e);
-                });
-            // this.upld_History_mdf(this.currentTutorial);
-            // this.overlay = false;
+                }); 
         },
 
+        changQrCD(item) {
+           
+           const OLD = {
+            tm_Name: item.tm_Name, 
+            tm_amt: item.tm_amt,  
+
+           }; 
+
+           SeatDataService.update(item.key, OLD)
+               .then(() => {
+                   Swal.fire({
+                       position: 'top-end',
+                       icon: 'success',
+                       title: '修改完畢!',
+                       text: '分數 調整好了',
+                       showConfirmButton: false,
+                       timer: 1200
+                   }) 
+               })
+               .catch((e) => {
+                Swal.fire({
+                       position: 'top-end',
+                       icon: 'success',
+                       title: '修改....完畢!',
+                       text: e,
+                       showConfirmButton: false,
+                       timer: 1200
+                   }) 
+               }); 
+       },
+ 
         saveDta() {
 
             var data = {
@@ -426,7 +481,22 @@ export default {
         onLoaded() {
             console.log("load");
         },
+        playLvonDataChange(items) {
 
+        let _tutorials = [];
+        items.forEach((item) => {
+            let key = item.key;
+            let data = item.val();
+            _tutorials.push({
+                key: key,
+                LvAry: data.LvAry, 
+            });
+        });
+
+        this.Lv_Ary = _tutorials;
+        this.Lv_AryCNT = _tutorials.length;
+
+        },
         onDataChange(items) {
 
             let _tutorials = [];
@@ -436,15 +506,12 @@ export default {
                 _tutorials.push({
                     key: key,
                     score: data.score,
-                    // pos: data.pos,
-                    // sno: data.sno,
-                    // sno_idx: data.sno_idx,
-                    // sno_id: data.sno_id,
-
-                    // tmp_idx: data.tmp_idx,
-                    // left_time: data.left_time,
-                    // memo: data.memo,
-                    // ply_statu: data.ply_statu,
+                    tm_Name: data.tm_Name,
+                    tm_amt: data.tm_amt,
+                    lv_Name: data.lv_Name,
+                    lv_score: data.lv_score,
+ 
+                    memo: data.memo, 
                 });
             });
 
@@ -455,6 +522,7 @@ export default {
     },
     mounted() {
         SeatDataService.getAll().on("value", this.onDataChange);
+        playLvService.getAll().on("value", this.playLvonDataChange);
     },
     beforeDestroy() {
         SeatDataService.getAll().off("value", this.onDataChange);
