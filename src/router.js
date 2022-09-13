@@ -15,13 +15,13 @@ export default new Router({
     {
       path: "/QRDer",
       name: "QRDer",
-      component: () => import("./components/qrcodeRDer_2")
+      component: () => import("./components/qrcodeRDer_3")
     }, 
 
     {
       path: "/",
       name: "QRDer",
-      component: () => import("./components/qrcodeRDer_2")
+      component: () => import("./components/qrcodeRDer_3")
     }, 
 
     // {
