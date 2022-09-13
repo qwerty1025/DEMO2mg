@@ -144,55 +144,83 @@
                         <v-row dense class="overflow-y-auto h-screen" >
                                 <v-col v-for="card in ts" :key="card.key" :cols="12">
                                     <v-card class="p-1"> 
-                                        <v-expansion-panels>
+                                        <v-expansion-panels >
                                             <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    顯示 Qr-Code
+                                                    <a class="rounded-full text-lg bg-gray-100 px-20"> {{ card.tm_Name }} </a> show Qr-Code
+                                                    <!-- <a class="rounded-full bg-red-500"> show Qr-Code </a> -->
                                                 </v-expansion-panel-header>
-                                                <v-expansion-panel-content>
-                                                    <qr-code :text="card.key" 
-                                                        size="200" error-level="L">
-                                                    </qr-code>
+                                                <v-expansion-panel-content> 
+                                                    <div class="flex justify-center">
+                                                        <qr-code :text="card.key" 
+                                                            size="200" error-level="L">
+                                                        </qr-code>  
+
+                                                    </div>
+                                                    
                                                 </v-expansion-panel-content>
                                              </v-expansion-panel>
 
                                              <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    修改 關卡得分
+                                                    後台修改 各關卡得分
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content>
-                                                    <qr-code :text="card.key" 
-                                                        size="200" error-level="L">
-                                                    </qr-code>
+                                                    
+                                                    <!-- {{ card.lv_Name[1] }} -->
+
+                                                    <!-- <div class="col-md-4" v-for="(item,index) in card.lv_Name" :key="index">
+                                                     
+                                                        <p>{{item}}</p>
+                                                    </div> -->
+
+                                                    <div class="grid grid-cols-2 gap-1">
+                                                        <!-- <div class="col-span-1" v-for="(item,index) in card.lv_Name" :key="index" >
+                                                            <p>{{item}}</p>
+                                                        </div> -->
+                                                        <div class="col-span-2" > <a class="font-bold text-lg" > 正在輸入“ {{ card.tm_Name }} “的分數 </a>  <v-btn dark color="#388E3C"> 儲存 </v-btn></v-btn>  </div>
+
+                                                        <div class="col-span-1" v-for="(item,index) in card.lv_score" :key="index">
+                                                           <a class="text-xs">{{ playLv_Name[index] }}</a>
+                                                            <input type="text"  
+                                                                    class="flex w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                    placeholder="分數" required>
+                                                        </div> 
+                                                             
+
+                                                    </div>
+
                                                 </v-expansion-panel-content>
                                              </v-expansion-panel>
 
                                              <v-expansion-panel >
-                                                <v-expansion-panel-header>
-                                                    設定 隊伍資訊 
-                                                    <v-checkbox 
-                                                        v-model="card.using" 
-                                                        value="true"
-                                                        @change="changQrCD(card)"
-                                                        label="激活使用" 
-                                                    ></v-checkbox>
+                                                <v-expansion-panel-header> 
+                                                    設定 {{ card.key }} 資料 
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content>
                                                     <div class="grid grid-cols-3 gap-0.5">  
                                                         <div class="col-span-3 row-span-1">  
                                                             <div class="flex flex-row items-center p-1">
+                                                                <v-checkbox 
+                                                                    v-model="card.using" 
+                                                                    value="true"
+                                                                    dense
+                                                                    @change="changQrCD(card)"
+                                                                    label="啟用" 
+                                                                ></v-checkbox>
+                                                                
                                                                 <label for="filter-color-1" 
                                                                     class="ml-3 text-sm 
                                                                     text-gray-600">
                                                                     隊名
                                                                 </label>
                                                                 <input type="text" @change="changQrCD(card)" v-model="card.tm_Name"
-                                                                    class="flex w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                    class="flex w-2/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                     label=""
                                                                     placeholder="隊名" required>
                 
                                                                 <input type="text" @change="changQrCD(card)" v-model="card.tm_amt"
-                                                                    class="flex w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                    class="flex w-1/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                     placeholder="人數" required>
                                                             </div>
                                                         </div>  
@@ -240,6 +268,26 @@ export default {
             tabs: 'k1',
             //
             tab: 'tab-4',
+
+
+
+            // <select class="flex w-1/5 bg-gray-50 m-1 border border-gray-300 text-gray-900 text-sm rounded-lg 
+            //                                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+            //                                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+            //                                    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            //                                    v-model="Lv_Ary[n].text">
+            //                         <option value="請設定關卡" selected>請設定關卡</option>
+            //                         <option value="標靶">標靶</option>  
+            //                         <option value="拔河">拔河 </option>
+            //                         <option value="騎射">騎射 </option>
+            //                         <option value="保齡球">保齡球 </option>
+            //                         <option value="競速足球">競速足球 </option>
+            //                         <option value="生存戰">生存戰 </option>
+            //                         <option value="飛龍峽谷">飛龍峽谷 </option>
+            //                     </select>
+
+
+            playLv_Name:['騎馬射箭','保齡球','競速足球','拔河 ','生存戰','飛龍峽谷'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             //
