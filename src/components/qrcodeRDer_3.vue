@@ -2,13 +2,13 @@
     <div class="">
      
         <v-card> 
-            <v-tabs
-            v-model="tab"
-            background-color="deep-purple accent-4"
-            grow 
-            icons-and-text
+            <v-tabs class="w-screen"
+            v-model="tab"  
+            icons-and-text 
+            show-arrows
+            dense
             >
-            <v-tabs-slider></v-tabs-slider>
+            <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
 
             <v-tab href="#tab-1">
                 <a class="text-xs">掃描</a>
@@ -80,57 +80,29 @@
                                 row-height="25" >
                             </v-textarea>
                         </v-row>
-
-    
-                        <!-- <div class="grid grid-rows-3 gap-1  bg-gray-100">
-                            <div class="col-span-3 ...">
-                                <v-chip-group active-class="primary--text" column v-model="temp_score" class="pl-3">
-                                    <v-chip v-for="tag in score_tags" :key="tag">
-                                        {{ tag }}
-                                    </v-chip>
-                                </v-chip-group>
-    
-                            </div>
-    
-                            <div class="col-span-3 flex flex-row pl-5"> 
-                                <a class="mt-2.5">本關新增分數：</a>
-                                <v-text-field 
-                                    v-model="temp_score" 
-                                    class="mt-0 pt-0 m-10" 
-                                    type="number"
-                                    clear solo single-line 
-                                    label="請輸入成績" 
-                                    placeholder="請輸入成績" >
-                                </v-text-field> 
-                                <v-btn class="mt-2 ml-4" @click="Addd_Score(text)" 
-                                        rounded dark color="#E53935">
-                                    新增成績
-                                </v-btn>
-                            </div>
-    
-                            <div class="col-span-1 p-2 ">
-                                <v-btn class="" @click="Addd_Score(text)" 
-                                       rounded dark color="#E53935">
-                                    新增成績
-                                </v-btn>
-    
-                                <v-btn class="" @click="Push_New()" rounded dark color="#E53935">
-                                    新增 Key
-                                </v-btn> 
-                            </div>
-    
-                            <div class="col-span-3">
-                                <v-textarea label="備註內容" auto-grow outlined rows="3" row-height="25" shaped></v-textarea>
-                            </div>
-                        </div> -->
+ 
     
                     </v-card>
                 </v-tab-item>
 
-                <v-tab-item key='tab-2' value='tab-2'>
-                    <v-card flat>
-                    <v-card-text>功能建立中...待更新</v-card-text>
-                    </v-card>
+                <v-tab-item key='tab-2' value='tab-2'> 
+                    <v-row dense class="overflow-y-auto h-screen" >
+                        <v-col v-for="card in ts" :key="card.key" :cols="12" > 
+                            <v-card class="p-1" v-show="card.using != null"> 
+                                <a class="rounded-xl text-lg bg-gray-100 w-1/3 px-2"> {{ card.tm_Name }} </a> 
+                                
+                                
+                                <a class="text-xs font-bold text-red-500 "> 目前累積：{{ card.lv_score[0]+card.lv_score[1]+card.lv_score[2]+card.lv_score[3] }}</a> 
+                                <a class="text-xs text-gray-200 px-1"> Af{{ card.key }}gdf - {{ card.using }} </a> 
+                                <div class="grid grid-cols-2 gap-1">  
+                                    <div class="col-span-1" v-for="(item,index) in card.lv_score" :key="index">
+                                        <a class="text-xs text-gary-500 ">{{ playLv_Name[index] }}:</a>
+                                        <a class="text-xs font-bold ">{{ item }}</a> 
+                                    </div>  
+                                </div>  
+                            </v-card>
+                        </v-col>
+                    </v-row>  
                 </v-tab-item>
 
                 <v-tab-item key='tab-3' value='tab-3'>
@@ -142,12 +114,45 @@
                 <v-tab-item key='tab-4' value='tab-4'>
                     <div  class="  " >  
                         <v-row dense class="overflow-y-auto h-screen" >
+                                        <v-expansion-panels >
+                                            <v-expansion-panel >
+                                                <v-expansion-panel-header>
+                                                    <a class="rounded-full text-lg bg-gray-100 px-5"> 隊伍啟用 控制盤(電腦版) </a> 
+                                                </v-expansion-panel-header>
+
+                                                <v-expansion-panel-content> 
+                                                    <!-- class="flex justify-center" -->
+                                                    <v-row dense class="overflow-y-auto h-screen" >
+                                                        <v-col  v-for="card in ts" :key="card.key" :cols="2">
+                                                            <v-card class="p-1" >
+                                                                    <v-checkbox 
+                                                                    class=""
+                                                                    v-model="card.using" 
+                                                                    value="true"
+                                                                    dense
+                                                                    @change="changQrCD_Mdf(card)"
+                                                                    label="啟用" 
+                                                                    small
+                                                                ></v-checkbox>
+                                                                <a class="rounded-xl text-lg bg-gray-100   px-2"> {{ card.tm_Name }} </a>
+                                                                <a class="text-xs text-gray-400   px-2"> {{ card.key }} </a>
+                                                                
+
+                                                            </v-card>  
+                                                        </v-col >
+                                                    </v-row>
+                                                    
+                                                    
+                                                </v-expansion-panel-content>
+                                             </v-expansion-panel>
+                                        </v-expansion-panels>
+
                                 <v-col v-for="card in ts" :key="card.key" :cols="12">
                                     <v-card class="p-1"> 
                                         <v-expansion-panels >
                                             <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    <a class="rounded-full text-lg bg-gray-100 px-20"> {{ card.tm_Name }} </a> show Qr-Code
+                                                    <a class="rounded-full text-lg bg-gray-100 px-5"> {{ card.tm_Name }} </a> 顯示條碼
                                                     <!-- <a class="rounded-full bg-red-500"> show Qr-Code </a> -->
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content> 
@@ -163,28 +168,32 @@
 
                                              <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    後台修改 各關卡得分
+                                                    後台修改..關卡.得分
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content>
-                                                    
-                                                    <!-- {{ card.lv_Name[1] }} -->
-
-                                                    <!-- <div class="col-md-4" v-for="(item,index) in card.lv_Name" :key="index">
                                                      
-                                                        <p>{{item}}</p>
-                                                    </div> -->
 
                                                     <div class="grid grid-cols-2 gap-1">
                                                         <!-- <div class="col-span-1" v-for="(item,index) in card.lv_Name" :key="index" >
                                                             <p>{{item}}</p>
                                                         </div> -->
-                                                        <div class="col-span-2" > <a class="font-bold text-lg" > 正在輸入“ {{ card.tm_Name }} “的分數 </a>  <v-btn dark color="#388E3C"> 儲存 </v-btn></v-btn>  </div>
+                                                        <div class="col-span-2" > <a class="font-bold text-base" > 輸入“ {{ card.tm_Name }} “分數 </a>  <v-btn dark color="#388E3C"> 儲存(功能待完成) </v-btn></v-btn>  </div>
 
                                                         <div class="col-span-1" v-for="(item,index) in card.lv_score" :key="index">
+                                                            <!-- {{ item }} -->
                                                            <a class="text-xs">{{ playLv_Name[index] }}</a>
-                                                            <input type="text"  
-                                                                    class="flex w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                                    placeholder="分數" required>
+                                                            <!-- <input type="number"  
+                                                                    v-model="item[index]"
+                                                                    class="flex w-full bg-gray-50 border 
+                                                                           border-gray-300 text-gray-900 text-sm rounded-lg 
+                                                                           focus:ring-blue-500 focus:border-blue-500 block p-2.5 
+                                                                           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                                                                           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                    placeholder="分數" required> -->
+                                                                    <v-text-field
+                                                                        v-model="card.lv_score[index]" 
+                                                                        filled dense rounded
+                                                                    ></v-text-field>      
                                                         </div> 
                                                              
 
@@ -195,25 +204,23 @@
 
                                              <v-expansion-panel >
                                                 <v-expansion-panel-header> 
-                                                    設定 {{ card.key }} 資料 
+                                                    設定 {{ card.key }} 資料   
+                                                    <v-spacer></v-spacer>
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content>
                                                     <div class="grid grid-cols-3 gap-0.5">  
                                                         <div class="col-span-3 row-span-1">  
-                                                            <div class="flex flex-row items-center p-1">
+                                                            <div class="flex flex-row items-center"> 
                                                                 <v-checkbox 
+                                                                    class="py-1"
                                                                     v-model="card.using" 
                                                                     value="true"
                                                                     dense
                                                                     @change="changQrCD(card)"
-                                                                    label="啟用" 
+                                                                    label="啟用隊伍" 
+                                                                    small
                                                                 ></v-checkbox>
                                                                 
-                                                                <label for="filter-color-1" 
-                                                                    class="ml-3 text-sm 
-                                                                    text-gray-600">
-                                                                    隊名
-                                                                </label>
                                                                 <input type="text" @change="changQrCD(card)" v-model="card.tm_Name"
                                                                     class="flex w-2/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                     label=""
@@ -231,9 +238,7 @@
 
                                     </v-card>
                                 </v-col>
-                            </v-row>
-                            
-                        
+                            </v-row> 
                     </div>
                 </v-tab-item> 
 
@@ -334,12 +339,12 @@ export default {
             
             const OLD = {
                 score: 2,
+                using: '', 
                 memo: "something",
                 tm_Name: "here",
                 lv_Name:["0","0","0","0"],
                 lv_score:[2,3,4,5],
-                tm_amt: 1,
-
+                tm_amt: 1,  
             };
 
             for( let v=10 ; v <=40 ; v++  )
@@ -432,6 +437,39 @@ export default {
                    }) 
                }); 
        },
+       changQrCD_Mdf(item) {
+           
+           const OLD = {
+            // tm_Name: item.tm_Name, 
+            // tm_amt: item.tm_amt,  
+            // memo: item.memo,
+            using: item.using,
+
+           }; 
+
+           SeatDataService.update(item.key, OLD)
+               .then(() => {
+                //    Swal.fire({
+                //        position: 'top-end',
+                //        icon: 'success',
+                //        title: '修改完畢!',
+                //        text: '分數 調整好了',
+                //        showConfirmButton: false,
+                //        timer: 1200
+                //    }) 
+               })
+               .catch((e) => {
+                // Swal.fire({
+                //        position: 'top-end',
+                //        icon: 'success',
+                //        title: '修改....完畢!',
+                //        text: e,
+                //        showConfirmButton: false,
+                //        timer: 1200
+                //    }) 
+               }); 
+       },
+ 
  
         saveDta() {
 
