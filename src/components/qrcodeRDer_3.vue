@@ -142,73 +142,65 @@
                 <v-tab-item key='tab-4' value='tab-4'>
                     <div  class="  " >  
                         <v-row dense class="overflow-y-auto h-screen" >
-                                <v-col v-for="card in ts" :key="card.key" :cols="4">
+                                <v-col v-for="card in ts" :key="card.key" :cols="12">
                                     <v-card class="p-1"> 
-                                        <div class="grid grid-cols-3 gap-2"> 
-                                            <div class="col-span-1 m-2 ">
-                                                <qr-code :text="card.key" size="100" error-level="L"></qr-code>
-                                            </div>  
+                                        <v-expansion-panels>
+                                            <v-expansion-panel >
+                                                <v-expansion-panel-header>
+                                                    顯示 Qr-Code
+                                                </v-expansion-panel-header>
+                                                <v-expansion-panel-content>
+                                                    <qr-code :text="card.key" 
+                                                        size="200" error-level="L">
+                                                    </qr-code>
+                                                </v-expansion-panel-content>
+                                             </v-expansion-panel>
 
-                                            <div class="col-span-1 m-2 ">
-                                                <!-- <v-checkbox 
-                                                   v-model="card.using" 
-                                                   value="true"
-                                                   
+                                             <v-expansion-panel >
+                                                <v-expansion-panel-header>
+                                                    修改 關卡得分
+                                                </v-expansion-panel-header>
+                                                <v-expansion-panel-content>
+                                                    <qr-code :text="card.key" 
+                                                        size="200" error-level="L">
+                                                    </qr-code>
+                                                </v-expansion-panel-content>
+                                             </v-expansion-panel>
 
-                                                ></v-checkbox> -->
+                                             <v-expansion-panel >
+                                                <v-expansion-panel-header>
+                                                    設定 隊伍資訊 
+                                                    <v-checkbox 
+                                                        v-model="card.using" 
+                                                        value="true"
+                                                        @change="changQrCD(card)"
+                                                        label="激活使用" 
+                                                    ></v-checkbox>
+                                                </v-expansion-panel-header>
+                                                <v-expansion-panel-content>
+                                                    <div class="grid grid-cols-3 gap-0.5">  
+                                                        <div class="col-span-3 row-span-1">  
+                                                            <div class="flex flex-row items-center p-1">
+                                                                <label for="filter-color-1" 
+                                                                    class="ml-3 text-sm 
+                                                                    text-gray-600">
+                                                                    隊名
+                                                                </label>
+                                                                <input type="text" @change="changQrCD(card)" v-model="card.tm_Name"
+                                                                    class="flex w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                    label=""
+                                                                    placeholder="隊名" required>
+                
+                                                                <input type="text" @change="changQrCD(card)" v-model="card.tm_amt"
+                                                                    class="flex w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                    placeholder="人數" required>
+                                                            </div>
+                                                        </div>  
+                                                    </div>
+                                                </v-expansion-panel-content>
+                                             </v-expansion-panel>
+                                        </v-expansion-panels> 
 
-                                                <div class="flex items-center">
-                                                    <input  
-                                                    v-model="card.using" 
-                                                    name="color[]" value="true" 
-                                                    @change="changQrCD(card)"
-                                                    type="checkbox" 
-                                                    class="h-5 w-5 rounded 
-                                                        border-gray-300 
-                                                        text-blue-600 
-                                                        focus:ring-blue-500">
-                                                    <label for="filter-color-1" 
-                                                        class="ml-3 text-sm 
-                                                        text-gray-600">
-                                                        激活使用
-                                                    </label>
-                                                </div>
-
-                                                     <!-- <a > {{ card.using}}</a> -->
-                                            </div>  
-
-                                            <div class="col-span-1 m-2 ">
-                                                
-                                            </div>  
-
-                                            <!-- <v-checkbox
-                                                v-model="card.memo" 
-                                               :label="`Checkbox 1: ${checkbox.toString()}`"
-                                            ></v-checkbox> -->
-    
-                                            <div class="col-span-3 row-span-1"> 
-    
-                                                <div class="flex flex-row items-center p-1">
-                                                    <label for="filter-color-1" 
-                                                        class="ml-3 text-sm 
-                                                        text-gray-600">
-                                                        隊名：
-                                                    </label>
-                                                    <input type="text" @change="changQrCD(card)" v-model="card.tm_Name"
-                                                           class="flex w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                           label=""
-                                                           placeholder="隊名" required>
-    
-                                                    <input type="text" @change="changQrCD(card)" v-model="card.tm_amt"
-                                                           class="flex w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                           placeholder="人數" required>
-                                                </div>
-                                            </div>
-
-                                            
-                                        </div>
-    
-                                        
                                     </v-card>
                                 </v-col>
                             </v-row>
