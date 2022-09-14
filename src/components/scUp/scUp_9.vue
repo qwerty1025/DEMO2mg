@@ -1,10 +1,7 @@
 <template>
     <div class=""> 
-        <v-card v-scroll.self="onScroll" class="overflow-y-auto h-screen"> 
-                     <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
- 
- 
-                     <v-row align="center" class=" m-10 text-s">
+        <v-card v-scroll.self="onScroll" class="overflow-y-auto h-screen">
+            <v-row align="center" class=" m-10 text-s">
                          <div class="grid grid-cols-2 gap-1"> 
                              <div class="col-span-1 flex p-4 bg-gray-100 ">
                                  掃描結果 : {{ text || "點擊螢幕啟動" }}
@@ -52,7 +49,11 @@
                              </v-text-field> 
                              <v-btn class="mt-2 ml-4" @click="Addd_Score_Mdf(text,temp_score,selt_lv)" dark color="#388E3C"> 修改 </v-btn> 
                          </div>
-                     </v-row> 
+                     </v-row>  
+                     <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
+ 
+ 
+                     
 
  
                  </v-card>
