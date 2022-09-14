@@ -11,7 +11,7 @@
             <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
 
             <v-tab href="#tab-1">
-                <a class="text-xs">掃描</a>
+                <a class="text-xs">通用掃描</a>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
@@ -27,14 +27,14 @@
             </v-tab>
 
             <v-tab href="#tab-3">
-                <a class="text-xs">排名</a>
+                <a class="text-xs">關主熱鍵</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                 </svg> 
                         
             </v-tab>
             <v-tab href="#tab-4">
-                <a class="text-xs">設定</a>
+                <a class="text-xs">隊伍設定</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
                 </svg> 
@@ -50,14 +50,102 @@
     
     
                         <v-row align="center" class=" m-10 text-s">
-                            <div class="grey--text p-4">
-                                掃描結果 : {{ text || "Nothing" }}
-                            </div>
-                        </v-row>
+                            <div class="grid grid-cols-2 gap-1"> 
+                                <div class="col-span-1 flex p-4 bg-gray-100 ">
+                                    掃描結果 : {{ text || "點擊螢幕啟動" }}
+                                </div>
+                                <div class="col-span-1 flex p-4">
+                                    <!-- {{ selt_lv }} -->
+                                    <select v-model="selt_lv"
+                                            class="text-blue-600 bg-blue-100 
+                                               appearance-none border-none 
+                                               inline-block py-2 pl-2 pr-2 rounded 
+                                               leading-tight w-full">
 
-                        <v-row>
+                                        <option value="請設定關卡" selected>請設定關卡</option>
+                                        <option value="1">保齡球 </option>
+                                        <option value="2">標靶</option> 
+
+                                        <option value="3">拔河 </option> 
+                                        <option value=4>競速足球 </option>
+
+                                        <option value=5>烈焰地靶 </option>
+                                        <option value=6>騎馬射箭 </option>
+
+                                        <option value=7>生存戰 </option>
+                                        <option value=8>飛龍峽谷 </option> 
+                                        
+                                        <option value=9>延長賽 </option>
+                                        <option value=10>備用 </option>  
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                                    <i class="fas fa-chevron-down text-gray-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- <div class="col-span-2 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[2] }}</a> 
+                                    <v-text-field v-model="card.score_2"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,2)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div>  -->
+
+                                <!-- <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
+                                    <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[2] }}</a> 
+                                    <v-text-field v-model="card.score_2"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,2)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[3] }}</a> 
+                                    <v-text-field v-model="card.score_3"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,3)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[4] }}</a> 
+                                    <v-text-field v-model="card.score_4"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,4)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[5] }}</a> 
+                                    <v-text-field v-model="card.score_5"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,5)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[6] }}</a> 
+                                    <v-text-field v-model="card.score_6"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,6)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[7] }}</a> 
+                                    <v-text-field v-model="card.score_7"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,7)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[8] }}</a> 
+                                    <v-text-field v-model="card.score_8"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,8)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[9] }}</a> 
+                                    <v-text-field v-model="card.score_9"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,9)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div> 
+                                <div class="col-span-1 flex" > 
+                                    <a class="text-lg font-black p-1">{{ playLv_Name[10] }}</a> 
+                                    <v-text-field v-model="card.score_10"  filled dense rounded ></v-text-field>   
+                                    <v-btn @click="Score_Mdf_byAdmin(card,10)" dark color="#388E3C"> 修改 </v-btn>  
+                                </div>  -->
+
+                            </div>
+                            
+                        
                             <div class="col-span-3 flex flex-row pl-5"> 
-                                <a class="mt-2.5">本關新增分數：</a>
+                                <a class="mt-2.5">本關分數：</a>
                                 <v-text-field 
                                     v-model="temp_score" 
                                     class="mt-0 pt-0 m-10" 
@@ -66,21 +154,23 @@
                                     label="請輸入成績" 
                                     placeholder="請輸入成績" >
                                 </v-text-field> 
-                                <v-btn class="mt-2 ml-4" @click="Addd_Score(text)" 
+                                <v-btn class="mt-2 ml-4" @click="Addd_Score_Mdf(text,temp_score,selt_lv)" dark color="#388E3C"> 修改 </v-btn>  
+
+                                <!-- <v-btn class="mt-2 ml-4" @click="Addd_Score_Mdf(text)" 
                                         rounded dark color="#E53935">
                                     新增成績
-                                </v-btn>
-                                <v-btn @click="Push_New()"> 新增條碼 </v-btn>
+                                </v-btn> -->
+                                
                             </div>
                         </v-row>
-                        <v-row class="m-20">
+                        <!-- <v-row class="m-20">
                             <v-textarea  
                                 auto-grow outlined shaped
                                 label="備註內容"  
                                 rows="3" 
                                 row-height="25" >
                             </v-textarea>
-                        </v-row>
+                        </v-row> -->
  
     
                     </v-card>
@@ -317,7 +407,8 @@
                                                                         class="px-2"
                                                                     ></v-text-field>
 
-                                                                    <v-btn @click="changQrCD_tm_Name(card)" dark color="#388E3C" > 修改 </v-btn>  
+                                                                    <v-btn @click="changQrCD_tm_Name(card)" dark color="#388E3C" > 修改 </v-btn> 
+                                                                    <v-btn @click=" " dark  color="#1E88E5" class="mx-2" > 重置歸零 </v-btn>  
                                                                 
                                                             </div>
                                                         </div>  
@@ -362,15 +453,13 @@ export default {
     },
     data() {
         return {
-            // - - - - -
-             
-            temp_nickName:'', 
-
+            //系統面- 使用者設定
+            selt_lv:'請設定關卡',
+            // - - - - - 
+            temp_nickName:'',  
             tabs: 'k1',
             //
-            tab: 'tab-4',
-
-
+            tab: 'tab-1', 
 
             // <select class="flex w-1/5 bg-gray-50 m-1 border border-gray-300 text-gray-900 text-sm rounded-lg 
             //                                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
@@ -378,13 +467,13 @@ export default {
             //                                    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             //                                    v-model="Lv_Ary[n].text">
             //                         <option value="請設定關卡" selected>請設定關卡</option>
-            //                         <option value="標靶">標靶</option>  
-            //                         <option value="拔河">拔河 </option>
-            //                         <option value="騎射">騎射 </option>
-            //                         <option value="保齡球">保齡球 </option>
-            //                         <option value="競速足球">競速足球 </option>
-            //                         <option value="生存戰">生存戰 </option>
-            //                         <option value="飛龍峽谷">飛龍峽谷 </option>
+                                    // <option value="標靶">標靶</option>  
+                                    // <option value="拔河">拔河 </option>
+                                    // <option value="騎射">騎射 </option>
+                                    // <option value="保齡球">保齡球 </option>
+                                    // <option value="競速足球">競速足球 </option>
+                                    // <option value="生存戰">生存戰 </option>
+                                    // <option value="飛龍峽谷">飛龍峽谷 </option>
             //                     </select>
 
 
@@ -403,7 +492,7 @@ export default {
                 { text: 'Three', value: 'C' }
             ],
             //
-            temp_score: 3,
+            temp_score:"",
             max_score: 100,
             min_score: 0,
             text: "",
@@ -491,23 +580,43 @@ export default {
                         showConfirmButton: false,
                         timer: 400
                     })
-                });
-            
-            }
-
-
-            
-
+                }); 
+            }  
         },
         Score_Mdf_byAdmin(item,n) {
-            let OLD = { score_5: item.score_5 };
+            let OLD = { score_9: item.score_9 };
            
             switch(n) {
                 case 1:
                 OLD = { score_1: item.score_1 };
                     break;
                 case 2:
-                OLD = { score_2: item.score_1 };
+                OLD = { score_2: item.score_2 };
+                    break;
+                case 3:
+                OLD = { score_3: item.score_3 };
+                    break;
+                case 4:
+                OLD = { score_4: item.score_4 };
+                    break;
+                case 5:
+                OLD = { score_5: item.score_5 };
+                    break;
+
+                case 6:
+                OLD = { score_6: item.score_6};
+                    break;
+                case 7:
+                OLD = { score_7: item.score_7 };
+                    break;
+                case 8:
+                OLD = { score_8: item.score_8 };
+                    break;
+                case 9:
+                OLD = { score_9: item.score_9 };
+                    break;
+                case 10:
+                OLD = { score_10: item.score_10 };
                     break;
                 // default:
                 //     陳述三;
@@ -562,6 +671,104 @@ export default {
                     console.log(e);
                 }); 
         },
+        Addd_Score_Mdf(key,score,n) {
+           
+           let OLD = { score_9: 199 };
+           
+            switch(n) {
+                case '1':
+                OLD = { score_1: score };
+                    break;
+                case '2':
+                OLD = { score_2: score };
+                    break;
+                case '3':
+                OLD = { score_3: score };
+                    break;
+                case '4':
+                OLD = { score_4: score };
+                    break;
+                case '5':
+                OLD = { score_5: score };
+                    break;
+                    
+                case '6':
+                OLD = { score_6: score};
+                    break;
+                case '7':
+                OLD = { score_7: score };
+                    break;
+                case '8':
+                OLD = { score_8: score };
+                    break;
+                case '9':
+                OLD = { score_9: score };
+                    break;
+                case '10':
+                OLD = { score_10: score };
+                    break;
+                // default:
+                //     陳述三;
+                //     break;
+            }
+
+            let tm_Name_ary=['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'];
+            let vv = 9;
+            switch(key) {
+                case 'UDM-N51':
+                vv = 1;
+                    break;
+                case 'UDM-N52':
+                vv = 2;
+                    break;
+                case 'UDM-N53':
+                vv = 3;
+                    break;
+                case 'UDM-N54':
+                vv = 4;
+                    break;
+                case 'UDM-N55':
+                vv = 5;
+                    break; 
+                case 'UDM-N56':
+                vv = 6;
+                    break;
+                case 'UDM-N57':
+                vv = 7;
+                    break;
+                case 'UDM-N58':
+                vv = 8;
+                    break;
+                case 'UDM-N59':
+                vv = 9;
+                    break;
+                case 'UDM-N60':
+                vv = 10;
+                    break;
+                // default:
+                //     陳述三;
+                //     break;
+            }
+
+
+            
+ 
+
+           SeatDataService.update(key, OLD)
+               .then(() => {
+                   Swal.fire({
+                       position: 'top-end',
+                       icon: 'success',
+                       title: score+'分!',
+                       text: '恭喜  " '+tm_Name_ary[vv] +' " 完成'+ this.playLv_Name[n]+'關卡' ,
+                       showConfirmButton: true,
+                    //    timer: 1200
+                   }) 
+               })
+               .catch((e) => {
+                   console.log(e);
+               }); 
+       },
 
         changQrCD(item) {
            
