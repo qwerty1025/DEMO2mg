@@ -81,66 +81,7 @@
                                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                                     <i class="fas fa-chevron-down text-gray-400"></i>
                                     </div>
-                                </div>
-                                
-                                <!-- <div class="col-span-2 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[2] }}</a> 
-                                    <v-text-field v-model="card.score_2"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,2)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div>  -->
-
-                                <!-- <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
-                                    <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[2] }}</a> 
-                                    <v-text-field v-model="card.score_2"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,2)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[3] }}</a> 
-                                    <v-text-field v-model="card.score_3"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,3)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[4] }}</a> 
-                                    <v-text-field v-model="card.score_4"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,4)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[5] }}</a> 
-                                    <v-text-field v-model="card.score_5"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,5)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[6] }}</a> 
-                                    <v-text-field v-model="card.score_6"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,6)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[7] }}</a> 
-                                    <v-text-field v-model="card.score_7"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,7)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[8] }}</a> 
-                                    <v-text-field v-model="card.score_8"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,8)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[9] }}</a> 
-                                    <v-text-field v-model="card.score_9"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,9)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div> 
-                                <div class="col-span-1 flex" > 
-                                    <a class="text-lg font-black p-1">{{ playLv_Name[10] }}</a> 
-                                    <v-text-field v-model="card.score_10"  filled dense rounded ></v-text-field>   
-                                    <v-btn @click="Score_Mdf_byAdmin(card,10)" dark color="#388E3C"> 修改 </v-btn>  
-                                </div>  -->
-
+                                </div>  
                             </div>
                             
                         
@@ -224,12 +165,12 @@
                     <v-card flat>
                         <div class="grid grid-cols-2 gap-1">
                             <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0">
-                                <v-btn :to=playLv_Scr[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
+                                <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
                                        {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
-                                </v-btn> 
+                                </v-btn>  
                             </div>
                              
                         </div>
@@ -448,7 +389,8 @@ export default {
             //
             tab: 'tab-3', 
  
-            playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
+            // playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
+            playLv_Scr_Mdf:['','scUp/1','scUp/2','scUp/3','scUp/4','scUp/5','scUp/6','scUp/7','scUp/8','scUp/9','scUp/10','scUp/11'],
             playLv_Name:['null','保齡球','標靶','拔河 ','競速足球','烈焰地靶','騎馬射箭','生存戰','飛龍峽谷','延長賽','備用'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',

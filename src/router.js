@@ -15,7 +15,7 @@ export default new Router({
     {
       path: "/QRDer",
       name: "QRDer",
-      component: () => import("./components/qrcodeRDer_3")
+      component: () => import("./components/qrcodeRDer_4")
     }, 
     {
       path: "/rank",
@@ -27,7 +27,25 @@ export default new Router({
       path: "/",
       name: "QRDer",
       component: () => import("./components/qrcodeRDer_3")
+    },
+    {
+      path: '/uss/:id',
+      name: 'User',
+      component: () => import("./components/uss")
     }, 
+
+    {
+      path: '/scUp/:play_lv',
+      name: 'User',
+      component: () => import("./components/scUp/scUp_00")
+    }, 
+
+    
+    // {
+    //   path: '/users/:id',
+    //   name: 'User',
+    //   component: () => import("./components/uss")
+    // },
     // {
     //   path: "/scUp_1",
     //   name: "QRDer",
