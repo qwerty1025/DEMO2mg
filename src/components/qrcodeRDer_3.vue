@@ -10,16 +10,16 @@
             >
             <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
 
-            <v-tab href="#tab-1">
+            <!-- <v-tab href="#tab-1">
                 <a class="text-xs">通用掃描</a>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                         
-            </v-tab>
+            </v-tab> -->
 
             <v-tab href="#tab-2">
-                <a class="text-xs">成績</a>
+                <a class="text-xs">成績一覽</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                 </svg> 
@@ -27,7 +27,7 @@
             </v-tab>
 
             <v-tab href="#tab-3">
-                <a class="text-xs">關主熱鍵</a>
+                <a class="text-xs">關主計分</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                 </svg> 
@@ -246,7 +246,18 @@
 
                 <v-tab-item key='tab-3' value='tab-3'>
                     <v-card flat>
-                    <v-card-text>功能建立中...待更新</v-card-text>
+                        <div class="grid grid-cols-2 gap-1">
+                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0">
+                                <v-btn :to=playLv_Scr[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
+                                       {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </v-btn> 
+                            </div>
+                             
+                        </div>
+ 
                     </v-card>
                 </v-tab-item> 
 
@@ -275,7 +286,7 @@
                                                                 ></v-checkbox>
                                                                 <a class="rounded-xl text-lg bg-gray-100   px-2"> {{ card.tm_Name }} </a>
                                                                 <a class="text-xs text-gray-400   px-2"> {{ card.key }} </a>
-                                                                <v-btn @click="deleteTeam(card)" dark color="#388E3C">刪除 </v-btn>   
+                                                                <!-- <v-btn @click="deleteTeam(card)" dark color="#388E3C">刪除 </v-btn>    -->
                                                                 
 
                                                             </v-card>  
@@ -459,24 +470,9 @@ export default {
             temp_nickName:'',  
             tabs: 'k1',
             //
-            tab: 'tab-1', 
-
-            // <select class="flex w-1/5 bg-gray-50 m-1 border border-gray-300 text-gray-900 text-sm rounded-lg 
-            //                                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-            //                                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
-            //                                    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            //                                    v-model="Lv_Ary[n].text">
-            //                         <option value="請設定關卡" selected>請設定關卡</option>
-                                    // <option value="標靶">標靶</option>  
-                                    // <option value="拔河">拔河 </option>
-                                    // <option value="騎射">騎射 </option>
-                                    // <option value="保齡球">保齡球 </option>
-                                    // <option value="競速足球">競速足球 </option>
-                                    // <option value="生存戰">生存戰 </option>
-                                    // <option value="飛龍峽谷">飛龍峽谷 </option>
-            //                     </select>
-
-
+            tab: 'tab-3', 
+ 
+            playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8'],
             playLv_Name:['null','保齡球','標靶','拔河 ','競速足球','烈焰地靶','騎馬射箭','生存戰','飛龍峽谷','延長賽','備用'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
