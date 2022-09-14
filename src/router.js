@@ -28,11 +28,22 @@ export default new Router({
       name: "QRDer",
       component: () => import("./components/qrcodeRDer_3")
     },
+    // {
+    //   path: '/uss/:id',
+    //   name: 'User',
+    //   component: () => import("./components/uss")
+    // }, 
     {
-      path: '/uss/:id',
+      path: '/uss',
       name: 'User',
       component: () => import("./components/uss")
     }, 
+    {
+      path: '/showHistory',
+      name: 'showHistory',
+      component: () => import("./components/showHistory")
+    }, 
+    
 
     {
       path: '/scUp/:play_lv',

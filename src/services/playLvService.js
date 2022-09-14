@@ -9,10 +9,8 @@ class StDataService {
     return db;
   }
 
-  uqcrat(userKey,user) {
-    
-    return  db.child(userKey).set(user);
-
+  uqcrat(userKey,user) { 
+    return  db.child(userKey).set(user);  
   }
 
   create(od) {

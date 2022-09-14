@@ -2,6 +2,7 @@
     <div class="">
      
         <v-card> 
+            <!-- <v-btn @click="saveHistory(1,2,3)">HSuus</v-btn> -->
             <v-tabs class="w-screen"
             v-model="tab"  
             icons-and-text 
@@ -22,9 +23,10 @@
                 <a class="text-xs">成績一覽</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                </svg> 
-                        
+                </svg>  
             </v-tab>
+
+            
 
             <v-tab href="#tab-3">
                 <a class="text-xs">關主計分</a>
@@ -37,8 +39,14 @@
                 <a class="text-xs">隊伍設定</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                </svg>   
+            </v-tab>
+
+            <v-tab href="#tab-5">
+                <a class="text-xs">歷史紀錄</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
                 </svg> 
-                        
             </v-tab>
             </v-tabs>
 
@@ -100,11 +108,11 @@
                             </div>
                         </v-row>  
                     </v-card>
-                </v-tab-item>
- 
+                </v-tab-item> 
                 
                 <v-tab-item key='tab-2' value='tab-2'> 
                     <v-card  class="overflow-y-auto h-screen mb-20" >
+                        
                         <v-row dense class=""   >
                             <div v-for="card in ts" :key="card.key"  > 
                                 <v-card class="m-2" v-show="card.using == 'true'"> 
@@ -357,6 +365,44 @@
                     </v-card>
                 </v-tab-item> 
 
+                <v-tab-item key='tab-5' value='tab-5'>
+                    <v-card flat class="overflow-y-auto h-screen mb-20" >  
+                          
+                            <div class="m-3"   >
+                                <v-row dense v-for="(item,index) in History" :key="index" >
+                                    <div class="grid grid-cols-2 gap-1"> 
+                                        <!-- <div class="col-span-2" > <a class="text-gray-500 text-base" > 輸入“ {{ card.tm_Name }} “分數 </a>   </div> -->
+
+                                        <div class="col-span-1 flex items-center" > 
+                                            <!-- <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
+                                            <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>    -->
+                                            <div class="text-xs font-light text-gray-700 pr-3 ">關卡：{{ playLv_Name[item.play_lv] }}</div>
+                                            <div class="text-xs font-bold text-gray-900 py-1 px-3 rounded-full bg-gray-200  "> {{ tm_Name_ary[item.play_tm] }} 得 {{ item.play_score }} 分</div>
+                                            <!-- <a class="text-xs font-black px-3 "> </a> -->
+                                            <div class="text-xs font-light text-gray-700 px-3 ">時間：{{ item.time }}</div>
+                                            <!-- <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>   -->
+                                        </div> 
+                                        <div class="col-span-1 flex" > 
+                                            <!-- <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
+                                            <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>    -->
+                                            <!-- <a class="text-xs  text-gary-400">{{ playLv_Name[item.play_lv] }}</a>
+                                            <a class="text-xs ">{{ item.play_score }}</a> -->
+                                            <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>  
+                                        </div> 
+                                        </div>  
+                                </v-row>
+                                <!-- <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
+                                       {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </v-btn>   -->
+                            </div>
+                              
+ 
+                    </v-card>
+                </v-tab-item> 
+
             </v-tabs-items>
         </v-card>
 
@@ -392,10 +438,12 @@ export default {
             // playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
             playLv_Scr_Mdf:['','scUp/1','scUp/2','scUp/3','scUp/4','scUp/5','scUp/6','scUp/7','scUp/8','scUp/9','scUp/10','scUp/11'],
             playLv_Name:['null','保齡球','標靶','拔河 ','競速足球','烈焰地靶','騎馬射箭','生存戰','飛龍峽谷','延長賽','備用'],
+            tm_Name_ary:['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             //
             Lv_Ary:[ { text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' }], 
+            History_Ary:[],
             //
             tsCNT: 0,
             //
@@ -626,7 +674,7 @@ export default {
                 //     break;
             }
 
-            let tm_Name_ary=['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'];
+            let tm_Name_ary=this.tm_Name_ary;
             let vv = 9;
             switch(key) {
                 case 'UDM-N51':
@@ -746,7 +794,37 @@ export default {
                .catch((e) => { 
                }); 
        },
- 
+       saveHistory(lv,s,m) { 
+        var data = {
+            time: Date.now() ,
+            play_lv: lv,
+            play_tm: m, 
+            play_score: s,
+            statu: 1,
+            memo:'null',
+            
+        };
+
+        playLvService.create(data)
+            .then(() => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '已新增成功',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch(e => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: '沒有成功，請在嘗試一次',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
+        },
  
         saveDta() {
 
@@ -801,12 +879,17 @@ export default {
             let data = item.val();
             _tutorials.push({
                 key: key,
-                LvAry: data.LvAry, 
+                play_lv:data.play_lv,
+                play_tm:data.play_tm,
+                play_score: data.play_score,
+                statu: data.statu,
+                time: data.time,
+                memo: data.memo,
             });
         });
 
-        this.Lv_Ary = _tutorials;
-        this.Lv_AryCNT = _tutorials.length;
+        this.History = _tutorials;
+        // this.Lv_AryCNT = _tutorials.length;
 
         },
         onDataChange(items) {
