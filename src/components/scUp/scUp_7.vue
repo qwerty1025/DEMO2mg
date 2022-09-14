@@ -41,7 +41,7 @@
                          
                      
                          <div class="col-span-3 flex flex-row pl-5"> 
-                             <a class="mt-2.5">本關分數：</a>
+                             <a class="mt-2.5 text-xs">分數：</a>
                              <v-text-field 
                                  v-model="temp_score" 
                                  class="mt-0 pt-0 m-10" 
@@ -53,6 +53,8 @@
                              <v-btn class="mt-2 ml-4" @click="Addd_Score_Mdf(text,temp_score,selt_lv)" dark color="#388E3C"> 修改 </v-btn> 
                          </div>
                      </v-row> 
+                     <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
+ 
 
  
                  </v-card>

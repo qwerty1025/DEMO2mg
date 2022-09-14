@@ -17,6 +17,11 @@ export default new Router({
       name: "QRDer",
       component: () => import("./components/qrcodeRDer_3")
     }, 
+    {
+      path: "/rank",
+      name: "QRDer",
+      component: () => import("./components/rank")
+    }, 
 
     {
       path: "/",

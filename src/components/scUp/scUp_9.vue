@@ -38,7 +38,7 @@
                          
                      
                          <div class="col-span-3 flex flex-row pl-5"> 
-                             <a class="mt-2.5">本關分數：</a>
+                             <a class="mt-2.5 text-xs">分數：</a>
                              <v-text-field 
                                  v-model="temp_score" 
                                  class="mt-0 pt-0 m-10" 
