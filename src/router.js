@@ -11,7 +11,12 @@ export default new Router({
       path: "/8",
       name: "bkList",
       component: () => import("./components/bdadd8_List")
-    }, 
+    },  
+    {
+      path: "/kLooK_sing",
+      name: "QRDer",
+      component: () => import("./components/kLooK_sing")
+    },
     {
       path: "/QRDer",
       name: "QRDer",
@@ -52,11 +57,11 @@ export default new Router({
     }, 
 
     
-    // {
-    //   path: '/users/:id',
-    //   name: 'User',
-    //   component: () => import("./components/uss")
-    // },
+    {
+      path: '/users/:id',
+      name: 'User',
+      component: () => import("./components/uss")
+    },
     // {
     //   path: "/scUp_1",
     //   name: "QRDer",

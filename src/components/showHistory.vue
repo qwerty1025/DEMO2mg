@@ -12,7 +12,7 @@
 <hr>
 ts:{{ ts.id }} \\\ {{ ts.name}} -->
 
-{{ tss }}
+{{ showHistory }}
 <v-btn @click="Push_New()"></v-btn>
     
     </div>
@@ -25,7 +25,7 @@ Vue.component('qr-code', VueQRCodeComponent)
 
 
 // import { StreamBarcodeReader } from "vue-barcode-reader";
-import SeatDataService from "../services/SeatPrepareService";
+// import SeatDataService from "../services/SeatPrepareService";
 import playLvService from "../services/playLvService";
 
 export default {
@@ -35,12 +35,12 @@ export default {
     data() {
         return {
             //系統面- 使用者設定
-            ts:[],
-            tss:[],
+            // ts:[],
+            showHistory:[],
             // - - - - - 
             temp_nickName:'',  
-            qque: '',
-            qqN: [],
+            // qque: '',
+            // qqN: [],
             //
             tab: 'tab-3', 
  

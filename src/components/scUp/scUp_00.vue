@@ -6,7 +6,7 @@
                      <v-row align="center" class=" m-10 text-s">
                          <div class="grid grid-cols-2 gap-1"> 
                              <div class="col-span-1 flex p-4 bg-gray-100 ">
-                                 掃描結果 : {{ text || "點擊螢幕啟動" }}
+                                 掃描結果 : {{ text || "點擊螢幕啟動" }},{{ result }}
                              </div>
                              <div class="col-span-1 flex p-4">
                                  <!-- {{ selt_lv }} -->
@@ -105,6 +105,48 @@ export default {
     props: {
         msg: String,
     },
+    computed: {
+          result: function(){
+            let vv =99;
+            let key = this.text;
+            switch(key) {
+                case 'UDM-N51':
+                vv = 1;
+                    break;
+                case 'UDM-N52':
+                vv = 2;
+                    break;
+                case 'UDM-N53':
+                vv = 3;
+                    break;
+                case 'UDM-N54':
+                vv = 4;
+                    break;
+                case 'UDM-N55':
+                vv = 5;
+                    break; 
+                case 'UDM-N56':
+                vv = 6;
+                    break;
+                case 'UDM-N57':
+                vv = 7;
+                    break;
+                case 'UDM-N58':
+                vv = 8;
+                    break;
+                case 'UDM-N59':
+                vv = 9;
+                    break;
+                case 'UDM-N60':
+                vv = 10;
+                    break;
+            }
+            let tm_Name_ary=['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'];
+
+            return tm_Name_ary[vv];
+          } 
+        },
+    
 
     methods: { 
         Addd_Score_Mdf(key,score,n) { 
@@ -200,15 +242,20 @@ export default {
        },
  
         // onDecode (result) { alert(result) },
+
+            // 會有機會操作 使用 這樣的情況嗎。立榮
         onDecode(a, b, c) {
             console.log(a, b, c);
-            this.text = a;
-            if (this.id) clearTimeout(this.id);
-            this.id = setTimeout(() => {
-                if (this.text === a) {
-                    this.text = "";
-                }
-            }, 5000);
+            if( a != null )
+            {
+                this.text = a;  
+                if (this.id) clearTimeout(this.id);
+                this.id = setTimeout(() => {
+                    if (this.text === a) {
+                        this.text = "";
+                    }
+                }, 5000);
+            }
         },
         onLoaded() {
             console.log("load");

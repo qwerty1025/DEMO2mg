@@ -121,45 +121,45 @@
                                     <!-- <a class="text-xs text-gray-800 px-1"> Af{{ card.key }}gdf - {{ card.using }} </a>  -->
                                     
                                     <div class="grid grid-cols-2 gap-0">  
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[1] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[1] == 'true'"> 
+                                            <a class="text-xs text-gary-500 "  >{{ playLv_Name[1] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_1 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[2] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[2] == 'true'">  
+                                            <a class="text-xs text-gary-500 " >{{ playLv_Name[2] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_2 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[3] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[3] == 'true'">  
+                                            <a class="text-xs text-gary-500 " >{{ playLv_Name[3] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_3 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[4] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[4] == 'true'"> 
+                                            <a class="text-xs text-gary-500 " >{{ playLv_Name[4] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_4 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[5] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[5] == 'true'">  
+                                            <a class="text-xs text-gary-500 " >{{ playLv_Name[5] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_5 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[6] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[6] == 'true'"> 
+                                            <a class="text-xs text-gary-500 " >{{ playLv_Name[6] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_6 }}</a>   
                                         </div>
 
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[7] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[7] == 'true'">  
+                                            <a class="text-xs text-gary-500 "  >{{ playLv_Name[7] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_7 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[8] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[8] == 'true'">  
+                                            <a class="text-xs text-gary-500 "  >{{ playLv_Name[8] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_8 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[9] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[9] == 'true'">  
+                                            <a class="text-xs text-gary-500 "  >{{ playLv_Name[9] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_9 }}</a>   
                                         </div>
-                                        <div class="col-span-1 flex p-2" > 
-                                            <a class="text-xs text-gary-500 ">{{ playLv_Name[10] }}:</a>
+                                        <div class="col-span-1 flex p-2" v-show="playLv_Loading[10] == 'true'"> 
+                                            <a class="text-xs text-gary-500 "  >{{ playLv_Name[10] }}:</a>
                                             <a class="text-xs font-bold ">{{ card.score_10 }}</a>   
                                         </div>
                                     </div>  
@@ -197,8 +197,8 @@
 
                                                 <v-expansion-panel-content> 
                                                     <!-- class="flex justify-center" -->
-                                                    <v-row dense class="overflow-y-auto h-screen" >
-                                                        <v-col  v-for="card in ts" :key="card.key" :cols="2">
+                                                    <v-row dense class="overflow-y-auto h-auto " >
+                                                        <v-col  v-for="card in ts" :key="card.key" :cols="4">
                                                             <v-card class="p-1" >
                                                                     <v-checkbox 
                                                                     class=""
@@ -221,6 +221,40 @@
                                                     
                                                 </v-expansion-panel-content>
                                              </v-expansion-panel>
+
+                                             <v-expansion-panel >
+                                                <v-expansion-panel-header>
+                                                    <a class="rounded-full text-lg bg-gray-100 px-5"> 關卡啟用盤 (未完成) </a> 
+                                                </v-expansion-panel-header>
+
+                                                <v-expansion-panel-content> 
+                                                    <!-- class="flex justify-center" -->
+                                                    <!-- playLv_Loading : {{ playLv_Loading }} -->
+                                                    <v-row dense class="overflow-y-auto h-auto " >
+                                                        <v-col :cols="4"  v-for="(item, index) in playLv_Loading"  v-if="index >0"  >
+                                                            <v-card class="p-1" >
+                                                                    <v-checkbox 
+                                                                    class=""
+                                                                    v-model="playLv_Loading[index]"  
+                                                                    value="true"
+                                                                    dense
+                                                                    
+                                                                    label="啟用" 
+                                                                    small
+                                                                >  </v-checkbox>
+                                                                <a class="rounded-xl text-lg bg-gray-100   px-2"> {{ playLv_Name[index] }} </a>
+                                                                <!-- <a class="text-xs text-gray-400   px-2"> {{ card.key }} </a> -->
+                                                                <!-- <v-btn @click="deleteTeam(card)" dark color="#388E3C">刪除 </v-btn>    -->
+                                                                
+
+                                                            </v-card>  
+                                                        </v-col >
+                                                    </v-row>
+                                                    
+                                                    
+                                                </v-expansion-panel-content>
+                                             </v-expansion-panel>
+                                             
                                         </v-expansion-panels>
 
                                 <v-col v-for="card in ts" :key="card.key" :cols="12">
@@ -315,7 +349,7 @@
                                                 <v-expansion-panel-content>
                                                     <div class="grid grid-cols-3 gap-0.5">  
                                                         <div class="col-span-3 row-span-1">  
-                                                            <div class="flex flex-row "> 
+                                                            <div class="flex flex-column"> 
                                                                 <v-checkbox 
                                                                     class="py-1"
                                                                     v-model="card.using" 
@@ -331,7 +365,7 @@
                                                                         label="隊名" 
                                                                         filled
                                                                         dense
-                                                                        class="px-3" 
+                                                                        class="px-3  md:w-full" 
                                                                     ></v-text-field>
 
                                                                     <v-text-field
@@ -342,10 +376,10 @@
                                                                         dense
                                                                         class="px-2"
                                                                     ></v-text-field>
-
-                                                                    <v-btn @click="changQrCD_tm_Name(card)" dark color="#388E3C" > 修改 </v-btn> 
-                                                                    <v-btn @click=" " dark  color="#1E88E5" class="mx-2" > 重置歸零 </v-btn>  
-                                                                
+                                                                    <div>
+                                                                        <v-btn @click="changQrCD_tm_Name(card)" dark color="#388E3C" > 修改 </v-btn> 
+                                                                        <v-btn @click=" " dark  color="#1E88E5" class="mx-2" > 重置歸零 </v-btn>  
+                                                                    </div>
                                                             </div>
                                                         </div>  
                                                     </div>
@@ -438,6 +472,8 @@ export default {
             // playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
             playLv_Scr_Mdf:['','scUp/1','scUp/2','scUp/3','scUp/4','scUp/5','scUp/6','scUp/7','scUp/8','scUp/9','scUp/10','scUp/11'],
             playLv_Name:['null','保齡球','標靶','拔河 ','競速足球','烈焰地靶','騎馬射箭','生存戰','飛龍峽谷','延長賽','備用'],
+            playLv_Loading:['null',"true","true","true","true","true","true","true","true","true"],
+            
             tm_Name_ary:['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -774,6 +810,7 @@ export default {
                .catch((e) => { 
                }); 
        },
+
        changQrCD_tm_Name(item) { 
            const OLD = { 
             tm_Name: item.tm_Name, 

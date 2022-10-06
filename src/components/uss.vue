@@ -1,6 +1,6 @@
 <template>
     <div class="">
-     
+     ss
         <!-- qque: 
 {{ qque }}
 <br>
@@ -8,9 +8,9 @@
 {{ qqN[0] }}
 <hr>
 {{ qqN[1] }}
-
+-->
 <hr>
-ts:{{ ts.id }} \\\ {{ ts.name}} -->
+ts:{{ ts.id }} \\\ {{ ts.name}} 
 
 {{ tss }}
 <v-btn @click="Push_New()"></v-btn>
@@ -161,7 +161,7 @@ export default {
     mounted() {
         // this.qque = this.$route.params.id;
         // this.qqN = this.$route.params.id.split('&') ;
-        // this.onDC();
+        this.onDC();
         
 
 
