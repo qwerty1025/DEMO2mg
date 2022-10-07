@@ -115,7 +115,7 @@
                         
                         <v-row dense class=""   >
                             <div v-for="card in ts" :key="card.key"  > 
-                                <v-card class="m-2" v-show="card.using == 'true'"> 
+                                <v-card class="m-2" v-show="card.using == 'true'" :color="card.tm_Color "> 
                                     <a class="rounded-xl text-lg bg-gray-100 w-1/3 px-2"> {{ card.tm_Name }} </a> 
                                     
                                     <!-- <a class="text-xs text-gray-800 px-1"> Af{{ card.key }}gdf - {{ card.using }} </a>  -->
@@ -272,7 +272,7 @@
                                                         </qr-code>  
                                                     </div> 
                                                 </v-expansion-panel-content>
-                                             </v-expansion-panel>
+                                             </v-expansion-panel> 
 
                                              <v-expansion-panel >
                                                 <v-expansion-panel-header>
@@ -377,8 +377,21 @@
                                                                         class="px-2"
                                                                     ></v-text-field>
                                                                     <div>
+                                                                        <v-text-field  v-model="card.tm_Color"  label="hex 色號" 
+                                                                            solo dense rounded >
+                                                                        </v-text-field>
+
+                                                                        <v-color-picker
+                                                                            dot-size="25"
+                                                                            swatches-max-height="200"
+
+                                                                            v-model="card.tm_Color"
+                                                                            ></v-color-picker>
+                                                                    </div>    
+                                                                    <div>
+
                                                                         <v-btn @click="changQrCD_tm_Name(card)" dark color="#388E3C" > 修改 </v-btn> 
-                                                                        <v-btn @click=" " dark  color="#1E88E5" class="mx-2" > 重置歸零 </v-btn>  
+                                                                        <v-btn @click=" " dark  color="#1E88E5" class="mx-2" > 重置歸零(未啟用) </v-btn>  
                                                                     </div>
                                                             </div>
                                                         </div>  
@@ -418,6 +431,7 @@
 
                                             <!-- dayjs(item.time).format('YYYY-MM-DD HH:mm:ss'); -->
                                         </div> 
+                                        
                                         <div class="col-span-1 flex" > 
                                             <!-- <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
                                             <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>    -->
@@ -817,6 +831,7 @@ export default {
            const OLD = { 
             tm_Name: item.tm_Name, 
             tm_amt: item.tm_amt, 
+            tm_Color: item.tm_Color, 
            }; 
 
            SeatDataService.update(item.key, OLD)
@@ -956,6 +971,7 @@ export default {
 
                     tm_Name: data.tm_Name,
                     tm_amt: data.tm_amt, 
+                    tm_Color: data.tm_Color,
 
                     using: data.using,
  
