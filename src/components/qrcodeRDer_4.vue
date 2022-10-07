@@ -410,11 +410,13 @@
                                         <div class="col-span-1 flex items-center" > 
                                             <!-- <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
                                             <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>    -->
-                                            <div class="text-xs font-light text-gray-700 pr-3 ">關卡：{{ playLv_Name[item.play_lv] }}</div>
+                                            <div class="text-xs font-light text-gray-700 pr-3 ">{{ playLv_Name[item.play_lv] }}</div>
                                             <div class="text-xs font-bold text-gray-900 py-1 px-3 rounded-full bg-gray-200  "> {{ tm_Name_ary[item.play_tm] }} 得 {{ item.play_score }} 分</div>
                                             <!-- <a class="text-xs font-black px-3 "> </a> -->
-                                            <div class="text-xs font-light text-gray-700 px-3 ">時間：{{ item.time }}</div>
+                                            <div class="text-xs font-light text-gray-700 px-3 ">{{ dayjs(item.time).format('YYYY-MM-DD HH:mm:ss') }}</div>
                                             <!-- <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>   -->
+
+                                            <!-- dayjs(item.time).format('YYYY-MM-DD HH:mm:ss'); -->
                                         </div> 
                                         <div class="col-span-1 flex" > 
                                             <!-- <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
