@@ -256,13 +256,14 @@
                                              </v-expansion-panel>
                                              
                                         </v-expansion-panels>
+                                <v-col v-for="card in ts" :key="card.key"     :cols="12" >
 
-                                <v-col v-for="card in ts" :key="card.key" :cols="12">
-                                    <v-card class="p-1"> 
+                                        <!-- md:cols="4"  xs:cols="12" -->
+                                    <v-card class="p-1" :color="card.tm_Color" > 
                                         <v-expansion-panels >
                                             <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    <a class="rounded-full text-lg bg-gray-100 px-5"> {{ card.tm_Name }} </a> 顯示條碼
+                                                    <a class="rounded-full text-base font-black bg-gray-100 px-2 py-1"> {{ card.tm_Name }} </a> 顯示條碼
                                                     <!-- <a class="rounded-full bg-red-500"> show Qr-Code </a> -->
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content> 
@@ -382,9 +383,9 @@
                                                                         </v-text-field>
 
                                                                         <v-color-picker
-                                                                            dot-size="25"
-                                                                            swatches-max-height="200"
-
+                                                                            dot-size="25" flat
+                                                                            :swatches="swatches" show-swatches
+                                                                            swatches-max-height="200" 
                                                                             v-model="card.tm_Color"
                                                                             ></v-color-picker>
                                                                     </div>    
@@ -483,7 +484,20 @@ export default {
             temp_nickName:'',  
             tabs: 'k1',
             //
-            tab: 'tab-3', 
+            tab: 'tab-4', 
+            swatches:
+[
+           ['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4'],
+           ['#d97706','#991b1b','#7c2d12','#afbbc9','#2d3748'],
+           ['#22d3ee','#a5f3fc','#1e40af','#4f46e5','#93c5fd'], 
+],
+            // swatches: [
+            //     ['#FF0000', '#AA0000', '#550000'],
+            //     ['#FFFF00', '#AAAA00', '#555500'],
+            //     ['#00FF00', '#00AA00', '#005500'],
+            //     ['#00FFFF', '#00AAAA', '#005555'],
+            //     ['#0000FF', '#0000AA', '#000055'],
+            // ],
  
             // playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
             playLv_Scr_Mdf:['','scUp/1','scUp/2','scUp/3','scUp/4','scUp/5','scUp/6','scUp/7','scUp/8','scUp/9','scUp/10','scUp/11'],
