@@ -7,16 +7,10 @@
                          <div class="grid grid-cols-2 gap-1"> 
                             
 
-                             <div class="col-span-1 flex p-4 bg-gray-100 ">
-                                <v-btn :to=h 
-                                    class="" 
-                                    color="#7c3aed" 
-                                    height="80px" 
-                                    dark   >
-                                    返回.選關卡  
-                            </v-btn>  或掃描結果 : {{ text || "點擊螢幕啟動" }},{{ result }}
+                             <div class="col-span-1 flex p-4 bg-gray-100 "> 
+                                掃描結果 : {{ text || "點擊螢幕啟動" }},{{ result }}
                              </div>
-                             <div class="col-span-1 flex p-4">
+                             <div class="col-span-2 flex p-4"> 
                                  <!-- {{ selt_lv }} -->
                                  <select v-model="selt_lv"
                                          class="text-blue-600 bg-blue-100 
@@ -49,6 +43,14 @@
                          
                      
                          <div class="col-span-3 flex flex-row pl-5"> 
+                            <v-btn :to=h 
+                                    class="" 
+                                    color="#7c3aed" 
+                                    height="80px" 
+                                    dark   >
+                                    返回.選關卡  
+                                </v-btn> 
+                                
                              <a class="mt-2.5">分數：</a>
                              <v-text-field 
                                  v-model="temp_score" 
@@ -151,7 +153,7 @@ export default {
                 vv = 10;
                     break;
             }
-            let tm_Name_ary=['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'];
+            let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'];
 
             return tm_Name_ary[vv];
           } 

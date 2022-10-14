@@ -8,6 +8,7 @@
             icons-and-text 
             show-arrows
             dense
+            dark
             >
             <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
 
