@@ -2,6 +2,8 @@
     <div class="">
      
         <v-card> 
+{{ pLv_Name }}
+
             <!-- <v-btn @click="saveHistory(1,2,3)">HSuus</v-btn> -->
             <v-tabs class="w-screen"
             v-model="tab"  
@@ -14,9 +16,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                 </svg>  
-            </v-tab>
-
-            
+            </v-tab>  
 
             <v-tab href="#tab-3">
                 <a class="text-xs">關主計分</a>
@@ -212,14 +212,12 @@
                                                 </v-expansion-panel-content>
                                              </v-expansion-panel>
 
-                                             <v-expansion-panel >
+                                             <!-- <v-expansion-panel >
                                                 <v-expansion-panel-header>
                                                     <a class="rounded-full text-lg bg-gray-100 px-5"> 關卡啟用盤 (未完成) </a> 
                                                 </v-expansion-panel-header>
 
-                                                <v-expansion-panel-content> 
-                                                    <!-- class="flex justify-center" -->
-                                                    <!-- playLv_Loading : {{ playLv_Loading }} -->
+                                                <v-expansion-panel-content>  
                                                     <v-row dense class="overflow-y-auto h-auto " >
                                                         <v-col :cols="4"  v-for="(item, index) in playLv_Loading"  v-if="index >0"  >
                                                             <v-card class="p-1" >
@@ -233,9 +231,7 @@
                                                                     small
                                                                 >  </v-checkbox>
                                                                 <a class="rounded-xl text-lg bg-gray-100   px-2"> {{ playLv_Name[index] }} </a>
-                                                                <!-- <a class="text-xs text-gray-400   px-2"> {{ card.key }} </a> -->
-                                                                <!-- <v-btn @click="deleteTeam(card)" dark color="#388E3C">刪除 </v-btn>    -->
-                                                                
+                                                               
 
                                                             </v-card>  
                                                         </v-col >
@@ -243,7 +239,7 @@
                                                     
                                                     
                                                 </v-expansion-panel-content>
-                                             </v-expansion-panel>
+                                             </v-expansion-panel> -->
                                              
                                         </v-expansion-panels>
                                 <v-col v-for="card in ts" :key="card.key"     :cols="12" >
@@ -253,7 +249,10 @@
                                         <v-expansion-panels >
                                             <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    <a class="rounded-full text-base font-black bg-gray-100 px-2 py-1"> {{ card.tm_Name }} </a> 顯示條碼
+                                                    <v-chip  dark align="center" class="  mr-2 "
+                                                             :color="card.tm_Color"> 
+                                                                    {{ card.tm_Name }} 
+                                                    </v-chip> 顯示條碼
                                                     <!-- <a class="rounded-full bg-red-500"> show Qr-Code </a> -->
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content> 
@@ -267,7 +266,9 @@
 
                                              <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    後台修改..關卡.得分
+                                                    
+                                                    <v-btn @click="reset_2_0(card)" dark  color="#171717" class="mx-2" > 重置歸零 </v-btn> 
+                                                    <a> 後台修改.關卡得分 </a>
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content> 
 
@@ -275,55 +276,55 @@
                                                         <div class="col-span-2" > <a class="text-gray-500 text-base" > 輸入“ {{ card.tm_Name }} “分數 </a>   </div>
 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[1] }}</a> 
                                                             <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[2] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[2] }}</a> 
                                                             <v-text-field v-model="card.score_2"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,2)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,2)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[3] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[3] }}</a> 
                                                             <v-text-field v-model="card.score_3"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,3)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,3)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[4] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[4] }}</a> 
                                                             <v-text-field v-model="card.score_4"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,4)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn small  @click="Score_Mdf_byAdmin(card,4)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[5] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[5] }}</a> 
                                                             <v-text-field v-model="card.score_5"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,5)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,5)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[6] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[6] }}</a> 
                                                             <v-text-field v-model="card.score_6"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,6)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,6)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[7] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[7] }}</a> 
                                                             <v-text-field v-model="card.score_7"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,7)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,7)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[8] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[8] }}</a> 
                                                             <v-text-field v-model="card.score_8"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,8)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,8)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[9] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[9] }}</a> 
                                                             <v-text-field v-model="card.score_9"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,9)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,9)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
-                                                            <a class="text-lg font-black p-1">{{ playLv_Name[10] }}</a> 
+                                                            <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[10] }}</a> 
                                                             <v-text-field v-model="card.score_10"  filled dense rounded ></v-text-field>   
-                                                            <v-btn @click="Score_Mdf_byAdmin(card,10)" dark color="#388E3C"> 修改 </v-btn>  
+                                                            <v-btn @click="Score_Mdf_byAdmin(card,10)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                              
 
@@ -334,8 +335,8 @@
 
                                              <v-expansion-panel >
                                                 <v-expansion-panel-header> 
-                                                    設定 {{ card.key }} 資料   
-                                                    <v-spacer></v-spacer>
+                                                    <a> 設定 {{ card.tm_Name }} , {{ card.key }} 資料  </a> 
+                                                    <v-spacer></v-spacer> 
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content>
                                                     <div class="grid grid-cols-3 gap-0.5">  
@@ -382,7 +383,7 @@
                                                                     <div>
 
                                                                         <v-btn @click="changQrCD_tm_Name(card)" dark color="#388E3C" > 修改 </v-btn> 
-                                                                        <v-btn @click=" " dark  color="#1E88E5" class="mx-2" > 重置歸零(未啟用) </v-btn>  
+                                                                        <v-btn @click="reset_2_0(card)" dark  color="#1E88E5" class="mx-2" > 重置歸零 </v-btn>  
                                                                     </div>
                                                             </div>
                                                         </div>  
@@ -459,10 +460,16 @@ Vue.component('qr-code', VueQRCodeComponent)
 
 import { StreamBarcodeReader } from "vue-barcode-reader";
 import SeatDataService from "../services/SeatPrepareService";
-import playLvService from "../services/playLvService";
+import playLvService from "../services/playLvService"; 
+
+import pLv from "../assets/hs.json";
 
 export default {
     name: "HelloWorld",
+    computed: {
+        pLv_Names() { return pLv.a.map((item) => { return item.playLv_Name; }) },
+        pLv_Loading() { return pLv.a.map((item) => { return item.playLv_Loading; }) }
+    },
     components: {
         StreamBarcodeReader,
     },
@@ -474,7 +481,7 @@ export default {
             temp_nickName:'',  
             tabs: 'k1',
             //
-            tab: 'tab-4', 
+            tab: 'tab-3', 
             swatches:
 [
            ['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4'],
@@ -491,8 +498,10 @@ export default {
  
             // playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
             playLv_Scr_Mdf:['','scUp/1','scUp/2','scUp/3','scUp/4','scUp/5','scUp/6','scUp/7','scUp/8','scUp/9','scUp/10','scUp/11'],
-            playLv_Name:['null','射騎英雄','標靶','騎士戰場','保齡球','拔河 ','競速足球','烈焰地靶','生存戰','飛龍峽谷','延長賽','備用'],
-            playLv_Loading:['null',"true","true","true","false","false","false","false","false","false"],
+            // playLv_Name:j.a.playLv_Name,
+            pLv:pLv.playLv_Name,
+            playLv_Name:['null','騎射打鑼','經典標靶箭','超時空戰場','弓箭保齡球','飛龍峽谷 ','幼幼射箭','全明星標靶箭','生存戰','飛龍峽谷','延長賽','備用'],
+            playLv_Loading:['null',"true","true","true","true","true","false","false","false","false"],
             
             tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
@@ -852,6 +861,37 @@ export default {
                .catch((e) => { 
                }); 
        },
+
+       reset_2_0(item) { 
+           const OLD = { 
+            score_1:  0, 
+            score_2:  0, 
+            score_3:  0, 
+            score_4:  0,  
+            score_5:  0, 
+            score_6:  0, 
+            score_7:  0, 
+            score_8:  0, 
+            score_9:  0, 
+            score_10:  0, 
+            score_All:  0, 
+           }; 
+
+           SeatDataService.update(item.key, OLD)
+               .then(() => { 
+                Swal.fire({
+                       position: 'top-end',
+                       icon: 'success',
+                       title: '分數已歸零!',
+                       text: '修改成功',
+                       showConfirmButton: false,
+                       timer: 1200
+                   }) 
+               })
+               .catch((e) => { 
+               }); 
+       },
+
        saveHistory(lv,s,m) { 
         var data = {
             time: Date.now() ,

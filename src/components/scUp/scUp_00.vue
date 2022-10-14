@@ -20,7 +20,7 @@
                                 > 返回.選關卡  </v-btn>
                                  <!-- {{ selt_lv }} -->
                                  <select v-model="selt_lv"
-                                         class="text-blue-600 text-xs mt-3 bg-blue-100 
+                                         class="text-blue-600 text-xs mt-3  bg-blue-100 
                                             appearance-none border-none 
                                             inline-block py-2 pl-2 pr-2 rounded 
                                             leading-tight w-full">
@@ -199,7 +199,7 @@ export default {
                 //     break;
             }
 
-            let tm_Name_ary=['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'];
+            let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'];
             let vv = 9;
             switch(key) {
                 case 'UDM-N51':

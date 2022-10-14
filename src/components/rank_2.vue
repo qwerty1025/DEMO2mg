@@ -1,61 +1,114 @@
 <template>
     <div class=""> 
+        <div class="mt-10">
+            <div class="row">
+                <div class="col s12">
+                    <div class="carousel carousel-slider" data-indicators="true">
+                        <a class="carousel-item" href="#one!">
+                            <img src="https://picsum.photos/800/400/?random=1">					
+                        </a>
+                        <a class="carousel-item" href="#two!">
+                            <img src="https://picsum.photos/800/400/?random=2">
+                        </a>
+                        <a class="carousel-item" href="#three!"><img src="https://picsum.photos/800/400/?random=3"></a>
+                        <a class="carousel-item" href="#four!"><img src="https://picsum.photos/800/400/?random=4"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <v-card  class="overflow-y-auto h-screen mb-20" >
-            
-            <v-row dense class=""   >
-                <div v-for="card in ts" :key="card.key"  > 
+             
+
+                <!-- <div v-for="card in ts" :key="card.key"  > 
                     <v-card class="m-2" v-show="card.using == 'true'" :color="card.tm_Color "> 
-                        <a class="rounded-xl text-lg bg-gray-100 w-1/3 px-2"> {{ card.tm_Name }} </a> 
-                        
-                        <!-- <a class="text-xs text-gray-800 px-1"> Af{{ card.key }}gdf - {{ card.using }} </a>  -->
-                        
+                        <a class="rounded-xl text-lg bg-gray-100 w-1/3 px-1"> {{ card.tm_Name }} </a> 
+                            
                         <div class="grid grid-cols-2 gap-0">  
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[1] == 'true'"> 
-                                <a class="text-xs text-gary-500 "  >{{ playLv_Name[1] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[1] == 'true'"> 
+                                <a class="text-xs text-gary-500 "  >{{ pLv_Names[1] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_1 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[2] == 'true'">  
-                                <a class="text-xs text-gary-500 " >{{ playLv_Name[2] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[2] == 'true'">  
+                                <a class="text-xs text-gary-500 " >{{ pLv_Names[2] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_2 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[3] == 'true'">  
-                                <a class="text-xs text-gary-500 " >{{ playLv_Name[3] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[3] == 'true'">  
+                                <a class="text-xs text-gary-500 " >{{ pLv_Names[3] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_3 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[4] == 'true'"> 
-                                <a class="text-xs text-gary-500 " >{{ playLv_Name[4] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[4] == 'true'"> 
+                                <a class="text-xs text-gary-500 " >{{ pLv_Names[4] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_4 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[5] == 'true'">  
-                                <a class="text-xs text-gary-500 " >{{ playLv_Name[5] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[5] == 'true'">  
+                                <a class="text-xs text-gary-500 " >{{ pLv_Names[5] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_5 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[6] == 'true'"> 
-                                <a class="text-xs text-gary-500 " >{{ playLv_Name[6] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[6] == 'true'"> 
+                                <a class="text-xs text-gary-500 " >{{ pLv_Names[6] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_6 }}</a>   
                             </div>
 
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[7] == 'true'">  
-                                <a class="text-xs text-gary-500 "  >{{ playLv_Name[7] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[7] == 'true'">  
+                                <a class="text-xs text-gary-500 "  >{{ pLv_Names[7] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_7 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[8] == 'true'">  
-                                <a class="text-xs text-gary-500 "  >{{ playLv_Name[8] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[8] == 'true'">  
+                                <a class="text-xs text-gary-500 "  >{{ pLv_Names[8] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_8 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[9] == 'true'">  
-                                <a class="text-xs text-gary-500 "  >{{ playLv_Name[9] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[9] == 'true'">  
+                                <a class="text-xs text-gary-500 "  >{{ pLv_Names[9] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_9 }}</a>   
                             </div>
-                            <div class="col-span-1 flex p-2" v-show="playLv_Loading[10] == 'true'"> 
-                                <a class="text-xs text-gary-500 "  >{{ playLv_Name[10] }}:</a>
+                            <div class="col-span-1 flex p-2" v-show="pLv_Loading[10] == 'true'"> 
+                                <a class="text-xs text-gary-500 "  >{{ pLv_Names[10] }}:</a>
                                 <a class="text-xs font-bold ">{{ card.score_10 }}</a>   
                             </div>
                         </div>  
                     </v-card>
-                </div >
-            </v-row>  
-        </v-card>   
+                </div >  --> 
+                
+                <div class="flex flex-row justify-end mr-3">
+                    <span class="bg-gray-200 rounded px-1 py-1 mx-1 text-xs font-bold " v-for="n in 10" v-if=" n>0  && pLv_Loading[n]=='true' "  >
+                        {{ pLv_Names[n]  }}
+                    </span> 
+                </div> 
+                <div v-for="card in ts" :key="card.key"  > 
+                    <v-card class="m-2" v-show="card.using == 'true'" >  
+                        <div class=" flex flex-cols">  
+                            <v-chip large class="rounded-xl text-lg bg-gray-100 px-1" :color="card.tm_Color" outlined label > {{ card.tm_Name }} </v-chip> 
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[1] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[1] }}</div>
+                                <div class="text-lg font-bold items-center">{{ card.score_1 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[2] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[2] }}</div>
+                                <div class="text-lg font-bold items-center">{{ card.score_2 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[3] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[3] }}</div>
+                                <div class="text-lg font-bold  items-center">{{ card.score_3 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[4] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[4] }}</div>
+                                <div class="text-lg font-bold items-center">{{ card.score_4 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[5] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[5] }}</div>
+                                <div class="text-lg font-bold  items-center">{{ card.score_5 }}</div>   
+                            </div> 
+                        </div>  
+                    </v-card>
+                </div > 
+        </v-card>  
+        
+        <hr>
+                {{ ts }}
     </div>
 </template>
 
@@ -69,20 +122,42 @@ import { StreamBarcodeReader } from "vue-barcode-reader";
 import SeatDataService from "../services/SeatPrepareService";
 import playLvService from "../services/playLvService";
 
+import pLv from "../assets/hs.json";
+
+
 export default {
     name: "HelloWorld",
+    computed: {
+        pLv_Names() { return pLv.a.map((item) => { return item.playLv_Name; }) },
+        pLv_Loading() { return pLv.a.map((item) => { return item.playLv_Loading; }) }
+    },
     components: {
         StreamBarcodeReader,
     },
     data() {
         return {
+
+            colors: [
+                'indigo',
+                'warning',
+                'pink darken-2',
+                'red lighten-1',
+                'deep-purple accent-4',
+                ],
+                slides: [
+                'First',
+                'Second',
+                'Third',
+                'Fourth',
+                'Fifth',
+                ],
             //系統面- 使用者設定
             selt_lv:'請設定關卡',
             // - - - - - 
             temp_nickName:'',  
             tabs: 'k1',
             //
-            tab: 'tab-4', 
+            tab: 'tab-2', 
             swatches:
 [
            ['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4'],
@@ -599,6 +674,17 @@ export default {
     mounted() {
         SeatDataService.getAll().on("value", this.onDataChange);
         playLvService.getAll().on("value", this.playLvonDataChange);
+        $(document).ready(function(){ 
+        $('.carousel').carousel({ 
+            fullWidth: true, 
+            indicators: true 
+        }); 
+        autoplay(); 
+        function autoplay() { 
+            $('.carousel').carousel('next'); 
+            setTimeout(autoplay, 4500); 
+        }; 
+        }); 
     },
     beforeDestroy() {
         SeatDataService.getAll().off("value", this.onDataChange);
@@ -607,7 +693,93 @@ export default {
 </script>
 
 <style scoped>
-     
+     #carousel {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+}
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+}
+.slide-indicator {
+  height: 44px;
+  width: 50px;
+  display: flex;
+  justify-items: center;
+  cursor: pointer;
+}
+.slide-indicator:after {
+  content: "";
+  background-color: #878787;
+  height: 10px;
+  margin-top: 10px;
+  width: 40px;
+}
+.slide-indicator.active:after,
+.slide-indicator:hover:after {
+  background-color: #000000;
+}
+.slide-banner {
+  background-color: #000000;
+  color: #ffffff;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  padding: 15px;
+  font-size: 2.5vw;
+}
+.slide-banner a {
+  color: #ffffff;
+}
+#slide-container {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 10px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.slide {
+  scroll-snap-align: center;
+  position: relative;
+  min-width: 100%;
+  padding-top: 50%;
+}
+.slide img {
+  height: 100%;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.arrow {
+  color: #ffffff;
+  height: 20px;
+  width: 20px;
+  background-color: #000000;
+  position: absolute;
+  padding: 10px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.arrow.back {
+  left: 10px;
+  top: 10px;
+}
+.arrow.forward {
+  right: 10px;
+  top: 10px;
+}
+.arrow:hover {
+  opacity: 1;
+}
+
 
 </style>
  
