@@ -1,6 +1,7 @@
 <template>
     <div class=""> 
-        <div class="mt-10">
+
+        <!-- <div class="mt-10">
             <div class="row">
                 <div class="col s12">
                     <div class="carousel carousel-slider" data-indicators="true">
@@ -15,8 +16,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <v-card  class="overflow-y-auto h-screen mb-20" >
+        </div> -->
+        <v-card  class="overflow-y-auto h-screen my-20" >
              
 
                 <!-- <div v-for="card in ts" :key="card.key"  > 

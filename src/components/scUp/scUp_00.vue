@@ -64,7 +64,35 @@
                      </v-row> 
                      <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
  
-
+                     <v-radio-group
+                        v-model="row"
+                        row
+                        >
+                        <v-radio
+                            label="1.籃隊"
+                            value="radio-1"
+                        ></v-radio>
+                        <v-radio
+                            label="1.紅隊"
+                            value="radio-2"
+                        ></v-radio>
+                        <v-radio
+                            label="2.橘隊"
+                            value="radio-1"
+                        ></v-radio>
+                        <v-radio
+                            label="2.黃隊"
+                            value="radio-2"
+                        ></v-radio>
+                        <v-radio
+                            label="1.籃隊"
+                            value="radio-1"
+                        ></v-radio>
+                        <v-radio
+                            label="2.橘隊"
+                            value="radio-2"
+                        ></v-radio>
+                        </v-radio-group>
  
                  </v-card>
      

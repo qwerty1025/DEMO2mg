@@ -11,7 +11,7 @@
             >
             <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
  
-            <v-tab href="#tab-2">
+            <v-tab href="#tab-22">
                 <a class="text-xs">成績一覽</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
@@ -99,7 +99,47 @@
                         </v-row>  
                     </v-card>
                 </v-tab-item> 
-                
+                <v-tab-item key='tab-22' value='tab-22'>
+                    <v-card>
+                        <div class="flex flex-row justify-end mr-3">
+                    <span class="bg-gray-200 rounded px-1 py-1 mx-1 text-xs font-bold " v-for="n in 10" v-if=" n>0  && pLv_Loading[n]=='true' "  >
+                        {{ pLv_Names[n]  }}
+                    </span> 
+                </div> 
+                <div v-for="card in ts" :key="card.key"  > 
+                    <v-card class="m-2" v-show="card.using == 'true'" >  
+                        <div class=" flex flex-cols">  
+                            <v-chip large class="rounded-xl text-lg bg-gray-100 px-1" :color="card.tm_Color" outlined label > {{ card.tm_Name }} </v-chip> 
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[1] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[1] }}</div>
+                                <div class="text-lg font-bold items-center">{{ card.score_1 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[2] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[2] }}</div>
+                                <div class="text-lg font-bold items-center">{{ card.score_2 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[3] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[3] }}</div>
+                                <div class="text-lg font-bold  items-center">{{ card.score_3 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[4] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[4] }}</div>
+                                <div class="text-lg font-bold items-center">{{ card.score_4 }}</div>   
+                            </div>
+
+                            <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[5] == 'true'">  
+                                <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[5] }}</div>
+                                <div class="text-lg font-bold  items-center">{{ card.score_5 }}</div>   
+                            </div> 
+                        </div>  
+                    </v-card>
+                </div >
+                    </v-card>
+                    
+                </v-tab-item>
                 <v-tab-item key='tab-2' value='tab-2'> 
                     <v-card  class="overflow-y-auto h-screen mb-20" >
                         
@@ -162,7 +202,7 @@
                 <v-tab-item key='tab-3' value='tab-3'>
                     <v-card flat>
                         <div class="grid grid-cols-2 gap-1">
-                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0 & index < 4">
+                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0 & index < 6">
                                 <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
                                        {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
