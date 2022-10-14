@@ -5,8 +5,16 @@
  
                      <v-row align="center" class=" m-10 text-s">
                          <div class="grid grid-cols-2 gap-1"> 
+                            
+
                              <div class="col-span-1 flex p-4 bg-gray-100 ">
-                                 掃描結果 : {{ text || "點擊螢幕啟動" }},{{ result }}
+                                <v-btn :to=h 
+                                    class="" 
+                                    color="#7c3aed" 
+                                    height="80px" 
+                                    dark   >
+                                    返回.選關卡  
+                            </v-btn>  或掃描結果 : {{ text || "點擊螢幕啟動" }},{{ result }}
                              </div>
                              <div class="col-span-1 flex p-4">
                                  <!-- {{ selt_lv }} -->
@@ -82,6 +90,7 @@ export default {
     data() {
         return {
             //系統面- 使用者設定
+            h:"/QRDer",
             // - - - - - 
             selt_lv:this.$route.params.play_lv,
             text: "",
