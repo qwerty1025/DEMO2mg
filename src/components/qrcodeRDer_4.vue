@@ -172,7 +172,7 @@
                 <v-tab-item key='tab-3' value='tab-3'>
                     <v-card flat>
                         <div class="grid grid-cols-2 gap-1">
-                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0">
+                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0 & index < 4">
                                 <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
                                        {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -501,10 +501,10 @@ export default {
  
             // playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
             playLv_Scr_Mdf:['','scUp/1','scUp/2','scUp/3','scUp/4','scUp/5','scUp/6','scUp/7','scUp/8','scUp/9','scUp/10','scUp/11'],
-            playLv_Name:['null','保齡球','標靶','拔河 ','競速足球','烈焰地靶','騎馬射箭','生存戰','飛龍峽谷','延長賽','備用'],
-            playLv_Loading:['null',"true","true","true","true","true","true","true","true","true"],
+            playLv_Name:['null','射騎英雄','標靶','騎士戰場','保齡球','拔河 ','競速足球','烈焰地靶','生存戰','飛龍峽谷','延長賽','備用'],
+            playLv_Loading:['null',"true","true","true","false","false","false","false","false","false"],
             
-            tm_Name_ary:['?','籃隊','紅隊','黃隊','綠隊','紫隊','咖啡隊'],
+            tm_Name_ary:['?','紅隊','橙隊','黃隊','綠隊','籃隊','紫隊','咖啡隊'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             //

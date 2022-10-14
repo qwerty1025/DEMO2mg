@@ -17,14 +17,15 @@
                                             leading-tight w-full">
 
                                      <option value="請設定關卡" selected>請設定關卡</option>
-                                     <option value="1">保齡球 </option>
-                                     <option value="2">標靶</option> 
 
-                                     <option value="3">拔河 </option> 
-                                     <option value=4>競速足球 </option>
+                                     <option value="1"> {{ playLv_Name[1] }} </option>
+                                     <option value="2"> {{ playLv_Name[2] }}</option> 
 
-                                     <option value=5>烈焰地靶 </option>
-                                     <option value=6>騎馬射箭 </option>
+                                     <option value="3"> {{ playLv_Name[3] }} </option> 
+                                     <option value="4"> {{ playLv_Name[4] }}</option>
+
+                                     <option value="5"> {{ playLv_Name[5] }} </option>
+                                     <option value="6"> {{ playLv_Name[6] }} </option>
 
                                      <option value=7>生存戰 </option>
                                      <option value=8>飛龍峽谷 </option> 
@@ -89,7 +90,7 @@ export default {
             // - - - - -  
             tab: 'tab-1',  
 
-            playLv_Name:['null','保齡球','標靶','拔河 ','競速足球','烈焰地靶','騎馬射箭','生存戰','飛龍峽谷','延長賽','備用'],
+            playLv_Name:['null','射騎英雄','標靶','騎士戰場','保齡球','拔河 ','競速足球','烈焰地靶','生存戰','飛龍峽谷','延長賽','備用'],
               
             Lv_Ary:[ { text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' }], 
             //
