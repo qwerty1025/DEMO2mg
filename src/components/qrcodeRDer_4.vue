@@ -5,21 +5,10 @@
             <!-- <v-btn @click="saveHistory(1,2,3)">HSuus</v-btn> -->
             <v-tabs class="w-screen"
             v-model="tab"  
-            icons-and-text 
-            show-arrows
-            dense
-            dark
+            icons-and-text show-arrows dense 
             >
             <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
-
-            <!-- <v-tab href="#tab-1">
-                <a class="text-xs">通用掃描</a>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                        
-            </v-tab> -->
-
+ 
             <v-tab href="#tab-2">
                 <a class="text-xs">成績一覽</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -505,7 +494,7 @@ export default {
             playLv_Name:['null','射騎英雄','標靶','騎士戰場','保齡球','拔河 ','競速足球','烈焰地靶','生存戰','飛龍峽谷','延長賽','備用'],
             playLv_Loading:['null',"true","true","true","false","false","false","false","false","false"],
             
-            tm_Name_ary:['?','紅隊','橙隊','黃隊','綠隊','籃隊','紫隊','咖啡隊'],
+            tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             //
