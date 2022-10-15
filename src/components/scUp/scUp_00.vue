@@ -66,10 +66,11 @@
                                  label="請輸入成績" 
                                  placeholder="請輸入成績" >
                              </v-text-field> 
-                             
+                             <!-- @click="Addd_Score_Mdf(text,temp_score,selt_lv)"  -->
                              <v-btn class="mt-2 ml-4" 
-                                   @click="Addd_Score_Mdf(text,temp_score,selt_lv)" 
-                                   dark color="#0ea5e9"> 掃描上傳 </v-btn> 
+                                  
+                                   @click="Addd_Score_Mdf2(tm_Slected,temp_score,selt_lv)" 
+                                   dark color="#0ea5e9"> 選擇隊伍上傳 </v-btn> 
                          </div>
                          <div class="flex flex-cols">
                             
@@ -84,9 +85,9 @@
                                 :value="tm_uuid[n]"
                             ></v-radio> 
                         </v-radio-group>
-                        <v-btn class="mt-6 ml-4 w-1/5" small
+                        <!-- <v-btn class="mt-6 ml-4 w-1/5" small
                                    @click="Addd_Score_Mdf(tm_Slected,temp_score,selt_lv)" 
-                                   dark color="#388E3C"> 選擇上傳 </v-btn> 
+                                   dark color="#388E3C"> 選擇上傳 </v-btn>  -->
                          </div>
                      </v-row> 
 
@@ -288,8 +289,7 @@ export default {
                    console.log(e);
                }); 
        },
-       Addd_Score_Mdf2(key,score,n) { 
-            
+       Addd_Score_Mdf2(key,score,n) {  
             let OLD = { score_9: 0 };  
              switch(n) {
                  case '1':
@@ -375,6 +375,8 @@ export default {
                         showConfirmButton: true,
                      //    timer: 1200
                     }) 
+
+                    this.saveHistory(OLD,score,n) ;
                 })
                 .catch((e) => {
                     console.log(e);
