@@ -9,8 +9,13 @@
 
                              <div class="col-span-1 flex p-4 bg-gray-100 ">   
                                 <a class="text-xs">
-                                掃描結果 : {{ text || "點擊螢幕啟動" }},{{ result }}
-                                </a>    
+                                掃描 : {{ text || "點擊螢幕啟動" }},{{ result }}
+                                </a>  
+                                <br>
+                                <a class="text-xs">
+                                選擇 :  {{ tm_Slected }} ,{{ result }}
+                                </a>  
+                               
                              </div>
                              <div class="col-span-1 flex-row p-4">
                                 <v-btn
@@ -18,6 +23,8 @@
                                     href="https://qwerty1025.github.io/DEMO2mg/#/QRDer"
                                     
                                 > 返回.選關卡  </v-btn>
+
+                                
                                  <!-- {{ selt_lv }} -->
                                  <select v-model="selt_lv"
                                          class="text-blue-600 text-xs mt-3  bg-blue-100 
@@ -53,46 +60,40 @@
                              <a class="mt-2.5">分數：</a>
                              <v-text-field 
                                  v-model="temp_score" 
-                                 class="mt-0 pt-0 m-10" 
+                                 class="mt-0 pt-0 m-10 " 
                                  type="number"
                                  clear solo single-line 
                                  label="請輸入成績" 
                                  placeholder="請輸入成績" >
                              </v-text-field> 
-                             <v-btn class="mt-2 ml-4" @click="Addd_Score_Mdf(text,temp_score,selt_lv)" dark color="#388E3C"> 修改 </v-btn> 
+                             
+                             <v-btn class="mt-2 ml-4" 
+                                   @click="Addd_Score_Mdf(text,temp_score,selt_lv)" 
+                                   dark color="#0ea5e9"> 掃描上傳 </v-btn> 
+                         </div>
+                         <div class="flex flex-cols">
+                            
+                            
+                     <v-radio-group
+                            v-model="tm_Slected"
+                            row
+                            class="w-4/5"
+                            >
+                            <v-radio v-for="n in 6" v-if=" n>0"
+                                :label="n+ tm_Name_ary[n]"
+                                :value="tm_uuid[n]"
+                            ></v-radio> 
+                        </v-radio-group>
+                        <v-btn class="mt-6 ml-4 w-1/5" small
+                                   @click="Addd_Score_Mdf(tm_Slected,temp_score,selt_lv)" 
+                                   dark color="#388E3C"> 選擇上傳 </v-btn> 
                          </div>
                      </v-row> 
+
+                     
                      <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
  
-                     <v-radio-group
-                        v-model="row"
-                        row
-                        >
-                        <v-radio
-                            label="1.籃隊"
-                            value="radio-1"
-                        ></v-radio>
-                        <v-radio
-                            label="1.紅隊"
-                            value="radio-2"
-                        ></v-radio>
-                        <v-radio
-                            label="2.橘隊"
-                            value="radio-1"
-                        ></v-radio>
-                        <v-radio
-                            label="2.黃隊"
-                            value="radio-2"
-                        ></v-radio>
-                        <v-radio
-                            label="1.籃隊"
-                            value="radio-1"
-                        ></v-radio>
-                        <v-radio
-                            label="2.橘隊"
-                            value="radio-2"
-                        ></v-radio>
-                        </v-radio-group>
+                     
  
                  </v-card>
      
@@ -111,8 +112,13 @@ import { StreamBarcodeReader } from "vue-barcode-reader";
 import SeatDataService from "../../services/SeatPrepareService";
 import playLvService from "../../services/playLvService";
 
+
 export default {
     name: "HelloWorld",
+    computed: {
+        pLv_Names() { return pLv.a.map((item) => { return item.playLv_Name; }) },
+        pLv_Loading() { return pLv.a.map((item) => { return item.playLv_Loading; }) }
+    },
     components: {
         StreamBarcodeReader,
     },
@@ -123,12 +129,14 @@ export default {
             // - - - - - 
             selt_lv:this.$route.params.play_lv,
             text: "",
+            tm_Slected:"",
             // - - - - - 
             // - - - - - 
             // - - - - -  
             tab: 'tab-1',  
-
-            playLv_Name:['null','射騎英雄','標靶','騎士戰場','保齡球','拔河 ','競速足球','烈焰地靶','生存戰','飛龍峽谷','延長賽','備用'],
+            tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
+            tm_uuid:['null','UDM-N51','UDM-N52','UDM-N53','UDM-N54','UDM-N55','UDM-N56'],
+            playLv_Name:['null','騎射打鑼','標靶箭','保齡球','保齡球','超時空戰場 ','飛龍峽谷','弓箭拔河','競速足球','延長賽','備用'],
               
             Lv_Ary:[ { text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' }], 
             //
@@ -189,6 +197,7 @@ export default {
 
     methods: { 
         Addd_Score_Mdf(key,score,n) { 
+            
            let OLD = { score_9: 0 };  
             switch(n) {
                 case '1':
@@ -279,6 +288,98 @@ export default {
                    console.log(e);
                }); 
        },
+       Addd_Score_Mdf2(key,score,n) { 
+            
+            let OLD = { score_9: 0 };  
+             switch(n) {
+                 case '1':
+                 OLD = { score_1: score };
+                     break;
+                 case '2':
+                 OLD = { score_2: score };
+                     break;
+                 case '3':
+                 OLD = { score_3: score };
+                     break;
+                 case '4':
+                 OLD = { score_4: score };
+                     break;
+                 case '5':
+                 OLD = { score_5: score };
+                     break;
+                     
+                 case '6':
+                 OLD = { score_6: score};
+                     break;
+                 case '7':
+                 OLD = { score_7: score };
+                     break;
+                 case '8':
+                 OLD = { score_8: score };
+                     break;
+                 case '9':
+                 OLD = { score_9: score };
+                     break;
+                 case '10':
+                 OLD = { score_10: score };
+                     break;
+                 // default:
+                 //     陳述三;
+                 //     break;
+             }
+ 
+             let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'];
+             let vv = 9;
+             switch(key) {
+                 case 'UDM-N51':
+                 vv = 1;
+                     break;
+                 case 'UDM-N52':
+                 vv = 2;
+                     break;
+                 case 'UDM-N53':
+                 vv = 3;
+                     break;
+                 case 'UDM-N54':
+                 vv = 4;
+                     break;
+                 case 'UDM-N55':
+                 vv = 5;
+                     break; 
+                 case 'UDM-N56':
+                 vv = 6;
+                     break;
+                 case 'UDM-N57':
+                 vv = 7;
+                     break;
+                 case 'UDM-N58':
+                 vv = 8;
+                     break;
+                 case 'UDM-N59':
+                 vv = 9;
+                     break;
+                 case 'UDM-N60':
+                 vv = 10;
+                     break;
+                 // default:
+                 //     陳述三;
+                 //     break;
+             } 
+            SeatDataService.update(key, OLD)
+                .then(() => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: score+'分!',
+                        text: '恭喜  " '+tm_Name_ary[vv] +' " 完成'+ this.playLv_Name[n]+'關卡' ,
+                        showConfirmButton: true,
+                     //    timer: 1200
+                    }) 
+                })
+                .catch((e) => {
+                    console.log(e);
+                }); 
+        },
  
         // onDecode (result) { alert(result) },
 
@@ -352,6 +453,38 @@ export default {
             this.tsCNT = _tutorials.length;
 
         },
+        saveHistory(lv,s,m) { 
+            var data = {
+                time: Date.now() ,
+                play_lv: lv,
+                play_tm: m, 
+                play_score: s,
+                statu: 1,
+                memo:'null',
+                
+            };
+
+            playLvService.create(data)
+                .then(() => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: '已新增成功',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                })
+                .catch(e => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: '沒有成功，請在嘗試一次',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                });
+            },
+    
     },
     mounted() {
         SeatDataService.getAll().on("value", this.onDataChange);

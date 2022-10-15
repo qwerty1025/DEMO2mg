@@ -102,7 +102,8 @@
                 <v-tab-item key='tab-22' value='tab-22'>
                     <v-card>
                         <div class="flex flex-row justify-end mr-3">
-                    <span class="bg-gray-200 rounded px-1 py-1 mx-1 text-xs font-bold " v-for="n in 10" v-if=" n>0  && pLv_Loading[n]=='true' "  >
+                    <span class="bg-gray-200 rounded px-1 py-1 mx-1 text-xs font-bold " 
+                            v-for="n in 10" v-if=" n>0  && pLv_Loading[n]=='true' "  >
                         {{ pLv_Names[n]  }}
                     </span> 
                 </div> 

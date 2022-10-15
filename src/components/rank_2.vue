@@ -175,10 +175,10 @@ export default {
  
             // playLv_Scr:['','scUp_1','scUp_2','scUp_3','scUp_4','scUp_5','scUp_6','scUp_7','scUp_8','scUp_9','scUp_10','scUp_11'],
             playLv_Scr_Mdf:['','scUp/1','scUp/2','scUp/3','scUp/4','scUp/5','scUp/6','scUp/7','scUp/8','scUp/9','scUp/10','scUp/11'],
-            playLv_Name:['null','射騎英雄','標靶','騎士戰場','保齡球','拔河 ','競速足球','烈焰地靶','生存戰','飛龍峽谷','延長賽','備用'],
+            playLv_Name:['null','騎射打鑼','標靶箭','保齡球','保齡球','超時空戰場 ','飛龍峽谷','弓箭拔河','競速足球','延長賽','備用'],
             playLv_Loading:['null',"true","true","true","false","false","false","false","false","false"],
             
-            tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','籃隊','紫隊'],
+            tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
              items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             //
