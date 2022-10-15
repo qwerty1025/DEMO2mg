@@ -8,10 +8,10 @@
                             
 
                              <div class="col-span-1 flex p-4 bg-gray-100 ">   
-                                <a class="text-xs">
+                                <!-- <a class="text-xs">
                                 掃描 : {{ text || "點擊螢幕啟動" }},{{ result }}
-                                </a>  
-                                <br>
+                                </a>   -->
+                                <!-- <br> -->
                                 <a class="text-xs">
                                 選擇 :  {{ tm_Slected }} ,{{ result }}
                                 </a>  
@@ -80,7 +80,7 @@
                             row
                             class="w-4/5"
                             >
-                            <v-radio v-for="n in 6" v-if=" n>0"
+                            <v-radio v-for="n in 5" v-if=" n>0"
                                 :label="n+ tm_Name_ary[n]"
                                 :value="tm_uuid[n]"
                             ></v-radio> 
@@ -92,7 +92,7 @@
                      </v-row> 
 
                      
-                     <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
+                     <!-- <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader> -->
  
                      
  
@@ -135,7 +135,8 @@ export default {
             // - - - - - 
             // - - - - -  
             tab: 'tab-1',  
-            tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
+            tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊'],
+            // tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
             tm_uuid:['null','UDM-N51','UDM-N52','UDM-N53','UDM-N54','UDM-N55','UDM-N56'],
             playLv_Name:['null','騎射打鑼','標靶箭','保齡球','保齡球','超時空戰場 ','飛龍峽谷','弓箭拔河','競速足球','延長賽','備用'],
               
@@ -189,7 +190,8 @@ export default {
                 vv = 10;
                     break;
             }
-            let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','藍隊','綠隊','紫隊'];
+            // let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','藍隊','綠隊','紫隊'];
+            let  tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
 
             return tm_Name_ary[vv];
           } 
@@ -237,7 +239,7 @@ export default {
                 //     break;
             }
 
-            let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'];
+            let tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
             let vv = 9;
             switch(key) {
                 case 'UDM-N51':
@@ -328,7 +330,7 @@ export default {
                  //     break;
              }
  
-             let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'];
+             let tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
              let vv = 9;
              switch(key) {
                  case 'UDM-N51':
@@ -376,7 +378,7 @@ export default {
                      //    timer: 1200
                     }) 
 
-                    this.saveHistory(OLD,score,n) ;
+                    this.saveHistory(this.playLv_Name[this.selt_lv],score,n) ;
                 })
                 .catch((e) => {
                     console.log(e);
@@ -468,13 +470,13 @@ export default {
 
             playLvService.create(data)
                 .then(() => {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: '已新增成功',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    // Swal.fire({
+                    //     position: 'top-end',
+                    //     icon: 'success',
+                    //     title: '已新增成功',
+                    //     showConfirmButton: false,
+                    //     timer: 1500
+                    // })
                 })
                 .catch(e => {
                     Swal.fire({

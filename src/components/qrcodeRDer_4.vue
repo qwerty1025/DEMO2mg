@@ -203,7 +203,7 @@
                 <v-tab-item key='tab-3' value='tab-3'>
                     <v-card flat>
                         <div class="grid grid-cols-2 gap-1">
-                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0 & index < 6">
+                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0 & index < 5">
                                 <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
                                        {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -544,7 +544,8 @@ export default {
             playLv_Name:['null','騎射打鑼','經典標靶箭','超時空戰場','弓箭保齡球','飛龍峽谷 ','幼幼射箭','全明星標靶箭','生存戰','飛龍峽谷','延長賽','備用'],
             playLv_Loading:['null',"true","true","true","true","true","false","false","false","false"],
             
-            tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
+            // tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
+            tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊'],
             items: [ 'Appetizers', 'Entrees', 'Deserts', 'Cocktails', ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             //
