@@ -44,7 +44,7 @@
                 <v-tab-item key='tab-1' value='tab-1'>
                     <v-card v-scroll.self="onScroll" class="overflow-y-auto h-screen">
                      
-                        <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader>
+                        <!-- <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader> -->
     
     
                         <v-row align="center" class=" m-10 text-s">
@@ -203,7 +203,7 @@
                 <v-tab-item key='tab-3' value='tab-3'>
                     <v-card flat>
                         <div class="grid grid-cols-2 gap-1">
-                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0 & index < 5">
+                            <div class="" v-for="(item,index) in playLv_Name" :key="index" v-if="index > 0 & index < 6">
                                 <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
                                        {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">

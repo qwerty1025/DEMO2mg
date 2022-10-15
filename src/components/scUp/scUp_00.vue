@@ -378,7 +378,7 @@ export default {
                      //    timer: 1200
                     }) 
 
-                    this.saveHistory(this.playLv_Name[this.selt_lv],score,n) ;
+                    this.saveHistory(this.playLv_Name[n],score,tm_Name_ary[vv] ) ;
                 })
                 .catch((e) => {
                     console.log(e);
