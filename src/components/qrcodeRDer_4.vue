@@ -111,6 +111,8 @@
                     <v-card class="m-2" v-show="card.using == 'true'" >  
                         <div class=" flex flex-cols">  
                             <v-chip large class="rounded-xl text-lg bg-gray-100 px-1" :color="card.tm_Color" outlined label > {{ card.tm_Name }} </v-chip> 
+                            <a class="text-xs">總分：{{ parseInt(card.score_1) + parseInt(card.score_2)+ parseInt(card.score_3)+ parseInt(card.score_4)+ parseInt(card.score_5)+ parseInt(card.score_6)}}</a>
+                            <!-- <a class=" text-xs">總分：{{ int.params(card.score_1) +int.params(card.score_2) +int.params(card.score_3) }} </a> -->
                             <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[1] == 'true'">  
                                 <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[1] }}</div>
                                 <div class="text-lg font-bold items-center">{{ card.score_1 }}</div>   
