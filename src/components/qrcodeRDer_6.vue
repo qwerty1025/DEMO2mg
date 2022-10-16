@@ -32,6 +32,13 @@
                 </svg>   
             </v-tab>
 
+            <v-tab href="#tab-6">
+                <a class="text-xs">活動執行檔</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                </svg> 
+            </v-tab>
+
             <v-tab href="#tab-5">
                 <a class="text-xs">歷史紀錄</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -219,6 +226,145 @@
                         </div>
  
                     </v-card>
+                </v-tab-item>
+
+                <v-tab-item key='tab-6' value='tab-6'> 
+                        <div class="grid grid-cols-2 gap-1">
+                            <v-card class="mx-auto" >
+                                    <v-img
+                                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                                    height="50px"
+                                    ></v-img>  
+                                    <v-card-title> 
+                                            <div class="flex flex-row">
+                                                <div class="col-span-1  w-1/5">
+                                                    <v-radio-group v-model="row" column label="Event_LV :">
+                                                        <v-radio v-for="n in 4" v-if=" n>0 " :label="Event_Lvs[n]" :value="n" ></v-radio> 
+                                                    </v-radio-group> 
+                                                </div> 
+                                                
+                                                <div class="col-span-2 mt-2 flex flex-col mx-1 w-2/5">  
+                                                        <v-text-field class=""
+                                                            v-model="message4" label="預排日期："
+                                                            outlined clearable dense 
+                                                        ></v-text-field>
+
+                                                        <v-text-field class=""
+                                                            v-model="message4" label="活動團體："
+                                                            outlined clearable dense 
+                                                        ></v-text-field>    
+
+                                                        <v-text-field class=""
+                                                            v-model="message4" label="承辦人＆電話："
+                                                            outlined clearable dense 
+                                                        ></v-text-field> 
+                                                </div> 
+
+                                                <div class="col-span-2 mt-2 flex flex-col mx-1 w-1/5">  
+                                                        <v-text-field class=""
+                                                            v-model="message4" label="大約人數："
+                                                            outlined clearable dense 
+                                                        ></v-text-field>
+
+                                                        <v-text-field class=""
+                                                            v-model="message4" label="接駁狀況："
+                                                            outlined clearable dense 
+                                                        ></v-text-field>    
+
+                                                        <v-text-field class=""
+                                                            v-model="message4" label="顧客年齡層："
+                                                            outlined clearable dense 
+                                                        ></v-text-field> 
+                                                </div>
+
+                                                <div class="col-span-1 flex flex-col mx-1 w-1/5"> 
+                                                    <a class="text-xs mb-2" > 模組流水號: </a>
+                                                    
+                                                    <v-btn dark class="orange lighten-2 my-0.5" >
+                                                        新增
+                                                    </v-btn>
+
+                                                    <v-btn dark class="orange lighten-2 my-0.5" >
+                                                        改
+                                                    </v-btn>
+
+                                                    <v-btn dark class="orange lighten-2 my-0.5" >
+                                                        廢
+                                                    </v-btn> 
+
+                                                    <v-btn dark class=" my-0.5" >
+                                                        載入
+                                                    </v-btn> 
+                                                </div> 
+                                            </div>
+                                    </v-card-title>                                     
+
+                                    <v-card-text>
+
+                                        <div class="grid grid-cols-3 gap-1"> 
+                                        <v-card class="mx-auto col-span-2" >
+                                            <v-toolbar dark flat 
+                                                       color="deep-purple accent-4" > 
+                                            <v-toolbar-title>關卡設定</v-toolbar-title>
+                                            </v-toolbar>
+
+                                            <div class="ml-5 mt-2">
+                                                <h2 class="text-h6 mb-2"> 主軸關卡 </h2> 
+                                                <v-chip-group 
+                                                    v-model="amenities" column multiple >
+                                                    <v-chip v-for="n in 10"   filter outlined >
+                                                    {{ pLv_Names[n] }}
+                                                    </v-chip> 
+                                                </v-chip-group>
+                                            </div>
+
+                                            <div class="ml-5 ">
+                                                <h2 class="text-h6 mb-2"> 雨天備案 </h2> 
+                                                <v-chip-group
+                                                    v-model="neighborhoods"  column multiple >
+                                                    <v-chip v-for="n in 10"   filter outlined >
+                                                    {{ pLv_Names[n] }}
+                                                    </v-chip>  
+                                                </v-chip-group>
+                                            </div>
+
+                                            <div class="ml-5 ">
+                                                <h2 class="text-h6 mb-2"> 分流配套: 歡迎兒童or 年邁眷屬 參加 </h2> 
+                                                <v-chip-group
+                                                    v-model="hoods"  column multiple >
+                                                    <v-chip v-for="n in 10"   filter outlined >
+                                                    {{ pLv_Names[n] }}
+                                                    </v-chip>  
+                                                </v-chip-group>
+                                            </div>
+
+
+                                        </v-card>
+
+                                        <v-card class="mx-auto col-span-1" >
+                                            <v-toolbar dark flat 
+                                                       color="deep-purple accent-4" > 
+                                            <v-toolbar-title>隊伍設定</v-toolbar-title>
+                                            </v-toolbar>
+
+                                            <v-card-text>
+                                            <h2 class="text-h6 mb-2"> 啟動隊伍.選好顏色 </h2>
+
+                                            <v-chip-group
+                                                v-model="amenities"
+                                                column  multiple >
+                                                <v-chip v-for="n in 14" v-if=" n>0 "
+                                                filter dark :color="scc[n]" >
+                                                {{ scc[n] }}
+                                                </v-chip> 
+                                            </v-chip-group>
+                                            </v-card-text> 
+                                        </v-card> 
+                                        </div> 
+                                    </v-card-text>
+                                </v-card>  
+                        </div>
+  
                 </v-tab-item> 
 
                 <v-tab-item key='tab-4' value='tab-4'>
@@ -548,19 +694,30 @@ export default {
     },
     data() {
         return {
+
+            // 
+
+            amenities: [1, 4],
+            neighborhoods: [1],
+
             //系統面- 使用者設定
             selt_lv:'請設定關卡',
             // - - - - - 
             temp_nickName:'',  
             tabs: 'k1',
+            E_Lv:0,
+
+            Event_Lvs:['','悠閒放任','時間有限','獎金爭奪戰','親子營隊'],
+
+            scc:['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4','#d97706','#991b1b','#7c2d12','#afbbc9','#2d3748','#22d3ee','#a5f3fc','#1e40af','#4f46e5','#93c5fd'], 
             //
-            tab: 'tab-3', 
+            tab: 'tab-6', 
             swatches:
-[
-           ['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4'],
-           ['#d97706','#991b1b','#7c2d12','#afbbc9','#2d3748'],
-           ['#22d3ee','#a5f3fc','#1e40af','#4f46e5','#93c5fd'], 
-],
+                [
+                    ['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4'],
+                    ['#d97706','#991b1b','#7c2d12','#afbbc9','#2d3748'],
+                    ['#22d3ee','#a5f3fc','#1e40af','#4f46e5','#93c5fd'], 
+                ],
             // swatches: [
             //     ['#FF0000', '#AA0000', '#550000'],
             //     ['#FFFF00', '#AAAA00', '#555500'],

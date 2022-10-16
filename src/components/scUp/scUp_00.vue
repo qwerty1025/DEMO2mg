@@ -25,7 +25,7 @@
                                 > 返回.選關卡  </v-btn>
 
                                 
-                                 <!-- {{ selt_lv }} -->
+                                 <!-- {{ selt_lv }} --> 
                                  <select v-model="selt_lv"
                                          class="text-blue-600 text-xs mt-3  bg-blue-100 
                                             appearance-none border-none 
@@ -114,10 +114,12 @@ import SeatDataService from "../../services/SeatPrepareService";
 import playLvService from "../../services/playLvService";
 
 
+// import pLv from "../assets/hs.json";
+
 export default {
     name: "HelloWorld",
     computed: {
-        pLv_Names() { return pLv.a.map((item) => { return item.playLv_Name; }) },
+        pLv_Names() { return pLv.a.map((item) => { return item.playLv_Name; }) ; },
         pLv_Loading() { return pLv.a.map((item) => { return item.playLv_Loading; }) }
     },
     components: {
@@ -138,6 +140,8 @@ export default {
             tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊'],
             // tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
             tm_uuid:['null','UDM-N51','UDM-N52','UDM-N53','UDM-N54','UDM-N55','UDM-N56'],
+            
+            /// 這裡一直會是一個問題。再請處理拉 10/16;;;
             playLv_Name:['null','騎射打鑼','標靶箭','保齡球','保齡球','超時空戰場 ','飛龍峽谷','弓箭拔河','競速足球','延長賽','備用'],
               
             Lv_Ary:[ { text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' }], 
@@ -331,6 +335,8 @@ export default {
              }
  
              let tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
+             
+            //  let temp_Ary= this.pLv_Names();
              let vv = 9;
              switch(key) {
                  case 'UDM-N51':
@@ -378,7 +384,7 @@ export default {
                      //    timer: 1200
                     }) 
 
-                    this.saveHistory(this.playLv_Name[n],score,tm_Name_ary[vv] ) ;
+                    this.saveHistory(this.playLv_Name[n],tm_Name_ary[vv],score ) ;
                 })
                 .catch((e) => {
                     console.log(e);
@@ -457,11 +463,11 @@ export default {
             this.tsCNT = _tutorials.length;
 
         },
-        saveHistory(lv,s,m) { 
+        saveHistory(tm,lv,s,) { 
             var data = {
                 time: Date.now() ,
-                play_lv: lv,
-                play_tm: m, 
+                play_tm: tm, 
+                play_lv: lv, 
                 play_score: s,
                 statu: 1,
                 memo:'null',

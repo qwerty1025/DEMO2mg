@@ -3,12 +3,15 @@
     "a": [
             {"playLv_Name": "null", "playLv_Loading": "null"},
             {"playLv_Name": "騎射打鑼", "playLv_Loading": "true"},
-            {"playLv_Name": "標靶箭", "playLv_Loading": "true"},
-            {"playLv_Name": "保齡球", "playLv_Loading": "true"}, 
+            {"playLv_Name": "經典標靶箭", "playLv_Loading": "true"},
             {"playLv_Name": "超時空戰場", "playLv_Loading": "true"}, 
+            {"playLv_Name": "保齡球", "playLv_Loading": "true"}, 
             {"playLv_Name": "飛龍峽谷", "playLv_Loading": "true"},
             {"playLv_Name": "弓箭拔河", "playLv_Loading": "false"},
-            {"playLv_Name": "競速足球", "playLv_Loading": "false"}
+            {"playLv_Name": "競速足球", "playLv_Loading": "false"},
+            {"playLv_Name": "漂浮射箭", "playLv_Loading": "false"}, 
+            {"playLv_Name": "全明星標靶箭", "playLv_Loading": "false"},
+            {"playLv_Name": "無需準備", "playLv_Loading": "false"}
              
          ]
   }

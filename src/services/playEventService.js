@@ -1,16 +1,12 @@
 import firebase from "../firebase";
 
 // const db = firebase.ref("/historys");
-const db = firebase.ref("/h2f_playLv");
+const db = firebase.ref("/h2f_playEvent");
 // const db = firebase.ref("/h2f_team_score");
 
 class StDataService {
   getAll() {
     return db;
-  }
-
-  getByDate(detal) {
-    return firebase.ref("/h2f_playLv").orderByChild('date').startAt(detal); 
   }
 
   uqcrat(userKey,user) { 
