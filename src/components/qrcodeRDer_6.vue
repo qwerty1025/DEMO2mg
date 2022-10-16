@@ -308,8 +308,8 @@
                                             <v-toolbar-title>關卡設定</v-toolbar-title>
                                             </v-toolbar>
 
-                                            <div class="ml-5 mt-2">
-                                                <h2 class="text-h6 mb-2"> 主軸關卡 </h2> 
+                                            <div class="ml-5 my-3">
+                                                <h2 class="text-h6 "> 主軸關卡 </h2> 
                                                 <v-chip-group 
                                                     v-model="amenities" column multiple >
                                                     <v-chip v-for="n in 10"   filter outlined >
@@ -318,7 +318,7 @@
                                                 </v-chip-group>
                                             </div>
 
-                                            <div class="ml-5 ">
+                                            <!-- <div class="ml-5 ">
                                                 <h2 class="text-h6 mb-2"> 雨天備案 </h2> 
                                                 <v-chip-group
                                                     v-model="neighborhoods"  column multiple >
@@ -326,7 +326,7 @@
                                                     {{ pLv_Names[n] }}
                                                     </v-chip>  
                                                 </v-chip-group>
-                                            </div>
+                                            </div> -->
 
                                             <div class="ml-5 ">
                                                 <h2 class="text-h6 mb-2"> 分流配套: 歡迎兒童or 年邁眷屬 參加 </h2> 
@@ -609,7 +609,8 @@
                                                 <!-- <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
                                                 <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>    -->
                                                 <!-- {{ index }} {{ History[index].key}} ::: -->
-                                                <v-text-field 
+                                                
+                                                <!-- <v-text-field 
                                                     v-model="item.statu" 
                                                     class="mt-0 pt-0" 
                                                     type="number"
@@ -624,40 +625,41 @@
                                                     clear solo single-line 
                                                     label="請重新輸入play_score" 
                                                     placeholder="請輸入成績" >
-                                                </v-text-field> 
-                                                <div class="text-xs text-red-400 mr-3">{{ item.statu }}, {{ item.key }}</div>
-                                                <div class="text-xs font-light text-gray-700 pr-3 ">{{ playLv_Name[item.play_lv] }},{{ item.play_lv}}</div>
-                                                <div class="text-xs font-bold text-gray-900 py-1 px-3 rounded-full bg-gray-200  "> {{ tm_Name_ary[item.play_tm] }},{{ item.play_tm }} 得 {{ item.play_score }} 分</div>
-                                                <!-- <a class="text-xs font-black px-3 "> </a> -->
-                                                <div class="text-xs font-light text-gray-700 px-3 ">{{ dayjs(item.time).format('YYYY-MM-DD HH:mm:ss') }}</div>
+                                                </v-text-field>  -->
 
-                                                
-                                                <!-- <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>   -->
+                                                <div class="text-xs text-red-400 mr-3">
+                                                    <!-- {{ item.statu }},  -->
+                                                    <!-- {{ item.key }} -->
+                                                    ??? 活動名稱
+                                                </div>
+                                                <div class="text-xs font-light text-gray-700 pr-3 ">
+                                                    <!-- {{ playLv_Name[item.play_lv] }}, -->
+                                                    {{ item.play_lv}}
+                                                </div>
+                                                <div class="text-xs font-bold text-gray-900 py-1 px-3 rounded-full bg-gray-200  "> 
+                                                    <!-- {{ tm_Name_ary[item.play_tm] }}, -->
+                                                    {{ item.play_tm }} 得 {{ item.play_score }} 分
+                                                </div>
+                                               
+                                                <div class="text-xs font-light text-gray-700 px-3 ">
+                                                    {{ dayjs(item.time).format('YYYY-MM-DD HH:mm:ss') }}
+                                                </div>
 
-                                                <!-- dayjs(item.time).format('YYYY-MM-DD HH:mm:ss'); -->
+                                                <v-btn @click="changStatu22(item,2)" dark color="#388E3C"> 作廢 </v-btn>  
+
+ 
                                             </div> 
                                             
                                             <div class="col-span-1 flex" > 
-                                                <!-- <a class="text-lg font-black p-1">{{ playLv_Name[1] }}</a> 
-                                                <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>    -->
-                                                <!-- <a class="text-xs  text-gary-400">{{ playLv_Name[item.play_lv] }}</a>
-                                                <a class="text-xs ">{{ item.play_score }}</a> -->
-                                                <!-- <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 修改 </v-btn>   -->
-                                                <v-btn @click="changStatu(item)" dark color="#388E3C"> 作廢 </v-btn>  
-                                                <v-btn @click="changStatu22(item,2)" dark color="#388E3C"> 22作廢 </v-btn>  
+                                                
+                                                <!-- <v-btn @click="changStatu(item)" dark color="#388E3C"> 作廢 </v-btn>   -->
+                                                <!-- <v-btn @click="changStatu22(item,2)" dark color="#388E3C"> 作廢 </v-btn>   -->
 
                                                
                                             </div> 
                                             
                                     </div>  
-                                </v-row>
-                                <!-- {{ History }} -->
-                                <!-- <v-btn :to=playLv_Scr_Mdf[index] class="col-span-1 w-full" color="#7CB342" height="80px" dark   >
-                                       {{ '〖'+index+'〗'}} - {{ playLv_Name[index]}} 
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5  mx-auto  " fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </v-btn>   -->
+                                </v-row> 
                             </div>
                               
  
