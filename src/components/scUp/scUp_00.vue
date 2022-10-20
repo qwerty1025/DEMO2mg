@@ -92,7 +92,12 @@
                      </v-row> 
 
                      
-                     <!-- <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader> -->
+                     <StreamBarcodeReader 
+                     @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"
+
+                     :track="false"
+                     :paused="paused"
+                     ></StreamBarcodeReader>
  
                      
  
