@@ -26,6 +26,7 @@
                         
             </v-tab>
             <v-tab href="#tab-4">
+                
                 <a class="text-xs">隊伍設定</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
@@ -45,6 +46,15 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
                 </svg> 
             </v-tab>
+
+            <v-tab href="#tab-7">
+                <a class="text-xs">條碼歸類工具</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
+                </svg>
+            </v-tab>
+
             </v-tabs>
 
             <v-tabs-items v-model="tab">
@@ -52,8 +62,6 @@
                     <v-card v-scroll.self="onScroll" class="overflow-y-auto h-screen">
                      
                         <!-- <StreamBarcodeReader @decode="(a, b, c) => onDecode(a, b, c)" @loaded="() => onLoaded()"></StreamBarcodeReader> -->
-    
-    
                         <v-row align="center" class=" m-10 text-s">
                             <div class="grid grid-cols-2 gap-1"> 
                                 <div class="col-span-1 flex p-4 bg-gray-100 ">
@@ -108,42 +116,76 @@
                 </v-tab-item> 
 
                 <v-tab-item key='tab-22' value='tab-22'>
+                    <v-btn> (*)切換表格：直式/橫式  </v-btn> <a class ="text-gray-300"> (*) 記號表示功能設置中，尚未啟用 </a>
+                    <!-- <checkbox name="food[]" value="pizza" v-model="checkboxValue" checked>
+                        🍕 Pizza
+                    </checkbox>  -->
+                    
                     <v-card>
                         <div class="flex flex-row justify-end mr-3">
-                            <span class="bg-gray-200 rounded px-1 py-1 mx-1 text-xs font-bold " 
-                                    v-for="n in 10" v-if=" n>0  && pLv_Loading[n]=='true' "  >
-                                {{ pLv_Names[n]  }}
-                            </span> 
+                            <div class=" flex flex-cols">  
+                                    <!-- <v-chip large class="rounded-xl text-lg bg-gray-100 px-3"   outlined label >   </v-chip>  -->
+                                        <div class="px-4 py-3 bg-gray-900 text-gray-100 rounded text-base font-bold "   >
+                                                隊伍
+                                        </div> 
+                                        <div class="px-5 py-3 mx-2 bg-gray-900 text-gray-100 rounded text-base font-bold "   >
+                                                總分
+                                        </div>
+
+                                        <div class=" flex flex-row  px-2 py-3 mx-2 bg-gray-900 text-gray-100 rounded text-base font-bold "
+                                                     v-for="n in 10" v-if=" n>0  && pLv_Loading[n]=='true'"   >
+                                            <a class =" ml-4">{{ pLv_Names[n]  }}</a>
+                                        </div>
+                                     
+                                        <!-- <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[1] }}</div> -->
+                                        <!-- <div class="flex flex-row p-2 bg-gray-200 rounded px-1 py-1 mx-1 text-xs font-bold " 
+                                                v-for="n in 10" v-if=" n>0  && pLv_Loading[n]=='true' "  >
+                                            {{ pLv_Names[n]  }}
+                                        </div>  -->
+                                     
+                            </div>
+                             
                         </div> 
                         <div v-for="card in ts" :key="card.key"  > 
                             <v-card class="m-2" v-show="card.using == 'true'" >  
                                 <div class=" flex flex-cols">  
-                                    <v-chip large class="rounded-xl text-lg bg-gray-100 px-1" :color="card.tm_Color" outlined label > {{ card.tm_Name }} </v-chip> 
-                                    <a class="text-xs">總分：{{ parseInt(card.score_1) + parseInt(card.score_2)+ parseInt(card.score_3)+ parseInt(card.score_4)+ parseInt(card.score_5)+ parseInt(card.score_6)}}</a>
+                                    <v-btn class=" bg-gray-900 text-gray-100 rounded text-base font-bold " dark :color="card.tm_Color"   >
+                                        {{ card.tm_Name }}
+                                        </v-btn> 
+
+                                    <!-- <v-chip large class="rounded-xl text-lg bg-gray-100 px-1" dark :color="card.tm_Color"  > {{ card.tm_Name }} </v-chip>  -->
+                                    
                                     <!-- <a class=" text-xs">總分：{{ int.params(card.score_1) +int.params(card.score_2) +int.params(card.score_3) }} </a> -->
-                                    <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[1] == 'true'">  
-                                        <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[1] }}</div>
-                                        <div class="text-lg font-bold items-center">{{ card.score_1 }}</div>   
+                                    <div class="bg-gray-900 text-gray-100 rounded text-base font-bold ml-2 mr-3  pt-2 ">  
+                                        <a class="text-lg font-black py-3 px-14 ">
+                                             {{ parseInt(card.score_1) + parseInt(card.score_2)+ parseInt(card.score_3)+ parseInt(card.score_4)+ parseInt(card.score_5)+ 
+                                                     parseInt(card.score_6) +parseInt(card.score_7) + parseInt(card.score_8)+ parseInt(card.score_9)+ parseInt(card.score_10) 
+                                                  }} </a>
                                     </div>
 
-                                    <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[2] == 'true'">  
-                                        <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[2] }}</div>
-                                        <div class="text-lg font-bold items-center">{{ card.score_2 }}</div>   
+                                    <div class="flex flex-col-reverse ml-12 p-2  " v-show="pLv_Loading[1] == 'true'">  
+                                        <!-- <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[1] }}</div> -->
+                                        <div class="text-3xl font-bold items-center">{{ card.score_1 }}</div>   
                                     </div>
 
-                                    <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[3] == 'true'">  
-                                        <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[3] }}</div>
-                                        <div class="text-lg font-bold  items-center">{{ card.score_3 }}</div>   
+                                    <div class="flex flex-col-reverse ml-12 p-2  " v-show="pLv_Loading[2] == 'true'">  
+                                        <!-- <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[2] }}</div> -->
+                                        <div class="text-3xl font-bold items-center">{{ card.score_2 }}</div>   
                                     </div>
 
-                                    <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[4] == 'true'">  
-                                        <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[4] }}</div>
-                                        <div class="text-lg font-bold items-center">{{ card.score_4 }}</div>   
+                                    <div class="flex flex-col-reverse ml-12 p-2  " v-show="pLv_Loading[3] == 'true'">  
+                                        <!-- <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[3] }}</div> -->
+                                        <div class="text-3xl font-bold  items-center">{{ card.score_3 }}</div>   
                                     </div>
 
-                                    <div class="flex flex-col-reverse p-2  " v-show="pLv_Loading[5] == 'true'">  
-                                        <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[5] }}</div>
-                                        <div class="text-lg font-bold  items-center">{{ card.score_5 }}</div>   
+                                    <div class="flex flex-col-reverse ml-12 p-2  " v-show="pLv_Loading[4] == 'true'">  
+                                        <!-- <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[4] }}</div> -->
+                                        <div class="text-3xl font-bold items-center">{{ card.score_4 }}</div>   
+                                    </div>
+
+                                    <div class="flex flex-col-reverse ml-12 p-2  " v-show="pLv_Loading[5] == 'true'">  
+                                        <!-- <div class="text-xs text-gray-300 truncate"  >{{ pLv_Names[5] }}</div> -->
+                                        <div class="text-3xl font-bold  items-center">{{ card.score_5 }}</div>   
                                     </div> 
                                 </div>  
                             </v-card>
@@ -229,7 +271,8 @@
                 </v-tab-item>
 
                 <v-tab-item key='tab-6' value='tab-6'> 
-                        <div class="grid grid-cols-2 gap-1">
+                        <div class="grid grid-cols-1 gap-1"> 
+                            <!-- // 表格狀態 -->
                             <v-card class="mx-auto" >
                                     <v-img
                                     src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -368,6 +411,31 @@
                 </v-tab-item> 
 
                 <v-tab-item key='tab-4' value='tab-4'>
+                    <!-- <v-fab-transition >
+                        <v-btn-toggle 
+                                fab dark small absolute top left 
+                                class="mt-10 px-15" 
+                                v-model="toggle_exclusive">
+                            <v-btn>
+                            <v-icon>mdi-format-align-left</v-icon>
+                            </v-btn>
+
+                            <v-btn>
+                            <v-icon>mdi-format-align-center</v-icon>
+                            </v-btn>
+
+                            <v-btn>
+                            <v-icon>mdi-format-align-right</v-icon>
+                            </v-btn>
+
+                            <v-btn>
+                            <v-icon>mdi-format-align-justify</v-icon>
+                            </v-btn>
+                        </v-btn-toggle>
+ 
+                        </v-fab-transition> -->
+
+                        
                     <v-card  class="overflow-y-auto h-screen mb-20" >  
                         <v-row dense class="" >
                                         <v-expansion-panels >
@@ -459,7 +527,8 @@
                                                 <v-expansion-panel-header>
                                                     
                                                     <v-btn @click="reset_2_0(card)" dark  color="#171717" class="mx-2" > 重置歸零 </v-btn> 
-                                                    <a> 後台修改.關卡得分 </a>
+                                                    <a> 目前總分：{{ parseInt(card.score_1) +parseInt(card.score_2) +parseInt(card.score_3) +parseInt(card.score_4) +parseInt(card.score_5) 
+                                                                 + parseInt(card.score_6) +parseInt(card.score_7) +parseInt(card.score_8) +parseInt(card.score_9) +parseInt(card.score_10)   }}</a>
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content> 
 
@@ -468,7 +537,7 @@
 
                                                         <div class="col-span-1 flex" > 
                                                             <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[1] }}</a> 
-                                                            <v-text-field v-model="card.score_1"  filled dense rounded ></v-text-field>   
+                                                            <v-text-field v-model="card.score_1"   filled dense rounded ></v-text-field>   
                                                             <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 改 </v-btn>  
                                                         </div> 
                                                         <div class="col-span-1 flex" > 
