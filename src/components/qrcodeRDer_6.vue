@@ -782,7 +782,7 @@ export default {
 
             scc:['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4','#d97706','#991b1b','#7c2d12','#afbbc9','#2d3748','#22d3ee','#a5f3fc','#1e40af','#4f46e5','#93c5fd'], 
             //
-            tab: 'tab-6', 
+            tab: 'tab-3', 
             swatches:
                 [
                     ['#22c55e','#fcd34d','#e11d48','#db2777','#f9a8d4'],
