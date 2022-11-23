@@ -60,6 +60,11 @@ export default new Router({
       name: 'User',
       component: () => import("./components/scUp/scUp_00")
     }, 
+    {
+      path: '/11',
+      name: 'User',
+      component: () => import("./components/scUp/scUp_11")
+    }, 
 
     
     {
