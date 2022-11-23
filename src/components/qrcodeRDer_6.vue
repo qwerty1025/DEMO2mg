@@ -650,6 +650,19 @@
                                             <v-expansion-panel >
                                                 <v-expansion-panel-header>
                                                     <div class="flex justify-center"> 
+                                                        <!-- src/assets/64.png -->
+                                                        <!-- /// -->
+
+                                                        <!-- <img :src="src/assets/64.png" /> -->
+                                                        <img src="@/assets/64.png" />  
+                                                         <!-- <img src="@/assets/img/clear.gif" />   -->
+                                                        <!-- <img :src="@/assets/"+{{ card.key}}+ ".png" /> -->
+                                                        <!-- <v-img
+                                                        lazy-src="./src/assets/64.png"
+                                                        max-height="150"
+                                                        max-width="250"
+                                                        src="./src/assets/64.png"
+                                                        ></v-img> -->
                                                         <qr-code :text="card.key" class="mx-3"
                                                             size="100" error-level="L">
                                                         </qr-code> 
@@ -893,6 +906,7 @@ import VueQRCodeComponent from 'vue-qrcode-component'
 Vue.component('qr-code', VueQRCodeComponent)
 
 
+
 import { StreamBarcodeReader } from "vue-barcode-reader";
 import SeatDataService from "../services/SeatPrepareService";
 import playLvService from "../services/playLvService"; 
@@ -912,6 +926,7 @@ export default {
         return {
 
             // 
+            dd:[0,51,52],
 
             amenities: [1, 4],
             neighborhoods: [1],

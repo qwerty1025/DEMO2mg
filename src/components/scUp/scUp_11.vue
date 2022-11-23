@@ -4,6 +4,8 @@
                      <v-row align="center" class=" m-10 text-s">
                          <div class="grid grid-cols-2 gap-1"> 
                              <div class="col-span-1 flex p-4 bg-gray-100 ">
+                                <!-- <vueQrTest /> -->
+                                
                                  掃描結果 : {{ text || "點擊螢幕啟動" }}
                              </div> 
                          </div> 
@@ -19,6 +21,7 @@
 
  
                  </v-card>
+
      
          
     
@@ -30,6 +33,8 @@ import Vue from 'vue'
 import VueQRCodeComponent from 'vue-qrcode-component'
 Vue.component('qr-code', VueQRCodeComponent)
 
+// import vueQr from "vue-qr";
+
 
 import { StreamBarcodeReader } from "vue-barcode-reader";
 import SeatDataService from "../../services/SeatPrepareService";
@@ -39,6 +44,7 @@ export default {
     name: "HelloWorld",
     components: {
         StreamBarcodeReader,
+        // VueQr
     },
     data() {
         return {
