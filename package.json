@@ -16,6 +16,7 @@
     "firebase": "^7.23.0",
     "pixi.js": "^6.4.2",
     "pretty-checkbox-vue": "^1.1.9",
+    "qrcode": "^1.5.1",
     "smooth-dnd": "^0.12.1",
     "sweetalert2": "^11.4.17",
     "uuid": "^8.3.2",

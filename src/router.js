@@ -11,7 +11,12 @@ export default new Router({
       path: "/8",
       name: "bkList",
       component: () => import("./components/bdadd8_List")
-    },  
+    }, 
+    {
+      path: "/ADD",
+      name: "QRDer",
+      component: () => import("./components/ADD")
+    }, 
     {
       path: "/kLooK_sing",
       name: "QRDer",
