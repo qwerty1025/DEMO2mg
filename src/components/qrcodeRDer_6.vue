@@ -644,50 +644,30 @@
                    <!-- <a v-for="card in ts" :key="card.key"  >{{ card.key }} </a> -->
                     <v-card  class="overflow-y-auto h-screen mb-20" >  
                         <div dense class="grid grid-cols-4 gap-1" > 
-                                <v-col v-for="card in ts" :key="card.key"  > 
+                                <v-col v-for="(card, index) in ts" :key="card.key"  > 
                                     <v-card class="p-1" :color="card.tm_Color" > 
                                         <v-expansion-panels >
                                             <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    <div class="flex justify-center"> 
-                                                        <!-- src/assets/64.png -->
-                                                        <!-- /// -->
-
-                                                        <!-- <img :src="src/assets/64.png" /> -->
-                                                        <img src="@/assets/64.png" />  
-                                                         <!-- <img src="@/assets/img/clear.gif" />   -->
-                                                        <!-- <img :src="@/assets/"+{{ card.key}}+ ".png" /> -->
-                                                        <!-- <v-img
-                                                        lazy-src="./src/assets/64.png"
-                                                        max-height="150"
-                                                        max-width="250"
-                                                        src="./src/assets/64.png"
-                                                        ></v-img> -->
-                                                        <qr-code :text="card.key" class="mx-3"
-                                                            size="100" error-level="L">
-                                                        </qr-code> 
-                                                        <v-chip  dark align="center" class="  mr-2 "
-                                                                    :color="card.tm_Color"> 
-                                                                        {{ card.tm_Name }} 
-                                                        </v-chip>  
-                                                    </div> 
-
+                                                    <div class="flex flex-col  justify-center"> 
+<!-- https://i.imgur.com/5PapiZa.png
+                                                      
+                                                          -->
+                                                        <v-img :src="card.memo_1"></v-img>  
+                                                                </div> 
 
                                                     <!-- <a class="rounded-full bg-red-500"> show Qr-Code </a> -->
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content> 
-                                                    <!-- <div class="flex justify-center">
-                                                        <qr-code :text="card.key" 
+                                                    <div class="flex flex-col  justify-center">  
+                                                    <qr-code :text="card.key" class="mx-3"
                                                             size="200" error-level="L">
-                                                        </qr-code>  
-                                                    </div>  -->
-                                                    <v-color-picker
-                                                                            dot-size="25" flat
-                                                                            :swatches="swatches" show-swatches
-                                                                            swatches-max-height="200" 
-                                                                            v-model="card.tm_Color"
-                                                                            class="px-2 col-span-3"
-                                                                            ></v-color-picker> 
+                                                        </qr-code> 
+                                                        <v-text-field  
+                                                                        v-model="card.memo_1"  label="圖片路徑"  
+                                                                        filled  dense rounded class="px-2 col-span-2" >
+                                                                    </v-text-field>   
+                                                                </div>  
                                                                             
                                                 </v-expansion-panel-content>
                                              </v-expansion-panel> 
@@ -797,15 +777,11 @@
 
                                                                     <v-btn @click="changQrCD_tm_Name(card)"  class="px-2 col-span-1" dark color="#388E3C" > 修改 </v-btn> 
 
- 
-                                                                        
-                                                                    <div>
-
-                                                                        
-                                                                        <!-- <v-btn @click="reset_2_0(card)" dark  color="#1E88E5" class="mx-2" > 重置歸零 </v-btn>   -->
-                                                                    </div>
-                                                             
-                                                        <!-- </div>   -->
+                                                                    <!-- <v-text-field  
+                                                                        v-model="card.memo_1"  label="圖片路徑" 
+                                                                        filled  dense rounded class="px-2 col-span-2" >
+                                                                    </v-text-field>
+  -->
                                                     </div>  
                                              </v-expansion-panel>
                                         </v-expansion-panels> 
@@ -926,7 +902,7 @@ export default {
         return {
 
             // 
-            dd:[0,51,52],
+            // showQrcode:[0,'https://firebasestorage.googleapis.com/v0/b/a8ask-4c2de.appspot.com/o/51.png?alt=media&token=579bd39c-37da-4575-ae4a-2d56ada97a39','@/assets/63.png'],
 
             amenities: [1, 4],
             neighborhoods: [1],
@@ -1009,6 +985,10 @@ export default {
     },
 
     methods: {
+        chg2img(d){
+            let str = "@/assets/" + d + ".png"
+            return str 
+        },
         deleteTeam(item) {
             SeatDataService.delete(item.key)
             .then(() => {
@@ -1265,6 +1245,7 @@ export default {
             tm_Name: item.tm_Name, 
             tm_amt: item.tm_amt,  
             memo: item.memo,
+            
             using: item.using, 
            }; 
 
@@ -1306,7 +1287,8 @@ export default {
            const OLD = { 
             tm_Name: item.tm_Name, 
             tm_amt: item.tm_amt, 
-            tm_Color: item.tm_Color, 
+            tm_Color: item.tm_Color,
+            memo_1: item.memo_1,  
            }; 
 
            SeatDataService.update(item.key, OLD)
