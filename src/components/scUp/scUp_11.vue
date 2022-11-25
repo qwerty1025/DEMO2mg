@@ -6,7 +6,7 @@
                              <div class="col-span-1 flex p-4 bg-gray-100 ">
                                 <!-- <vueQrTest /> -->
                                 
-                                 掃描結果 : {{ text || "點擊螢幕啟動" }}
+                                 顯示.掃描結果 : {{ text || "點擊螢幕啟動" }}
                              </div> 
                          </div> 
                      </v-row> 
@@ -61,8 +61,7 @@ export default {
               
             Lv_Ary:[ { text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' }], 
             //
-            tsCNT: 0,  
-            //
+            tsCNT: 0,   
             temp_score:"",
             max_score: 100,
             min_score: 0, 
@@ -85,14 +84,8 @@ export default {
                        title: '分!',
                        text: '恭喜  " '+this.text+'關卡' ,
                        showConfirmButton: true,
-                    //    timer: 1200
-                   }) 
-            // if (this.id) clearTimeout(this.id);
-            // this.id = setTimeout(() => {
-            //     if (this.text === a) {
-            //         this.text = "";
-            //     }
-            // }, 5000);
+                       timer: 6000
+                   })  
         },
         onLoaded() {
             console.log("load");

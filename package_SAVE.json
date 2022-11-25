@@ -1,0 +1,79 @@
+{
+  "name": " vue-firebase-crud",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.11.5",
+    "draggable": "^4.2.0",
+    "element-ui": "^2.15.6",
+    "firebase": "^7.23.0",
+    "pixi.js": "^6.4.2",
+    "pretty-checkbox-vue": "^1.1.9",
+    "qrcode": "^1.5.1",
+    "smooth-dnd": "^0.12.1",
+    "sweetalert2": "^11.4.17",
+    "uuid": "^8.3.2",
+    "vue": "^2.7.14",
+    "vue-axios": "^3.4.0",
+    "vue-barcode-reader": "^1.0.2",
+    "vue-checkbox-radio": "^0.6.0",
+    "vue-devtools": "^5.1.4",
+    "vue-dndrop": "^1.1.3",
+    "vue-drag-and-drop-list": "^1.0.0",
+    "vue-draggable": "^2.0.6",
+    "vue-easy-dnd": "^1.22.0",
+    "vue-json-csv": "^1.2.12",
+    "vue-pixi": "^0.1.1",
+    "vue-print-nb": "^1.7.5",
+    "vue-qr": "^4.0.9",
+    "vue-qrcode-component": "^2.1.1",
+    "vue-qrcode-reader": "^3.1.0",
+    "vue-resource": "^1.5.3",
+    "vue-router": "^3.4.6",
+    "vue-smooth-dnd": "^0.8.1",
+    "vue-template-compiler": "2.7.14",
+    "vue3-print-nb": "^0.1.4",
+    "vuedraggable": "^4.1.0",
+    "vuetify": "^2.6.0",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.0",
+    "@vue/cli-service": "^4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.4.8",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
