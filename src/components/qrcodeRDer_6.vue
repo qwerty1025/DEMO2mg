@@ -643,17 +643,14 @@
                  
                    <!-- <a v-for="card in ts" :key="card.key"  >{{ card.key }} </a> -->
                     <v-card  class="overflow-y-auto h-screen mb-20" >  
-                        <div dense class="grid grid-cols-3 gap-1" > 
+                        <div dense class="grid grid-cols-4 gap-1" > 
                                 <v-col v-for="(card, index) in ts" :key="card.key"  > 
                                     <v-card class="p-1" :color="card.tm_Color" > 
                                         <v-expansion-panels >
                                             <v-expansion-panel >
                                                 <v-expansion-panel-header>
-                                                    <div class="flex flex-col  justify-center"> 
-<!-- https://i.imgur.com/5PapiZa.png
-                                                      
-                                                          -->
-                                                        <v-img :src="card.memo_1"></v-img>  
+                                                    <div class="flex flex-col  justify-center">  
+                                                        <!-- <v-img :src="card.memo_1"></v-img>   -->
                                                                 </div> 
 
                                                     <!-- <a class="rounded-full bg-red-500"> show Qr-Code </a> -->

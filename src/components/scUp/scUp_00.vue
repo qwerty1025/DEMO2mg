@@ -80,7 +80,7 @@
                             row
                             class="w-4/5"
                             >
-                            <v-radio v-for="n in 5" v-if=" n>0"
+                            <v-radio v-for="n in 16" v-if=" n>0"
                                 :label="n+ tm_Name_ary[n]"
                                 :value="tm_uuid[n]"
                             ></v-radio> 
@@ -142,7 +142,7 @@ export default {
             // - - - - - 
             // - - - - -  
             tab: 'tab-1',  
-            tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊'],
+            tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊','桃紅隊','粉紅隊','深紅隊','深藍隊','淺藍隊','橙隊','綠隊','白隊','黑隊','鐵灰隊','棕隊'],
             // tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
             tm_uuid:['null','UDM-N51','UDM-N52','UDM-N53','UDM-N54','UDM-N55','UDM-N56'],
             
