@@ -643,7 +643,7 @@
                  
                    <!-- <a v-for="card in ts" :key="card.key"  >{{ card.key }} </a> -->
                     <v-card  class="overflow-y-auto h-screen mb-20" >  
-                        <div dense class="grid grid-cols-4 gap-1" > 
+                        <div dense class="grid grid-cols-3 gap-1" > 
                                 <v-col v-for="(card, index) in ts" :key="card.key"  > 
                                     <v-card class="p-1" :color="card.tm_Color" > 
                                         <v-expansion-panels >
@@ -681,8 +681,8 @@
                                                 </v-expansion-panel-header>
                                                 <v-expansion-panel-content> 
 
-                                                    <div class="grid grid-cols-2 gap-1"> 
-                                                        <div class="col-span-2" > <a class="text-gray-500 text-base" > 輸入“ {{ card.tm_Name }} “分數 </a>   </div>
+                                                    <div class="grid grid-cols-1 gap-1"> 
+                                                        <div class="col-span-1" > <a class="text-gray-500 text-base" > 輸入“ {{ card.tm_Name }} “分數 </a>   </div>
 
                                                         <div class="col-span-1 flex" > 
                                                             <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[1] }}</a> 
