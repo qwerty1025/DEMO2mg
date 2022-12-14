@@ -771,8 +771,9 @@
                                                                         v-model="card.tm_Color"  label="hex 色號" 
                                                                         filled  dense rounded class="px-2 col-span-2" >
                                                                     </v-text-field>
-
-                                                                    <v-btn @click="changQrCD_tm_Name(card)"  class="px-2 col-span-1" dark color="#388E3C" > 修改 </v-btn> 
+<!-- // 因應測試暫時關閉 -->
+                                                                    <v-btn   class="px-2 col-span-1" dark color="#808080" > 修改(暫停使用) </v-btn> 
+                                                                    <!-- <v-btn @click="changQrCD_tm_Name(card)"  class="px-2 col-span-1" dark color="#388E3C" > 修改 </v-btn>  -->
 
                                                                     <!-- <v-text-field  
                                                                         v-model="card.memo_1"  label="圖片路徑" 

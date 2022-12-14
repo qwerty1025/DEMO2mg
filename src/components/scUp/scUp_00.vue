@@ -13,14 +13,14 @@
                                 </a>   -->
                                 <!-- <br> -->
                                 <a class="text-xs">
-                                選擇 :  {{ tm_Slected }} ,{{ result }}
+                                    ~~ 選擇 :  {{ tm_Slected }} ,{{ result }}
                                 </a>  
                                
                              </div>
                              <div class="col-span-1 flex-row p-4">
                                 <v-btn
                                     color="#7c3aed" small dark
-                                    href="https://qwerty1025.github.io/DEMO2mg/#/QRDer"
+                                    href="https://shooshoo-rank.web.app/score_Hub"
                                     
                                 > 返回.選關卡  </v-btn>
 
@@ -43,11 +43,14 @@
                                      <option value="5"> {{ playLv_Name[5] }} </option>
                                      <option value="6"> {{ playLv_Name[6] }} </option>
 
-                                     <option value=7>生存戰 </option>
-                                     <option value=8>飛龍峽谷 </option> 
+                                     <option value=7>{{ playLv_Name[7] }} </option>
+                                     <option value=8>{{ playLv_Name[8] }} </option> 
                                      
-                                     <option value=9>延長賽 </option>
-                                     <option value=10>備用 </option>  
+                                     <option value=9>{{ playLv_Name[9] }} </option>
+                                     <option value=10>{{ playLv_Name[10] }}  </option>  
+
+                                     <option value=9>{{ playLv_Name[11] }} </option>
+                                     <option value=10>{{ playLv_Name[12] }}  </option> 
                                  </select>
                                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
                                  <i class="fas fa-chevron-down text-gray-400"></i>
@@ -142,13 +145,19 @@ export default {
             // - - - - - 
             // - - - - -  
             tab: 'tab-1',  
-            tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊','桃紅隊','粉紅隊','深紅隊','深藍隊','淺藍隊','橙隊','綠隊','白隊','黑隊','鐵灰隊','棕隊'],
+            
+            
             // tm_Name_ary:['?','紅隊','咖啡隊','黃隊','綠隊','藍隊','紫隊'],
-            tm_uuid:['null','UDM-N51','UDM-N52','UDM-N53','UDM-N54','UDM-N55','UDM-N56'],
+            // tm_uuid:['null','UDM-N51','UDM-N52','UDM-N53','UDM-N54','UDM-N55','UDM-N56'],
             
             /// 這裡一直會是一個問題。再請處理拉 10/16;;;
-            playLv_Name:['null','騎射打鑼','標靶箭','保齡球','保齡球','超時空戰場 ','飛龍峽谷','弓箭拔河','競速足球','延長賽','備用'],
-              
+            // playLv_Name:['null','騎射打鑼','標靶箭','保齡球','保齡球','超時空戰場 ','飛龍峽谷','弓箭拔河','競速足球','延長賽','備用'],
+            // tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊','桃紅隊','粉紅隊','深紅隊','深藍隊','淺藍隊','橙隊','綠隊','白隊','黑隊','鐵灰隊','棕隊'],
+            
+            playLv_Name:['null','玩具十字弓大挑戰','漂浮銅鑼','搖搖豬頭','曼波騎射','擲壺挑戰','箭俠擂台','⼸箭保齡球','⼸箭⾜球','國家保衛戰','標靶積分','放箭練習( 不計分 )','備用'], 
+            tm_Name_ary:['?','紅隊','黃隊','藍隊','灰隊','紫隊','桃紅隊','粉紅隊','深紅隊','深藍隊','淺藍隊','橙隊','綠隊','白隊','黑隊','鐵灰隊','棕隊'],						
+            tm_uuid:['null','UDM-N51','UDM-N52','UDM-N53','UDM-N54','UDM-N55','UDM-N56',  'UDM-N57','UDM-N58','UDM-N59','UDM-N60','UDM-N61','UDM-N62','UDM-N63','UDM-N64','UDM-N65','UDM-N66'],
+
             Lv_Ary:[ { text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' },{ text: '請設定關卡' }], 
             //
             tsCNT: 0,  
@@ -198,11 +207,25 @@ export default {
                 case 'UDM-N60':
                 vv = 10;
                     break;
+
+                case 'UDM-N61':
+                vv = 11;
+                    break;
+                case 'UDM-N62':
+                vv = 12;
+                    break;
+                case 'UDM-N63':
+                vv = 13;
+                    break;
+                case 'UDM-N64':
+                vv = 14;
+                    break;    
             }
             // let tm_Name_ary=['?','紅隊','咖啡隊','黃隊','藍隊','綠隊','紫隊'];
-            let  tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
+            // let  tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
+            
 
-            return tm_Name_ary[vv];
+            return this.tm_Name_ary[vv];
           } 
         },
     
@@ -212,43 +235,54 @@ export default {
             
            let OLD = { score_9: 0 };  
             switch(n) {
-                case '1':
-                OLD = { score_1: score };
+                case 'UDM-N51':
+                vv = 1;
                     break;
-                case '2':
-                OLD = { score_2: score };
+                case 'UDM-N52':
+                vv = 2;
                     break;
-                case '3':
-                OLD = { score_3: score };
+                case 'UDM-N53':
+                vv = 3;
                     break;
-                case '4':
-                OLD = { score_4: score };
+                case 'UDM-N54':
+                vv = 4;
                     break;
-                case '5':
-                OLD = { score_5: score };
+                case 'UDM-N55':
+                vv = 5;
+                    break; 
+                case 'UDM-N56':
+                vv = 6;
                     break;
-                    
-                case '6':
-                OLD = { score_6: score};
+                case 'UDM-N57':
+                vv = 7;
                     break;
-                case '7':
-                OLD = { score_7: score };
+                case 'UDM-N58':
+                vv = 8;
                     break;
-                case '8':
-                OLD = { score_8: score };
+                case 'UDM-N59':
+                vv = 9;
                     break;
-                case '9':
-                OLD = { score_9: score };
+                case 'UDM-N60':
+                vv = 10;
                     break;
-                case '10':
-                OLD = { score_10: score };
+
+                case 'UDM-N61':
+                vv = 11;
                     break;
+                case 'UDM-N62':
+                vv = 12;
+                    break;
+                case 'UDM-N63':
+                vv = 13;
+                    break;
+                case 'UDM-N64':
+                vv = 14;
+                    break;  
                 // default:
                 //     陳述三;
                 //     break;
             }
-
-            let tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
+ 
             let vv = 9;
             switch(key) {
                 case 'UDM-N51':
@@ -281,6 +315,19 @@ export default {
                 case 'UDM-N60':
                 vv = 10;
                     break;
+
+                case 'UDM-N61':
+                vv = 11;
+                    break;
+                case 'UDM-N62':
+                vv = 12;
+                    break;
+                case 'UDM-N63':
+                vv = 13;
+                    break;
+                case 'UDM-N64':
+                vv = 14;
+                    break;  
                 // default:
                 //     陳述三;
                 //     break;
@@ -291,7 +338,7 @@ export default {
                        position: 'top-end',
                        icon: 'success',
                        title: score+'分!',
-                       text: '恭喜  " '+tm_Name_ary[vv] +' " 完成'+ this.playLv_Name[n]+'關卡' ,
+                       text: '恭喜  " '+this.tm_Name_ary[vv] +' " 完成'+ this.playLv_Name[n]+'關卡' ,
                        showConfirmButton: true,
                     //    timer: 1200
                    }) 
@@ -338,41 +385,54 @@ export default {
                  //     陳述三;
                  //     break;
              }
- 
-             let tm_Name_ary=['?','紅隊','黃隊','藍隊','灰隊','紫隊'];
+  
              
             //  let temp_Ary= this.pLv_Names();
              let vv = 9;
              switch(key) {
-                 case 'UDM-N51':
-                 vv = 1;
-                     break;
-                 case 'UDM-N52':
-                 vv = 2;
-                     break;
-                 case 'UDM-N53':
-                 vv = 3;
-                     break;
-                 case 'UDM-N54':
-                 vv = 4;
-                     break;
-                 case 'UDM-N55':
-                 vv = 5;
-                     break; 
-                 case 'UDM-N56':
-                 vv = 6;
-                     break;
-                 case 'UDM-N57':
-                 vv = 7;
-                     break;
-                 case 'UDM-N58':
-                 vv = 8;
-                     break;
-                 case 'UDM-N59':
-                 vv = 9;
-                     break;
-                 case 'UDM-N60':
-                 vv = 10;
+                case 'UDM-N51':
+                vv = 1;
+                    break;
+                case 'UDM-N52':
+                vv = 2;
+                    break;
+                case 'UDM-N53':
+                vv = 3;
+                    break;
+                case 'UDM-N54':
+                vv = 4;
+                    break;
+                case 'UDM-N55':
+                vv = 5;
+                    break; 
+                case 'UDM-N56':
+                vv = 6;
+                    break;
+                case 'UDM-N57':
+                vv = 7;
+                    break;
+                case 'UDM-N58':
+                vv = 8;
+                    break;
+                case 'UDM-N59':
+                vv = 9;
+                    break;
+                case 'UDM-N60':
+                vv = 10;
+                    break;
+
+                case 'UDM-N61':
+                vv = 11;
+                    break;
+                case 'UDM-N62':
+                vv = 12;
+                    break;
+                case 'UDM-N63':
+                vv = 13;
+                    break;
+                case 'UDM-N64':
+                vv = 14;
+                    break; 
                      break;
                  // default:
                  //     陳述三;
@@ -384,12 +444,12 @@ export default {
                         position: 'top-end',
                         icon: 'success',
                         title: score+'分!',
-                        text: '恭喜  " '+tm_Name_ary[vv] +' " 完成'+ this.playLv_Name[n]+'關卡' ,
+                        text: '恭喜  " '+this.tm_Name_ary[vv]  +' " 完成'+ this.playLv_Name[n]+'關卡' ,
                         showConfirmButton: true,
                      //    timer: 1200
                     }) 
 
-                    this.saveHistory(this.playLv_Name[n],tm_Name_ary[vv],score ) ;
+                    this.saveHistory(this.playLv_Name[n],this.tm_Name_ary[vv],score ) ;
                 })
                 .catch((e) => {
                     console.log(e);
