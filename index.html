@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet"><title>.活動.掃描積分.</title><link rel="shortcut icon" href="https://i.imgur.com/L6sazzy.jpg"><link rel="bookmark" href="https://i.imgur.com/L6sazzy.jpg"><link rel="image_src" href="https://i.imgur.com/L6sazzy.jpg"><meta property="og:image" content="https://i.imgur.com/L6sazzy.jpg"><meta name="description" content=".賽事計分.系統"><meta name="author" content="h2f"><meta name="copyright" content="覺觀射藝"><script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script><script src="https://unpkg.com/vue-select@latest"></script><script src="https://unpkg.com/axios/dist/axios.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><link href="/DEMO2mg/css/chunk-37ef29a5.18d8d953.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-46033ef0.86fd12ce.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-4986180b.c64a10d2.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-4de8e6cf.c6ccf6d1.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-5b83e550.9cc56a22.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-5f2f854e.f45b2718.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-5fb21443.4cca1220.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-66b32bcc.f0222215.css" rel="prefetch"><link href="/DEMO2mg/css/chunk-f7704212.18d8d953.css" rel="prefetch"><link href="/DEMO2mg/js/chunk-37ef29a5.327c642c.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-3b551479.7ce30982.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-46033ef0.51c10e32.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-4986180b.17fbd2ef.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-4de8e6cf.4f8441a8.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-545c3983.15af28b4.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-5b83e550.bce88cb5.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-5cb980fd.04443c90.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-5f2f854e.32f996d5.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-5fb21443.c31cdbf9.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-66b32bcc.15158be8.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-f7704212.f006fa71.js" rel="prefetch"><link href="/DEMO2mg/js/chunk-f99d28c0.2b8eb5a0.js" rel="prefetch"><link href="/DEMO2mg/css/chunk-vendors.20fe9b14.css" rel="preload" as="style"><link href="/DEMO2mg/js/app.4056f86b.js" rel="preload" as="script"><link href="/DEMO2mg/js/chunk-vendors.0dddf9b0.js" rel="preload" as="script"><link href="/DEMO2mg/css/chunk-vendors.20fe9b14.css" rel="stylesheet"></head><style>.active {
+      border: 2px solid red;
+      border-bottom: 0;
+      border-radius: 5px 5px 0 0;
+      /* background-color: #ff0928; */
+      /* color: red; */
+      text-color:white;
+    }
+    .bb {
+      border-bottom: 2px solid red;
+    }
+    
+    .tabs {
+      position: relative;
+      top: 2px;
+    }
+
+    .checkbox-component > input + label > .input-box,
+.radio-component > input + label > .input-box {
+  position: relative;
+  border: 1px solid #939393;
+  border-radius: 1em;
+  width: 1.6em;
+  background: #fff;
+  transition: background 0.2s ease-in;
+  vertical-align: -15%;
+}
+.checkbox-component > input + label > .input-box > .input-box-tick,
+.radio-component > input + label > .input-box > .input-box-circle {
+  display: none;
+}
+.checkbox-component > input + label > .input-box:before,
+.radio-component > input + label > .input-box:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: 1px solid #939393;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  background: #fff;
+  transition: transform 0.3s ease-out;
+}
+.checkbox-component > input:checked + label > .input-box,
+.radio-component > input:checked + label > .input-box {
+  background: #63b65d;
+}
+.checkbox-component > input:checked + label > .input-box:before,
+.radio-component > input:checked + label > .input-box:before {
+  border-color: #498d47;
+  transform: translateX(0.6em);
+}</style><script>(function(){
+      let redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();</script><body><noscript></noscript><div id="app"></div><script src="/DEMO2mg/js/chunk-vendors.0dddf9b0.js"></script><script src="/DEMO2mg/js/app.4056f86b.js"></script></body></html>
