@@ -681,7 +681,7 @@
                                                     <div class="grid grid-cols-1 gap-1"> 
                                                         <div class="col-span-1" > <a class="text-gray-500 text-base" > 輸入“ {{ card.tm_Name }} “分數 </a>   </div>
 
-                                                        <div class="col-span-1 flex" > 
+                                                        <!-- <div class="col-span-1 flex" > 
                                                             <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[1] }}</a> 
                                                             <v-text-field v-model="card.score_1"   filled dense rounded ></v-text-field>   
                                                             <v-btn @click="Score_Mdf_byAdmin(card,1)" dark color="#388E3C"> 改 </v-btn>  
@@ -731,7 +731,7 @@
                                                             <a class="text-ms font-ligt my-2 p-1">{{ playLv_Name[10] }}</a> 
                                                             <v-text-field v-model="card.score_10"  filled dense rounded ></v-text-field>   
                                                             <v-btn @click="Score_Mdf_byAdmin(card,10)" dark color="#388E3C"> 改 </v-btn>  
-                                                        </div> 
+                                                        </div>  -->
                                                              
 
                                                     </div>
@@ -1366,7 +1366,8 @@ export default {
             score_7:  0, 
             score_8:  0, 
             score_9:  0, 
-            score_10:  0, 
+            score_10:  0,
+            score_11:  0,  
             score_All:  0, 
            }; 
 
@@ -1507,6 +1508,7 @@ export default {
 
                     score_9: data.score_9,
                     score_10: data.score_10, 
+                    score_11: data.score_11, 
 
                     tm_Name: data.tm_Name,
                     tm_amt: data.tm_amt, 
